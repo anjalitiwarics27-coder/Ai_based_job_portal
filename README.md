@@ -308,10 +308,9 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ## 📬 Contact
 
-**Your Name**
-📧 your.email@example.com
-🔗 [LinkedIn](https://linkedin.com/in/your-profile) | [GitHub](https://github.com/your-username)
-
+**Anjali Tiwari**
+📧 anjali.tiwari.cs27@example.com
+🔗 [LinkedIn](https://www.linkedin.com/in/anjali-tiwari-988374285/) 
 ---
 
 <div align="center">
