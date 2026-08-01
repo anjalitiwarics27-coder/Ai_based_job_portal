@@ -309,7 +309,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 ## 📬 Contact
 
 **Anjali Tiwari**
-📧 anjali.tiwari.cs27@example.com
+📧 anjali.tiwari.cs27@gmail.com
 🔗 [LinkedIn](https://www.linkedin.com/in/anjali-tiwari-988374285/) 
 ---
 
