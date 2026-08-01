@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+
+    <meta charset="UTF-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Find Jobs | AI Job Portal</title>
+
+
+    <link rel="stylesheet" href="../css/jobs.css">
+
+
+</head>
+
+
+
+
+<body>
+
+
+
+
+
+
+<!-- ==========================
+            NAVBAR
+========================== -->
+
+
+<header class="navbar">
+
+
+
+    <div class="logo">
+
+
+        <h2>
+            AI Job Portal
+        </h2>
+
+
+    </div>
+
+
+
+
+
+    <nav>
+
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+
+
+        <a href="jobs.html" class="active">
+            Jobs
+        </a>
+
+
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+
+
+
+        <a href="interview_prep.html">
+            Interview Prep
+        </a>
+
+
+
+
+        <button onclick="logout()">
+
+            Logout
+
+        </button>
+
+
+    </nav>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+        HERO SECTION
+========================== -->
+
+
+<section class="jobs-hero">
+
+
+
+    <div class="hero-content">
+
+
+
+        <h1>
+
+            Find Your Dream Job With AI
+
+        </h1>
+
+
+
+        <p>
+
+            Discover personalized job opportunities
+            based on your skills, experience and
+            career goals.
+
+        </p>
+
+
+
+
+
+        <div class="search-box">
+
+
+
+            <input 
+            type="text"
+            id="searchJob"
+            placeholder="Search job title, skills or company">
+
+
+
+
+
+            <input 
+            type="text"
+            id="location"
+            placeholder="Location">
+
+
+
+
+
+
+            <button onclick="searchJobs()">
+
+
+                Search Jobs
+
+
+            </button>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+    <div class="hero-image">
+
+
+        <img
+        src="assets/job-search.png"
+        alt="Job Search">
+
+
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+       AI RECOMMENDATION BANNER
+========================== -->
+
+
+<section class="ai-banner">
+
+
+
+    <div class="ai-icon">
+
+
+        🤖
+
+
+    </div>
+
+
+
+
+    <div>
+
+
+        <h2>
+
+            AI Powered Job Recommendations
+
+        </h2>
+
+
+
+        <p>
+
+            Our AI analyzes your profile,
+            skills and resume to suggest the
+            best career opportunities.
+
+        </p>
+
+
+
+    </div>
+
+
+
+
+
+
+    <button>
+
+        View Recommendations
+
+    </button>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+       JOB CATEGORY SECTION
+========================== -->
+
+
+<section class="category-section">
+
+
+
+    <div class="section-title">
+
+
+        <h2>
+
+            Explore Job Categories
+
+        </h2>
+
+
+        <p>
+
+            Choose your preferred domain
+            and find suitable opportunities.
+
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="category-container">
+
+
+
+
+
+
+        <div class="category-card">
+
+
+            <h3>
+                💻 Software Development
+            </h3>
+
+
+            <p>
+
+                Frontend, Backend,
+                Full Stack Developer Jobs
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="category-card">
+
+
+            <h3>
+                🤖 Artificial Intelligence
+            </h3>
+
+
+            <p>
+
+                AI Engineer, ML Engineer,
+                Data Science Jobs
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="category-card">
+
+
+            <h3>
+                📊 Data Science
+            </h3>
+
+
+            <p>
+
+                Data Analyst,
+                Data Scientist Opportunities
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="category-card">
+
+
+            <h3>
+                ☁ Cloud Computing
+            </h3>
+
+
+            <p>
+
+                Cloud Engineer,
+                DevOps Opportunities
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- Part 2 Continue Here -->
+ 
+
+
+
+
+
+
+
+<!-- ==========================
+       JOB LISTING SECTION
+========================== -->
+
+
+<section class="jobs-section">
+
+
+
+
+
+    <div class="section-title">
+
+
+        <h2>
+
+            AI Recommended Jobs
+
+        </h2>
+
+
+
+        <p>
+
+            Jobs matched with your skills
+            and career preferences.
+
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="jobs-layout">
+
+
+
+
+
+        <!-- =====================
+              FILTER SIDEBAR
+        ====================== -->
+
+
+
+        <aside class="filter-sidebar">
+
+
+
+            <h2>
+
+                Filters
+
+            </h2>
+
+
+
+
+
+            <!-- EXPERIENCE FILTER -->
+
+
+            <div class="filter-group">
+
+
+                <h3>
+
+                    Experience
+
+                </h3>
+
+
+
+                <label>
+
+                    <input 
+                    type="radio"
+                    name="experience">
+
+                    Fresher
+
+                </label>
+
+
+
+                <label>
+
+                    <input 
+                    type="radio"
+                    name="experience">
+
+                    0-2 Years
+
+                </label>
+
+
+
+
+                <label>
+
+                    <input 
+                    type="radio"
+                    name="experience">
+
+                    3-5 Years
+
+                </label>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- SALARY FILTER -->
+
+
+            <div class="filter-group">
+
+
+                <h3>
+
+                    Salary Range
+
+                </h3>
+
+
+
+
+                <label>
+
+                    <input
+                    type="checkbox">
+
+
+                    3-5 LPA
+
+                </label>
+
+
+
+
+                <label>
+
+                    <input
+                    type="checkbox">
+
+
+                    5-10 LPA
+
+                </label>
+
+
+
+
+
+                <label>
+
+                    <input
+                    type="checkbox">
+
+
+                    10+ LPA
+
+                </label>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- SKILLS FILTER -->
+
+
+            <div class="filter-group">
+
+
+                <h3>
+
+                    Skills
+
+                </h3>
+
+
+
+
+                <label>
+
+                    <input
+                    type="checkbox">
+
+
+                    Python
+
+                </label>
+
+
+
+
+
+                <label>
+
+                    <input
+                    type="checkbox">
+
+
+                    JavaScript
+
+                </label>
+
+
+
+
+
+                <label>
+
+                    <input
+                    type="checkbox">
+
+
+                    Machine Learning
+
+                </label>
+
+
+
+
+
+                <label>
+
+                    <input
+                    type="checkbox">
+
+
+                    React
+
+                </label>
+
+
+
+            </div>
+
+
+
+
+
+            <button class="filter-btn">
+
+
+                Apply Filters
+
+
+            </button>
+
+
+
+        </aside>
+
+
+
+
+
+
+
+
+
+        <!-- =====================
+              JOB CARDS
+        ====================== -->
+
+
+
+        <div class="job-cards-container">
+
+
+
+
+
+
+
+            <!-- JOB CARD 1 -->
+
+
+            <div class="job-card">
+
+
+
+                <div class="job-header">
+
+
+                    <h2>
+
+                        AI Engineer
+
+                    </h2>
+
+
+                    <span>
+
+                        92% Match
+
+                    </span>
+
+
+                </div>
+
+
+
+
+
+                <h3>
+
+                    Google
+
+                </h3>
+
+
+
+
+                <p>
+
+                    📍 Bangalore |
+                    💼 Full Time
+
+                </p>
+
+
+
+
+
+                <p>
+
+                    Work on machine learning
+                    models and AI solutions.
+
+                </p>
+
+
+
+
+
+
+                <div class="job-skills">
+
+
+                    <span>
+                        Python
+                    </span>
+
+
+                    <span>
+                        ML
+                    </span>
+
+
+                    <span>
+                        TensorFlow
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="job-actions">
+
+
+
+                    <button>
+
+                        View Details
+
+                    </button>
+
+
+
+                    <button class="apply-btn">
+
+                        Apply Now
+
+                    </button>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- JOB CARD 2 -->
+
+
+
+            <div class="job-card">
+
+
+
+                <div class="job-header">
+
+
+                    <h2>
+
+                        Full Stack Developer
+
+                    </h2>
+
+
+                    <span>
+
+                        88% Match
+
+                    </span>
+
+
+                </div>
+
+
+
+
+
+                <h3>
+
+                    Microsoft
+
+                </h3>
+
+
+
+
+                <p>
+
+                    📍 Hyderabad |
+                    💼 Remote
+
+                </p>
+
+
+
+
+
+                <p>
+
+                    Build scalable web applications
+                    using modern technologies.
+
+                </p>
+
+
+
+
+
+
+                <div class="job-skills">
+
+
+                    <span>
+                        HTML
+                    </span>
+
+
+                    <span>
+                        CSS
+                    </span>
+
+
+                    <span>
+                        JavaScript
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="job-actions">
+
+
+
+                    <button>
+
+                        View Details
+
+                    </button>
+
+
+
+                    <button class="apply-btn">
+
+                        Apply Now
+
+                    </button>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- JOB CARD 3 -->
+
+
+
+            <div class="job-card">
+
+
+
+                <div class="job-header">
+
+
+                    <h2>
+
+                        Data Scientist
+
+                    </h2>
+
+
+                    <span>
+
+                        85% Match
+
+                    </span>
+
+
+                </div>
+
+
+
+
+
+                <h3>
+
+                    Amazon
+
+                </h3>
+
+
+
+
+                <p>
+
+                    📍 Delhi |
+                    💼 Full Time
+
+                </p>
+
+
+
+
+
+                <p>
+
+                    Analyze data and create
+                    predictive ML models.
+
+                </p>
+
+
+
+
+
+
+                <div class="job-skills">
+
+
+                    <span>
+                        Python
+                    </span>
+
+
+                    <span>
+                        SQL
+                    </span>
+
+
+                    <span>
+                        Data Science
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="job-actions">
+
+
+
+                    <button>
+
+                        View Details
+
+                    </button>
+
+
+
+                    <button class="apply-btn">
+
+                        Apply Now
+
+                    </button>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- Part 3 Continue Here -->
+
+
+
+
+
+
+
+
+<!-- ==========================
+     FEATURED COMPANIES SECTION
+========================== -->
+
+
+<section class="companies-section">
+
+
+
+    <div class="section-title">
+
+
+        <h2>
+
+            Top Hiring Companies
+
+        </h2>
+
+
+
+        <p>
+
+            Explore opportunities from
+            leading companies.
+
+        </p>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="companies-container">
+
+
+
+
+
+        <div class="company-box">
+
+
+            <h3>
+
+                Google
+
+            </h3>
+
+
+            <p>
+
+                AI | Software | Cloud
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="company-box">
+
+
+            <h3>
+
+                Microsoft
+
+            </h3>
+
+
+            <p>
+
+                Development | Research
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="company-box">
+
+
+            <h3>
+
+                Amazon
+
+            </h3>
+
+
+            <p>
+
+                Data | Cloud | Technology
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="company-box">
+
+
+            <h3>
+
+                IBM
+
+            </h3>
+
+
+            <p>
+
+                AI | Analytics | Software
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+       CAREER TIPS SECTION
+========================== -->
+
+
+<section class="career-section">
+
+
+
+    <div class="section-title">
+
+
+        <h2>
+
+            Career Growth Tips
+
+        </h2>
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="tips-container">
+
+
+
+
+
+        <div class="career-card">
+
+
+            <h3>
+
+                🚀 Build Strong Projects
+
+            </h3>
+
+
+            <p>
+
+                Create real-world projects
+                to showcase your skills.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="career-card">
+
+
+            <h3>
+
+                📚 Keep Learning
+
+            </h3>
+
+
+            <p>
+
+                Upgrade your skills with
+                latest technologies.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="career-card">
+
+
+            <h3>
+
+                🎯 Prepare Interviews
+
+            </h3>
+
+
+            <p>
+
+                Practice technical and HR
+                interviews regularly.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+        NEWSLETTER SECTION
+========================== -->
+
+
+<section class="newsletter-section">
+
+
+
+    <h2>
+
+        Get Latest Job Updates
+
+    </h2>
+
+
+
+
+    <p>
+
+        Subscribe and receive new
+        opportunities directly.
+
+    </p>
+
+
+
+
+
+    <div class="newsletter-box">
+
+
+
+        <input
+        type="email"
+        id="newsletterEmail"
+        placeholder="Enter your email">
+
+
+
+
+
+        <button onclick="subscribeNewsletter()">
+
+
+
+            Subscribe
+
+
+
+        </button>
+
+
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+             FOOTER
+========================== -->
+
+
+<footer class="footer">
+
+
+    <div class="footer-content">
+
+
+
+        <div>
+
+
+            <h3>
+
+                AI Job Portal
+
+            </h3>
+
+
+            <p>
+
+                Smart platform to connect
+                talent with opportunities.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div>
+
+
+            <h3>
+
+                Quick Links
+
+            </h3>
+
+
+            <a href="dashboard.html">
+
+                Dashboard
+
+            </a>
+
+
+            <a href="profile.html">
+
+                Profile
+
+            </a>
+
+
+            <a href="interview_prep.html">
+
+                Interview Prep
+
+            </a>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div>
+
+
+            <h3>
+
+                Contact
+
+            </h3>
+
+
+            <p>
+
+                support@aijobportal.com
+
+            </p>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <p class="copyright">
+
+
+        © 2026 AI Job Portal |
+        All Rights Reserved
+
+
+    </p>
+
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+       JAVASCRIPT CONNECTION
+========================== -->
+
+
+<script src="../js/jobs.js"></script>
+
+
+
+
+
+
+</body>
+
+
+</html>

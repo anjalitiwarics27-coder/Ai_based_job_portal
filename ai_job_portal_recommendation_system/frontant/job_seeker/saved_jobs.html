@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Saved Jobs | AI Job Portal</title>
+
+    <link rel="stylesheet"
+          href="../css/saved_jobs.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+
+
+<!-- ==========================================
+                NAVBAR
+========================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <h2>AI Job Portal</h2>
+
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <a href="jobs.html">Jobs</a>
+
+        <a href="saved_jobs.html"
+           class="active">
+
+            Saved Jobs
+
+        </a>
+
+        <a href="profile.html">
+
+            Profile
+
+        </a>
+
+        <a href="notifications.html">
+
+            Notifications
+
+        </a>
+
+        <button onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+
+
+<!-- ==========================================
+                HERO SECTION
+========================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+
+            ❤️ Your Personal Job Collection
+
+        </span>
+
+        <h1>
+
+            Saved Jobs Dashboard
+
+        </h1>
+
+        <p>
+
+            Keep track of every opportunity you're interested in.
+            Organize your dream companies, review AI match scores,
+            and apply whenever you're ready.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <button onclick="scrollToJobs()">
+
+                View Saved Jobs
+
+            </button>
+
+            <button onclick="location.href='jobs.html'">
+
+                Explore More Jobs
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="hero-image">
+
+        <img src="assets/saved-jobs.png"
+             alt="Saved Jobs">
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+                QUICK STATS
+========================================== -->
+
+<section class="stats-section">
+
+    <div class="stat-card">
+
+        <h2>
+
+            32
+
+        </h2>
+
+        <p>
+
+            Saved Jobs
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="stat-card">
+
+        <h2>
+
+            12
+
+        </h2>
+
+        <p>
+
+            Applied
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="stat-card">
+
+        <h2>
+
+            8
+
+        </h2>
+
+        <p>
+
+            Interviews
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="stat-card">
+
+        <h2>
+
+            91%
+
+        </h2>
+
+        <p>
+
+            Average AI Match
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            SEARCH & FILTER
+========================================== -->
+
+<section class="filter-section"
+         id="savedJobsSection">
+
+    <div class="section-title">
+
+        <h2>
+
+            Find Your Saved Jobs
+
+        </h2>
+
+        <p>
+
+            Search, filter and manage your bookmarked opportunities.
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="filter-container">
+
+        <input type="text"
+               id="searchJob"
+               placeholder="🔍 Search by job title or company...">
+
+
+
+
+
+        <select id="jobType">
+
+            <option>All Job Types</option>
+
+            <option>Full Time</option>
+
+            <option>Internship</option>
+
+            <option>Remote</option>
+
+            <option>Hybrid</option>
+
+            <option>Part Time</option>
+
+        </select>
+
+
+
+
+
+        <select id="locationFilter">
+
+            <option>All Locations</option>
+
+            <option>Bangalore</option>
+
+            <option>Hyderabad</option>
+
+            <option>Pune</option>
+
+            <option>Noida</option>
+
+            <option>Delhi NCR</option>
+
+        </select>
+
+
+
+
+
+        <select id="sortJobs">
+
+            <option>Sort By</option>
+
+            <option>Newest Saved</option>
+
+            <option>Highest Match</option>
+
+            <option>Company Name</option>
+
+            <option>Salary</option>
+
+        </select>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        PART 2 STARTS HERE
+========================================== -->
+<!-- ==========================================
+            SAVED JOBS LIST
+========================================== -->
+
+<section class="saved-jobs-container">
+
+    <div class="job-grid">
+
+
+
+
+        <!-- ==============================
+                JOB CARD 1
+        =============================== -->
+
+        <div class="job-card">
+
+            <div class="job-header">
+
+                <div>
+
+                    <h3>AI / Machine Learning Engineer</h3>
+
+                    <h4>Google</h4>
+                    <p>📍 Bangalore, India</p>
+
+                </div>
+
+                <span class="favorite">❤️ Saved</span>
+
+            </div>
+
+            <div class="job-details">
+
+                <span>💼 Full Time</span>
+                <span>💰 ₹18 - ₹28 LPA</span>
+                <span>🎯 Match : 96%</span>
+                <span>📅 Saved : 2 Days Ago</span>
+
+            </div>
+
+            <p class="description">
+
+                Work on large-scale AI systems,
+                deep learning models,
+                recommendation engines and
+                intelligent automation products.
+
+            </p>
+
+            <div class="job-actions">
+
+                <button onclick="applyJob()">
+
+                    Apply Now
+
+                </button>
+
+                <button onclick="viewDetails()">
+
+                    View Details
+
+                </button>
+
+                <button onclick="removeJob()">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <!-- ==============================
+                JOB CARD 2
+        =============================== -->
+
+        <div class="job-card">
+
+            <div class="job-header">
+
+                <div>
+
+                    <h3>Full Stack Developer</h3>
+
+                    <h4>Microsoft</h4>
+                    <p>📍 Hyderabad</p>
+
+                </div>
+
+                <span class="favorite">
+
+                    ❤️ Saved
+
+                </span>
+
+            </div>
+
+            <div class="job-details">
+
+                <span>💼 Hybrid</span>
+
+                <span>💰 ₹15 LPA</span>
+
+                <span>🎯 Match : 92%</span>
+
+                <span>📅 Saved : Yesterday</span>
+
+            </div>
+
+            <p class="description">
+
+                Develop scalable web applications
+                using React, Node.js,
+                Express and Cloud Services.
+
+            </p>
+
+            <div class="job-actions">
+
+                <button onclick="applyJob()">
+
+                    Apply Now
+
+                </button>
+
+                <button onclick="viewDetails()">
+
+                    View Details
+
+                </button>
+
+                <button onclick="removeJob()">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <!-- ==============================
+                JOB CARD 3
+        =============================== -->
+
+        <div class="job-card">
+
+            <div class="job-header">
+
+                <div>
+
+                    <h3>Data Analyst</h3>
+
+                    <h4>Amazon</h4>
+
+                    <p>📍 Pune</p>
+
+                </div>
+
+                <span class="favorite">
+
+                    ❤️ Saved
+
+                </span>
+
+            </div>
+
+            <div class="job-details">
+
+                <span>💼 Full Time</span>
+
+                <span>💰 ₹12 LPA</span>
+
+                <span>🎯 Match : 90%</span>
+
+                <span>📅 Saved : 3 Days Ago</span>
+
+            </div>
+
+            <p class="description">
+
+                Analyze business data,
+                create dashboards,
+                SQL reporting and
+                predictive analytics.
+
+            </p>
+
+            <div class="job-actions">
+
+                <button onclick="applyJob()">
+
+                    Apply Now
+
+                </button>
+
+                <button onclick="viewDetails()">
+
+                    View Details
+
+                </button>
+
+                <button onclick="removeJob()">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <!-- ==============================
+                JOB CARD 4
+        =============================== -->
+
+        <div class="job-card">
+
+            <div class="job-header">
+
+                <div>
+
+                    <h3>Software Engineer</h3>
+
+                    <h4>Adobe</h4>
+
+                    <p>📍 Noida</p>
+
+                </div>
+
+                <span class="favorite">
+
+                    ❤️ Saved
+
+                </span>
+
+            </div>
+
+            <div class="job-details">
+
+                <span>💼 Remote</span>
+
+                <span>💰 ₹20 LPA</span>
+
+                <span>🎯 Match : 95%</span>
+
+                <span>📅 Saved : Today</span>
+
+            </div>
+
+            <p class="description">
+
+                Design modern software
+                applications and scalable
+                backend services using Java,
+                Spring Boot and REST APIs.
+
+            </p>
+
+            <div class="job-actions">
+
+                <button onclick="applyJob()">
+
+                    Apply Now
+
+                </button>
+
+                <button onclick="viewDetails()">
+
+                    View Details
+
+                </button>
+
+                <button onclick="removeJob()">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        AI SAVED JOB INSIGHTS
+========================================== -->
+
+<section class="insight-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            AI Saved Job Insights
+
+        </h2>
+
+        <p>
+
+            Personalized recommendations based on your saved opportunities.
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="insight-grid">
+
+        <div class="insight-card">
+
+            🤖
+
+            <h3>
+
+                Best Match
+
+            </h3>
+
+            <p>
+
+                AI Engineer at Google
+                has the highest compatibility
+                with your skills.
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div class="insight-card">
+
+            📈
+
+            <h3>
+
+                Trending Skill
+
+            </h3>
+
+            <p>
+
+                React, Python,
+                Machine Learning,
+                SQL and AWS
+                appear most frequently.
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div class="insight-card">
+
+            💼
+
+            <h3>
+
+                Suggested Action
+
+            </h3>
+
+            <p>
+
+                Apply within the next
+                48 hours to improve
+                your chances.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        PART 3 STARTS HERE
+========================================== -->
+<!-- ==========================================
+        APPLICATION PROGRESS
+========================================== -->
+
+<section class="progress-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Your Application Progress
+
+        </h2>
+
+        <p>
+
+            Track the current status of your saved and applied jobs.
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="progress-container">
+
+        <div class="progress-card">
+
+            <h3>Applications Sent</h3>
+
+            <h1>12</h1>
+
+            <progress value="12" max="20"></progress>
+
+        </div>
+
+
+
+
+
+        <div class="progress-card">
+
+            <h3>Interviews Scheduled</h3>
+
+            <h1>8</h1>
+
+            <progress value="8" max="12"></progress>
+
+        </div>
+
+
+
+
+
+        <div class="progress-card">
+
+            <h3>Offers Received</h3>
+
+            <h1>2</h1>
+
+            <progress value="2" max="5"></progress>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        AI RECOMMENDATIONS
+========================================== -->
+
+<section class="recommendation-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            AI Recommended For You
+
+        </h2>
+
+        <p>
+
+            Based on your saved jobs, these opportunities match your profile.
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="recommendation-grid">
+
+        <div class="recommendation-card">
+
+            <h3>Cloud Engineer</h3>
+
+            <p>Company: Infosys</p>
+
+            <p>Match Score: <strong>94%</strong></p>
+
+            <button>
+
+                View Job
+
+            </button>
+
+        </div>
+
+
+
+
+
+        <div class="recommendation-card">
+
+            <h3>Backend Developer</h3>
+
+            <p>Company: TCS</p>
+
+            <p>Match Score: <strong>92%</strong></p>
+
+            <button>
+
+                View Job
+
+            </button>
+
+        </div>
+
+
+
+
+
+        <div class="recommendation-card">
+
+            <h3>Data Scientist</h3>
+
+            <p>Company: IBM</p>
+
+            <p>Match Score: <strong>95%</strong></p>
+
+            <button>
+
+                View Job
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            CAREER TIPS
+========================================== -->
+
+<section class="career-tips">
+
+    <div class="section-title">
+
+        <h2>
+
+            Career Tips From AI
+
+        </h2>
+
+    </div>
+
+
+
+
+
+    <div class="tips-grid">
+
+        <div class="tip-card">
+
+            🚀
+
+            <h3>
+
+                Apply Early
+
+            </h3>
+
+            <p>
+
+                Candidates applying within the first 48 hours often receive more recruiter attention.
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div class="tip-card">
+
+            📄
+
+            <h3>
+
+                Update Resume
+
+            </h3>
+
+            <p>
+
+                Tailor your resume with relevant keywords before each application.
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div class="tip-card">
+
+            🎯
+
+            <h3>
+
+                Prepare for Interviews
+
+            </h3>
+
+            <p>
+
+                Practice aptitude, coding and HR questions regularly to improve confidence.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        EMAIL ALERT SECTION
+========================================== -->
+
+<section class="newsletter-section">
+
+    <h2>
+
+        Get Daily Job Alerts
+
+    </h2>
+
+    <p>
+
+        Subscribe to receive personalized AI job recommendations directly in your inbox.
+
+    </p>
+
+
+
+
+
+    <div class="newsletter-box">
+
+        <input type="email"
+               placeholder="Enter your email">
+
+        <button onclick="subscribeNewsletter()">
+
+            Subscribe
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+                FOOTER
+========================================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+
+                AI Job Portal
+
+            </h3>
+
+            <p>
+
+                Helping students and professionals discover better career opportunities using Artificial Intelligence.
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <h3>
+
+                Quick Links
+
+            </h3>
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="jobs.html">Jobs</a>
+
+            <a href="profile.html">Profile</a>
+                        <a href="saved_jobs.html">Saved Jobs</a>
+
+            <a href="notifications.html">Notifications</a>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <h3>
+
+                Contact Us
+
+            </h3>
+
+            <p>
+
+                📧 support@aijobportal.com
+
+            </p>
+
+            <p>
+
+                📞 +91 XXXXX XXXXX
+
+            </p>
+
+            <p>
+
+                🌐 www.aijobportal.com
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="copyright">
+
+        <p>
+
+            © 2026 AI Job Portal. All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+
+
+<!-- ==========================================
+                JAVASCRIPT
+========================================== -->
+
+<script src="../js/saved_jobs.js"></script>
+
+</body>
+
+</html>
+
+
+

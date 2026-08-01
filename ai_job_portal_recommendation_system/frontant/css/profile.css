@@ -1,0 +1,1831 @@
+/* ==========================================
+        AI JOB PORTAL
+        PROFILE PAGE CSS
+        PART 1
+========================================== */
+
+
+
+
+
+/* ==========================================
+            GOOGLE FONT
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+
+
+
+/* ==========================================
+            GLOBAL RESET
+========================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+
+
+
+body{
+
+    background:#f4f7fc;
+
+    color:#1e293b;
+
+    overflow-x:hidden;
+
+}
+
+
+
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+                NAVBAR
+========================================== */
+
+.navbar{
+
+    width:100%;
+
+    height:80px;
+
+    background:#ffffff;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 70px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+}
+
+
+
+
+
+.logo h2{
+
+    color:#2563eb;
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+.navbar nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+}
+
+
+
+
+
+.navbar nav a{
+
+    text-decoration:none;
+
+    color:#475569;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.navbar nav a:hover,
+
+.navbar nav a.active{
+
+    color:#2563eb;
+
+}
+
+
+
+
+
+.navbar button{
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:12px 28px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.navbar button:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+            HERO SECTION
+========================================== */
+
+.profile-hero{
+
+    width:100%;
+
+    min-height:430px;
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8,#4f46e5);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px 8%;
+
+}
+
+
+
+
+
+.hero-overlay{
+
+    width:100%;
+
+    max-width:1250px;
+
+}
+
+
+
+
+
+.profile-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:40px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:40px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+            PROFILE IMAGE
+========================================== */
+
+.profile-image-box{
+
+    position:relative;
+
+}
+
+
+
+
+
+.profile-image{
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:6px solid #2563eb;
+
+}
+
+
+
+
+
+.camera-btn{
+
+    position:absolute;
+
+    right:10px;
+
+    bottom:10px;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.camera-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+            PROFILE DETAILS
+========================================== */
+
+.profile-details{
+
+    flex:1;
+
+}
+
+
+
+
+
+.profile-details h1{
+
+    font-size:40px;
+
+    color:#0f172a;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+.profile-details h3{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+    font-size:22px;
+
+}
+
+
+
+
+
+.profile-details p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+.profile-meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+.profile-meta span{
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    padding:10px 18px;
+
+    border-radius:25px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+            PROFILE BUTTONS
+========================================== */
+
+.profile-buttons{
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+
+
+
+
+.profile-buttons button{
+
+    border:none;
+
+    padding:14px 28px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.profile-buttons button:first-child{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+
+
+
+.profile-buttons button:last-child{
+
+    background:#e2e8f0;
+
+    color:#1e293b;
+
+}
+
+
+
+
+
+.profile-buttons button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+            PROFILE OVERVIEW
+========================================== */
+
+.profile-overview{
+
+    width:90%;
+
+    margin:60px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+.overview-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.overview-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+
+.overview-card h2{
+
+    color:#1e293b;
+
+    font-size:20px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.overview-card h1{
+
+    color:#2563eb;
+
+    font-size:38px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+.overview-card p{
+
+    color:#64748b;
+
+}
+
+
+
+
+
+.progress-container{
+
+    width:100%;
+
+    background:#e2e8f0;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    margin:20px 0;
+
+}
+
+
+
+
+
+.progress-bar{
+
+    width:100%;
+
+}
+
+
+
+
+
+.progress-fill{
+
+    width:85%;
+
+    background:linear-gradient(90deg,#2563eb,#4f46e5);
+
+    color:white;
+
+    text-align:center;
+
+    padding:10px;
+
+    font-weight:600;
+
+    border-radius:30px;
+
+}
+/* ==========================================
+        AI JOB PORTAL
+        PROFILE PAGE CSS
+        PART 2
+========================================== */
+
+
+
+
+
+/* ==========================================
+        PROFILE CONTAINER
+========================================== */
+
+.profile-container{
+
+    width:90%;
+
+    margin:60px auto;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:30px;
+
+    align-items:start;
+
+}
+
+
+
+
+
+.left-section,
+
+.right-section{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+
+
+
+
+/* ==========================================
+            PROFILE BOX
+========================================== */
+
+.profile-box{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.profile-box:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+
+
+.profile-box h2{
+
+    color:#2563eb;
+
+    margin-bottom:25px;
+
+    font-size:24px;
+
+}
+
+
+
+
+
+/* ==========================================
+        PERSONAL INFORMATION
+========================================== */
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+
+
+
+
+.info-item{
+
+    background:#f8fafc;
+
+    padding:18px;
+
+    border-radius:15px;
+
+}
+
+
+
+
+
+.info-item label{
+
+    display:block;
+
+    color:#64748b;
+
+    font-size:14px;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+.info-item p{
+
+    color:#0f172a;
+
+    font-size:16px;
+
+    font-weight:500;
+
+}
+
+
+
+
+
+/* ==========================================
+        EDUCATION & EXPERIENCE
+========================================== */
+
+.timeline{
+
+    position:relative;
+
+    padding-left:30px;
+
+    border-left:3px solid #2563eb;
+
+}
+
+
+
+
+
+.timeline-item{
+
+    margin-bottom:35px;
+
+    position:relative;
+
+}
+
+
+
+
+
+.timeline-item::before{
+
+    content:"";
+
+    width:16px;
+
+    height:16px;
+
+    background:#2563eb;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    left:-39px;
+
+    top:5px;
+
+}
+
+
+
+
+
+.timeline-item h3{
+
+    color:#1e293b;
+
+    margin-bottom:8px;
+
+}
+
+
+
+
+
+.timeline-item h4{
+
+    color:#2563eb;
+
+    margin-bottom:8px;
+
+}
+
+
+
+
+
+.timeline-item span{
+
+    color:#64748b;
+
+    font-size:14px;
+
+    display:block;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+.timeline-item p{
+
+    color:#475569;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+/* ==========================================
+            SKILLS
+========================================== */
+
+.skills-container{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+
+
+
+
+.skills-container span{
+
+    padding:10px 18px;
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.skills-container span:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+
+
+
+/* ==========================================
+            RESUME CARD
+========================================== */
+
+.profile-box input[type="file"]{
+
+    width:100%;
+
+    padding:15px;
+
+    margin:20px 0;
+
+    border:2px dashed #cbd5e1;
+
+    border-radius:12px;
+
+    background:#f8fafc;
+
+}
+
+
+
+
+
+.profile-box button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.profile-box button:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+
+
+/* ==========================================
+        AI RESUME SCORE
+========================================== */
+
+.ai-score{
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+
+
+
+
+.ai-score h1{
+
+    font-size:55px;
+
+    color:#2563eb;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+.ai-score p{
+
+    color:#64748b;
+
+}
+
+
+
+
+
+/* ==========================================
+        AI CAREER INSIGHTS
+========================================== */
+
+.profile-box ul{
+
+    padding-left:20px;
+
+}
+
+
+
+
+
+.profile-box ul li{
+
+    margin-bottom:12px;
+
+    color:#475569;
+
+    line-height:1.7;
+
+}
+
+
+
+
+
+/* ==========================================
+        PORTFOLIO LINKS
+========================================== */
+
+.profile-box a{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:#2563eb;
+
+    background:#eff6ff;
+
+    padding:12px 15px;
+
+    border-radius:12px;
+
+    margin-bottom:15px;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.profile-box a:hover{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+}
+/* ==========================================
+        AI JOB PORTAL
+        PROFILE PAGE CSS
+        PART 3
+========================================== */
+
+
+
+
+
+/* ==========================================
+        RECENT APPLICATIONS
+========================================== */
+
+.applications-section{
+
+    width:90%;
+
+    margin:60px auto;
+
+}
+
+
+
+
+
+.applications-section h2{
+
+    color:#2563eb;
+
+    margin-bottom:25px;
+
+    font-size:30px;
+
+}
+
+
+
+
+
+.application-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+.application-card{
+
+    background:#ffffff;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.application-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+
+
+
+
+.application-card h3{
+
+    color:#1e293b;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+.application-card p{
+
+    color:#64748b;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.status{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+.applied{
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+}
+
+
+
+
+
+.interview{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}
+
+
+
+
+
+.review{
+
+    background:#fef3c7;
+
+    color:#b45309;
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+        INTERVIEW SECTION
+========================================== */
+
+.interview-section{
+
+    width:90%;
+
+    margin:60px auto;
+
+}
+
+
+
+
+
+.interview-section h2{
+
+    color:#2563eb;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+.interview-card{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+
+
+
+
+.interview-card h3{
+
+    color:#1e293b;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.interview-card p{
+
+    margin-bottom:10px;
+
+    color:#475569;
+
+}
+
+
+
+
+
+.interview-card button{
+
+    margin-top:20px;
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.interview-card button:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+
+
+/* ==========================================
+        ACHIEVEMENTS
+========================================== */
+
+.achievement-section{
+
+    width:90%;
+
+    margin:60px auto;
+
+}
+
+
+
+
+
+.achievement-section h2{
+
+    color:#2563eb;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+.achievement-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+.achievement-card{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    font-size:40px;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.achievement-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+
+.achievement-card h3{
+
+    margin:18px 0 10px;
+
+    color:#1e293b;
+
+}
+
+
+
+
+
+.achievement-card p{
+
+    color:#64748b;
+
+}
+
+
+
+
+
+/* ==========================================
+        SAVED JOBS
+========================================== */
+
+.saved-jobs-section{
+
+    width:90%;
+
+    margin:60px auto;
+
+}
+
+
+
+
+
+.saved-jobs-section h2{
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+.saved-jobs-section ul{
+
+    list-style:none;
+
+}
+
+
+
+
+
+.saved-jobs-section li{
+
+    background:#ffffff;
+
+    padding:18px 20px;
+
+    margin-bottom:15px;
+
+    border-left:5px solid #2563eb;
+
+    border-radius:12px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+}
+
+
+
+
+
+/* ==========================================
+        CAREER PROGRESS
+========================================== */
+
+.career-progress{
+
+    width:90%;
+
+    margin:60px auto;
+
+}
+
+
+
+
+
+.career-progress h2{
+
+    color:#2563eb;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+.progress-box{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+
+
+
+
+.progress-item{
+
+    margin-bottom:22px;
+
+}
+
+
+
+
+
+.progress-item label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+
+
+
+
+.progress-item progress{
+
+    width:100%;
+
+    height:18px;
+
+}
+
+
+
+
+
+/* ==========================================
+                FOOTER
+========================================== */
+
+.footer{
+
+    background:#0f172a;
+
+    color:#ffffff;
+
+    margin-top:70px;
+
+    padding:50px 8% 25px;
+
+}
+
+
+
+
+
+.footer-content{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+
+
+
+
+.footer h3{
+
+    margin-bottom:18px;
+
+}
+
+
+
+
+
+.footer p{
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+.footer a{
+
+    display:block;
+
+    color:#cbd5e1;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.footer a:hover{
+
+    color:#ffffff;
+
+}
+
+
+
+
+
+.copyright{
+
+    text-align:center;
+
+    margin-top:35px;
+
+    padding-top:20px;
+
+    border-top:1px solid #334155;
+
+    color:#94a3b8;
+
+}
+
+
+
+
+
+/* ==========================================
+            RESPONSIVE DESIGN
+========================================== */
+
+@media(max-width:1024px){
+
+    .profile-overview{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .profile-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .application-list{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .achievement-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .footer-content{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+}
+
+
+
+
+
+@media(max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:20px;
+
+        gap:20px;
+
+    }
+
+    .navbar nav{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .profile-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .profile-meta{
+
+        justify-content:center;
+
+    }
+
+    .profile-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .profile-overview{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .info-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .footer-content{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

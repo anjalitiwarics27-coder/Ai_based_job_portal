@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Resume Analyzer | AI Job Portal</title>
+
+    <link rel="stylesheet"
+          href="../css/resume_analysis.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+
+
+<!-- ==========================================
+                NAVBAR
+========================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <h2>AI Job Portal</h2>
+
+    </div>
+
+
+
+    <nav>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <a href="jobs.html">Jobs</a>
+
+        <a href="profile.html">Profile</a>
+
+        <a href="resume_analysis.html"
+           class="active">
+
+            Resume Analyzer
+
+        </a>
+
+        <a href="notifications.html">
+
+            Notifications
+
+        </a>
+
+        <button onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+
+
+<!-- ==========================================
+            HERO SECTION
+========================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+
+            🤖 AI Powered Resume Analysis
+
+        </span>
+
+        <h1>
+
+            Improve Your Resume
+            Before You Apply
+
+        </h1>
+
+        <p>
+
+            Upload your resume and let our AI analyze
+            ATS compatibility, keywords, formatting,
+            technical skills, achievements, grammar,
+            and recruiter readiness in just a few seconds.
+
+        </p>
+
+
+
+        <div class="hero-buttons">
+
+            <button onclick="scrollToUpload()">
+
+                Analyze Resume
+
+            </button>
+
+            <button onclick="downloadSampleResume()">
+
+                Sample Resume
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="hero-image">
+
+        <img src="assets/resume-analysis.png"
+             alt="Resume Analysis">
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            QUICK STATS
+========================================== -->
+
+<section class="stats-section">
+
+    <div class="stat-card">
+
+        <h2>95%</h2>
+
+        <p>ATS Accuracy</p>
+
+    </div>
+
+
+
+    <div class="stat-card">
+
+        <h2>5000+</h2>
+
+        <p>Resumes Analyzed</p>
+
+    </div>
+
+
+
+    <div class="stat-card">
+
+        <h2>200+</h2>
+
+        <p>Recruiter Rules</p>
+
+    </div>
+
+
+
+    <div class="stat-card">
+
+        <h2>24/7</h2>
+
+        <p>AI Assistance</p>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            RESUME UPLOAD
+========================================== -->
+
+<section class="upload-section"
+         id="uploadSection">
+
+    <div class="section-title">
+
+        <h2>
+
+            Upload Your Resume
+
+        </h2>
+
+        <p>
+
+            Supported formats:
+            PDF, DOC and DOCX
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="upload-container">
+
+        <div class="upload-box">
+
+            <div class="upload-icon">
+
+                📄
+
+            </div>
+
+            <h3>
+
+                Drag & Drop Resume Here
+
+            </h3>
+
+            <p>
+
+                or
+
+            </p>
+
+            <input type="file"
+                   id="resumeFile"
+                   accept=".pdf,.doc,.docx">
+
+            <button onclick="uploadResume()">
+
+                Choose File
+
+            </button>
+
+        </div>
+
+
+
+
+
+        <div class="upload-info">
+
+            <h3>
+
+                AI Will Analyze
+
+            </h3>
+
+            <ul>
+
+                <li>✅ ATS Compatibility</li>
+
+                <li>✅ Resume Formatting</li>
+
+                <li>✅ Technical Skills</li>
+
+                <li>✅ Soft Skills</li>
+
+                <li>✅ Grammar & Spelling</li>
+
+                <li>✅ Keyword Optimization</li>
+
+                <li>✅ Experience Quality</li>
+
+                <li>✅ Projects & Certifications</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        PART 2 STARTS HERE
+========================================== -->
+<!-- ==========================================
+        AI ANALYSIS DASHBOARD
+========================================== -->
+
+<section class="analysis-dashboard">
+
+    <div class="section-title">
+
+        <h2>
+
+            AI Resume Analysis Report
+
+        </h2>
+
+        <p>
+
+            Your resume has been analyzed using AI and ATS standards.
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="score-grid">
+
+        <div class="score-card overall">
+
+            <h3>
+
+                Overall Score
+
+            </h3>
+
+            <div class="circle-score">
+
+                <span id="overallScore">
+
+                    91%
+
+                </span>
+
+            </div>
+
+            <p>
+
+                Excellent Resume Quality
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div class="score-card">
+
+            <h3>
+
+                ATS Compatibility
+
+            </h3>
+
+            <h2>
+
+                94%
+
+            </h2>
+
+            <progress value="94"
+                      max="100"></progress>
+
+        </div>
+
+
+
+
+
+        <div class="score-card">
+
+            <h3>
+
+                Skills Match
+
+            </h3>
+
+            <h2>
+
+                89%
+
+            </h2>
+
+            <progress value="89"
+                      max="100"></progress>
+
+        </div>
+
+
+
+
+
+        <div class="score-card">
+
+            <h3>
+
+                Keyword Optimization
+
+            </h3>
+
+            <h2>
+
+                86%
+
+            </h2>
+
+            <progress value="86"
+                      max="100"></progress>
+
+        </div>
+
+
+
+
+
+        <div class="score-card">
+
+            <h3>
+
+                Experience Score
+
+            </h3>
+
+            <h2>
+
+                90%
+
+            </h2>
+
+            <progress value="90"
+                      max="100"></progress>
+
+        </div>
+
+
+
+
+
+        <div class="score-card">
+
+            <h3>
+
+                Education Score
+
+            </h3>
+
+            <h2>
+
+                95%
+
+            </h2>
+
+            <progress value="95"
+                      max="100"></progress>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            STRENGTHS & IMPROVEMENTS
+========================================== -->
+
+<section class="feedback-section">
+
+    <div class="feedback-card strengths">
+
+        <h2>
+
+            ✅ Resume Strengths
+
+        </h2>
+
+        <ul>
+
+            <li>
+
+                Strong technical skill section.
+
+            </li>
+
+            <li>
+
+                Good educational background.
+
+            </li>
+
+            <li>
+
+                ATS-friendly formatting.
+
+            </li>
+
+            <li>
+
+                Relevant AI & Web Development projects.
+
+            </li>
+
+            <li>
+
+                Clear contact information.
+
+            </li>
+
+            <li>
+
+                Well-organized resume layout.
+
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+
+
+    <div class="feedback-card improvements">
+
+        <h2>
+
+            ⚠️ Areas for Improvement
+
+        </h2>
+
+        <ul>
+
+            <li>
+
+                Add more quantified achievements.
+
+            </li>
+
+            <li>
+
+                Include internship impact metrics.
+
+            </li>
+
+            <li>
+
+                Improve keyword density.
+
+            </li>
+
+            <li>
+
+                Add GitHub & Portfolio links.
+
+            </li>
+
+            <li>
+
+                Mention certifications more clearly.
+
+            </li>
+
+            <li>
+
+                Add leadership or extracurricular activities.
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            AI SUGGESTIONS
+========================================== -->
+
+<section class="ai-suggestions">
+
+    <div class="section-title">
+
+        <h2>
+
+            AI Career Suggestions
+
+        </h2>
+
+        <p>
+
+            Personalized recommendations to increase your interview chances.
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="suggestion-grid">
+
+        <div class="suggestion-card">
+
+            <h3>
+
+                🚀 Add More Projects
+
+            </h3>
+
+            <p>
+
+                Showcase AI, Machine Learning,
+                Full Stack and Cloud projects
+                with measurable outcomes.
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div class="suggestion-card">
+
+            <h3>
+
+                🎯 Improve ATS Keywords
+
+            </h3>
+
+            <p>
+
+                Include keywords such as
+                React, Node.js, SQL,
+                REST API, Docker and Git.
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div class="suggestion-card">
+
+            <h3>
+
+                📜 Earn Certifications
+
+            </h3>
+
+            <p>
+
+                Add certifications related to
+                AWS, Azure, Google Cloud,
+                AI and Data Analytics.
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div class="suggestion-card">
+
+            <h3>
+
+                💼 Gain Experience
+
+            </h3>
+
+            <p>
+
+                Participate in internships,
+                hackathons and open-source
+                contributions regularly.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        PART 3 STARTS HERE
+========================================== -->
+<!-- ==========================================
+        RESUME IMPROVEMENT ROADMAP
+========================================== -->
+
+<section class="roadmap-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Resume Improvement Roadmap
+
+        </h2>
+
+        <p>
+
+            Follow these AI-generated steps to increase your interview selection chances.
+
+        </p>
+
+    </div>
+
+    <div class="roadmap-container">
+
+        <div class="roadmap-card">
+
+            <h3>Step 1</h3>
+
+            <p>
+                Add measurable achievements with numbers and percentages.
+            </p>
+
+        </div>
+
+        <div class="roadmap-card">
+
+            <h3>Step 2</h3>
+
+            <p>
+                Include GitHub, LinkedIn and Portfolio links.
+            </p>
+
+        </div>
+
+        <div class="roadmap-card">
+
+            <h3>Step 3</h3>
+
+            <p>
+                Highlight internships, certifications and real-world projects.
+            </p>
+
+        </div>
+
+        <div class="roadmap-card">
+
+            <h3>Step 4</h3>
+
+            <p>
+                Optimize keywords according to your target job role.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        RECOMMENDED CERTIFICATIONS
+========================================== -->
+
+<section class="certification-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Recommended Certifications
+
+        </h2>
+
+    </div>
+
+    <div class="certificate-grid">
+
+        <div class="certificate-card">
+
+            <h3>Google Data Analytics</h3>
+
+            <p>Improve analytical and visualization skills.</p>
+
+        </div>
+
+        <div class="certificate-card">
+
+            <h3>AWS Cloud Practitioner</h3>
+
+            <p>Build strong cloud computing fundamentals.</p>
+
+        </div>
+
+        <div class="certificate-card">
+
+            <h3>Microsoft Azure AI</h3>
+
+            <p>Learn Artificial Intelligence using Azure services.</p>
+
+        </div>
+
+        <div class="certificate-card">
+
+            <h3>Meta Front-End Developer</h3>
+
+            <p>Master HTML, CSS, JavaScript and React.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        RECOMMENDED JOB ROLES
+========================================== -->
+
+<section class="recommended-jobs">
+
+    <div class="section-title">
+
+        <h2>
+
+            AI Recommended Job Roles
+
+        </h2>
+
+    </div>
+
+    <div class="job-grid">
+
+        <div class="job-card">
+
+            <h3>AI Engineer</h3>
+
+            <p>Match Score : <strong>96%</strong></p>
+
+        </div>
+
+        <div class="job-card">
+
+            <h3>Machine Learning Engineer</h3>
+
+            <p>Match Score : <strong>94%</strong></p>
+
+        </div>
+
+        <div class="job-card">
+
+            <h3>Full Stack Developer</h3>
+
+            <p>Match Score : <strong>91%</strong></p>
+
+        </div>
+
+        <div class="job-card">
+
+            <h3>Data Analyst</h3>
+
+            <p>Match Score : <strong>88%</strong></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        ACTION BUTTONS
+========================================== -->
+
+<section class="action-section">
+
+    <button onclick="downloadReport()">
+
+        📥 Download AI Report
+
+    </button>
+
+    <button onclick="analyzeAgain()">
+
+        🔄 Analyze Another Resume
+
+    </button>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        WHY CHOOSE AI ANALYZER
+========================================== -->
+
+<section class="features-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Why Choose Our AI Resume Analyzer?
+
+        </h2>
+
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            🤖
+
+            <h3>AI Powered</h3>
+
+            <p>
+                Smart resume evaluation using Artificial Intelligence.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            🎯
+
+            <h3>ATS Optimized</h3>
+
+            <p>
+                Increase recruiter visibility with ATS-friendly suggestions.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            ⚡
+
+            <h3>Instant Results</h3>
+
+            <p>
+                Receive detailed analysis within seconds.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            📈
+
+            <h3>Career Growth</h3>
+
+            <p>
+                Personalized recommendations for better opportunities.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+                FOOTER
+========================================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+
+                AI Job Portal
+
+            </h3>
+
+            <p>
+
+                Helping students and professionals build better careers with AI-powered tools.
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <h3>
+
+                Quick Links
+
+            </h3>
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="jobs.html">Jobs</a>
+
+            <a href="profile.html">Profile</a>
+
+            <a href="notifications.html">Notifications</a>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <h3>
+
+                Contact
+
+            </h3>
+
+            <p>
+
+                support@aijobportal.com
+
+            </p>
+
+            <p>
+
+                +91 XXXXX XXXXX
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="copyright">
+
+        © 2026 AI Job Portal. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+
+
+<!-- ==========================================
+            JAVASCRIPT
+========================================== -->
+
+<script src="../js/resume_analysis.js"></script>
+
+</body>
+
+</html>

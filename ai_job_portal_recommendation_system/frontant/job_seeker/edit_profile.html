@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Profile | AI Job Portal</title>
+
+    <link rel="stylesheet" href="../css/edit_profile.css">
+    <script src="../js/edit_profile.js"></script>
+</head>
+
+
+<body>
+
+
+<!-- ===========================
+        NAVBAR SECTION
+=========================== -->
+
+
+<header class="navbar">
+
+
+    <div class="logo">
+
+        <h2>
+            AI Job Portal
+        </h2>
+
+    </div>
+
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+
+        <a href="jobs.html">
+            Jobs
+        </a>
+
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+
+        <button onclick="logout()">
+            Logout
+        </button>
+
+
+    </nav>
+
+
+</header>
+
+
+
+
+
+<!-- ===========================
+        PROFILE EDIT SECTION
+=========================== -->
+
+
+<section class="profile-container">
+
+
+    <div class="profile-header">
+
+
+        <h1>
+            Edit Your Profile
+        </h1>
+
+
+        <p>
+            Update your personal and professional details
+        </p>
+
+
+    </div>
+
+
+
+
+
+    <!-- PROFILE FORM START -->
+
+
+    <form id="profileForm">
+
+
+
+        <!-- Personal Information -->
+
+
+        <div class="form-section">
+
+
+            <h2>
+                Personal Information
+            </h2>
+
+
+
+            <div class="input-group">
+
+
+                <label>
+                    Full Name
+                </label>
+
+
+                <input 
+                type="text"
+                id="fullName"
+                placeholder="Enter your full name">
+
+
+            </div>
+
+
+
+
+
+            <div class="input-group">
+
+
+                <label>
+                    Email Address
+                </label>
+
+
+                <input 
+                type="email"
+                id="email"
+                placeholder="Enter your email">
+
+
+            </div>
+
+
+
+
+
+            <div class="input-group">
+
+
+                <label>
+                    Phone Number
+                </label>
+
+
+                <input 
+                type="tel"
+                id="phone"
+                placeholder="Enter phone number">
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        <!-- Profile Image Section -->
+
+
+        <div class="profile-image-section">
+
+
+            <h2>
+                Profile Picture
+            </h2>
+
+
+            <img 
+            id="profilePreview"
+            src="assets/user.png"
+            alt="Profile Image">
+
+
+
+            <input 
+            type="file"
+            id="profileImage"
+            accept="image/*">
+
+
+
+        </div>
+
+
+
+
+
+        <!-- Next Part Will Continue -->
+                 <!-- ===========================
+             EDUCATION INFORMATION
+        ============================ -->
+
+
+        <div class="form-section">
+
+
+            <h2>
+                Education Details
+            </h2>
+
+
+
+            <div class="input-group">
+
+
+                <label>
+                    Degree / Qualification
+                </label>
+
+
+                <input 
+                type="text"
+                id="degree"
+                placeholder="Example: B.Tech Computer Science">
+
+
+            </div>
+
+
+
+
+
+            <div class="input-group">
+
+
+                <label>
+                    University / College
+                </label>
+
+
+                <input 
+                type="text"
+                id="college"
+                placeholder="Enter university name">
+
+
+            </div>
+
+
+
+
+
+            <div class="input-group">
+
+
+                <label>
+                    Graduation Year
+                </label>
+
+
+                <input 
+                type="number"
+                id="graduationYear"
+                placeholder="Example: 2027">
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- ===========================
+                SKILLS SECTION
+        ============================ -->
+
+
+        <div class="form-section">
+
+
+            <h2>
+                Technical Skills
+            </h2>
+
+
+
+            <div class="input-group">
+
+
+                <label>
+                    Skills
+                </label>
+
+
+                <textarea
+                id="skills"
+                rows="4"
+                placeholder="Example: HTML, CSS, JavaScript, Python, AI/ML">
+                </textarea>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- ===========================
+             EXPERIENCE SECTION
+        ============================ -->
+
+
+        <div class="form-section">
+
+
+            <h2>
+                Experience
+            </h2>
+
+
+
+
+            <div class="input-group">
+
+
+                <label>
+                    Work Experience
+                </label>
+
+
+                <textarea
+                id="experience"
+                rows="5"
+                placeholder="Describe your internship, projects or work experience">
+                </textarea>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- ===========================
+              RESUME SECTION
+        ============================ -->
+
+
+        <div class="form-section">
+
+
+            <h2>
+                Resume Upload
+            </h2>
+
+
+
+            <div class="input-group">
+
+
+                <label>
+                    Upload Resume
+                </label>
+
+
+                <input 
+                type="file"
+                id="resume"
+                accept=".pdf,.doc,.docx">
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <!-- ===========================
+              ONLINE PROFILE SECTION
+        ============================ -->
+
+
+        <div class="form-section">
+
+
+            <h2>
+                Professional Links
+            </h2>
+
+
+
+
+            <div class="input-group">
+
+
+                <label>
+                    LinkedIn Profile
+                </label>
+
+
+                <input 
+                type="url"
+                id="linkedin"
+                placeholder="https://linkedin.com/in/username">
+
+
+            </div>
+
+
+
+
+
+            <div class="input-group">
+
+
+                <label>
+                    GitHub Profile
+                </label>
+
+
+                <input 
+                type="url"
+                id="github"
+                placeholder="https://github.com/username">
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        <!-- Part 3 Continue Here -->
+                 <!-- ===========================
+             AI PROFILE SCORE SECTION
+        ============================ -->
+
+
+        <div class="ai-score-section">
+
+
+            <h2>
+                AI Profile Analysis
+            </h2>
+
+
+            <p>
+                Complete your profile to get better AI job recommendations.
+            </p>
+
+
+
+            <div class="progress-box">
+
+
+                <div class="progress-bar">
+
+
+                    <div 
+                    class="progress"
+                    id="profileProgress">
+
+                    </div>
+
+
+                </div>
+
+
+
+                <span id="profilePercentage">
+                    0% Complete
+                </span>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- ===========================
+              ACTION BUTTONS
+        ============================ -->
+
+
+        <div class="button-section">
+
+
+            <button 
+            type="submit"
+            class="save-btn">
+
+                Save Profile
+
+            </button>
+
+
+
+
+            <button 
+            type="button"
+            class="cancel-btn"
+            onclick="cancelEdit()">
+
+                Cancel
+
+            </button>
+
+
+        </div>
+
+
+
+
+
+    </form>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ===========================
+          FOOTER SECTION
+=========================== -->
+
+
+<footer class="footer">
+
+
+    <p>
+        © 2026 AI Job Portal | Smart Career Solution
+    </p>
+
+
+</footer>
+
+
+
+
+
+
+
+<!-- ===========================
+       JAVASCRIPT CONNECTION
+=========================== -->
+
+
+<script src="edit_profile.js"></script>
+
+
+
+</body>
+
+
+</html>
+
+
+

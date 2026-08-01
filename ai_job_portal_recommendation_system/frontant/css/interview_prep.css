@@ -1,0 +1,1757 @@
+/* ==========================================
+        AI JOB PORTAL
+        INTERVIEW PREP CSS
+        PART 1/3
+========================================== */
+
+
+
+/* ==========================
+        GLOBAL RESET
+========================== */
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+
+}
+
+
+
+body{
+
+    background:#f8fafc;
+    color:#1e293b;
+    min-height:100vh;
+
+}
+
+
+
+
+
+
+
+/* ==========================
+            NAVBAR
+========================== */
+
+
+.navbar{
+
+
+    width:100%;
+
+    height:75px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 55px;
+
+    background:white;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+.logo h2{
+
+
+    font-size:28px;
+
+    color:#2563eb;
+
+    font-weight:700;
+
+
+}
+
+
+
+
+
+.navbar nav{
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+
+}
+
+
+
+.navbar nav a{
+
+
+    text-decoration:none;
+
+    color:#334155;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:0.3s;
+
+
+}
+
+
+
+.navbar nav a:hover,
+.navbar nav .active{
+
+
+    color:#2563eb;
+
+
+}
+
+
+
+
+
+
+.navbar button{
+
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:11px 25px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:0.3s;
+
+
+}
+
+
+
+.navbar button:hover{
+
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+          HERO SECTION
+========================== */
+
+
+.hero-section{
+
+
+    width:90%;
+
+    margin:50px auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+
+
+}
+
+
+
+.hero-content{
+
+
+    width:50%;
+
+
+}
+
+
+
+.hero-content h1{
+
+
+    font-size:45px;
+
+    line-height:1.2;
+
+    color:#1e3a8a;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.hero-content p{
+
+
+    font-size:18px;
+
+    color:#64748b;
+
+    line-height:1.7;
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+
+
+.start-btn{
+
+
+    padding:14px 35px;
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:30px;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+
+}
+
+
+
+.start-btn:hover{
+
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+.hero-image{
+
+
+    width:40%;
+
+
+}
+
+
+
+.hero-image img{
+
+
+    width:100%;
+
+    max-width:450px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+      SECTION TITLE
+========================== */
+
+
+.section-title{
+
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+
+}
+
+
+
+.section-title h2{
+
+
+    font-size:32px;
+
+    color:#1e3a8a;
+
+    margin-bottom:12px;
+
+
+}
+
+
+
+.section-title p{
+
+
+    color:#64748b;
+
+    font-size:16px;
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+    AI ASSISTANT SECTION
+========================== */
+
+
+.ai-assistant-section{
+
+
+    width:90%;
+
+    margin:70px auto;
+
+
+}
+
+
+
+
+
+
+.assistant-cards{
+
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+
+.assistant-card{
+
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+
+    text-align:center;
+
+
+}
+
+
+
+.assistant-card:hover{
+
+
+    transform:translateY(-8px);
+
+
+}
+
+
+
+
+
+
+
+.assistant-card h3{
+
+
+    font-size:21px;
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+.assistant-card p{
+
+
+    color:#64748b;
+
+    line-height:1.6;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+       CATEGORY SECTION
+========================== */
+
+
+.preparation-section{
+
+
+    width:90%;
+
+    margin:70px auto;
+
+
+}
+
+
+
+.category-container{
+
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:25px;
+
+
+}
+
+
+
+
+.category-card{
+
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+
+
+}
+
+
+
+.category-card:hover{
+
+
+    transform:translateY(-7px);
+
+    border-bottom:4px solid #2563eb;
+
+
+}
+
+
+
+.category-card h3{
+
+
+    color:#1e40af;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.category-card p{
+
+
+    color:#64748b;
+
+    line-height:1.6;
+
+
+}
+/* ==========================================
+        INTERVIEW PREP CSS
+        PART 2/3
+========================================== */
+
+
+
+
+
+/* ==========================
+   QUESTION GENERATOR SECTION
+========================== */
+
+
+.question-generator{
+
+
+    width:90%;
+
+    margin:70px auto;
+
+
+}
+
+
+
+
+
+.question-box{
+
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:end;
+
+    gap:30px;
+
+
+}
+
+
+
+
+
+.select-area{
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    width:350px;
+
+
+}
+
+
+
+.select-area label{
+
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+    color:#334155;
+
+
+}
+
+
+
+
+.select-area select{
+
+
+    padding:14px;
+
+    border-radius:12px;
+
+    border:1px solid #cbd5e1;
+
+    font-size:16px;
+
+    outline:none;
+
+    cursor:pointer;
+
+
+}
+
+
+
+.select-area select:focus{
+
+
+    border-color:#2563eb;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================
+     GENERATE BUTTON
+========================== */
+
+
+.generate-btn{
+
+
+    padding:14px 35px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    border-radius:30px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+
+}
+
+
+
+.generate-btn:hover{
+
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+/* ==========================
+      QUESTION DISPLAY
+========================== */
+
+
+.question-display{
+
+
+    width:90%;
+
+    margin:30px auto;
+
+    background:#eff6ff;
+
+    padding:30px;
+
+    border-left:5px solid #2563eb;
+
+    border-radius:15px;
+
+
+}
+
+
+
+.question-display h3{
+
+
+    color:#1e40af;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+.question-display p{
+
+
+    font-size:17px;
+
+    color:#475569;
+
+    line-height:1.7;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+      MOCK INTERVIEW
+========================== */
+
+
+.mock-interview{
+
+
+    width:90%;
+
+    margin:70px auto;
+
+
+}
+
+
+
+
+
+
+.interview-panel{
+
+
+    display:grid;
+
+    grid-template-columns:350px 1fr;
+
+    gap:35px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+
+
+
+
+
+/* AI INTERVIEWER CARD */
+
+
+.interviewer-card{
+
+
+    text-align:center;
+
+    padding:25px;
+
+    background:#f8fafc;
+
+    border-radius:20px;
+
+
+}
+
+
+
+
+.interviewer-card img{
+
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+.interviewer-card h3{
+
+
+    color:#2563eb;
+
+    margin-bottom:12px;
+
+
+}
+
+
+
+
+.interviewer-card p{
+
+
+    color:#64748b;
+
+    line-height:1.6;
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+       ANSWER SECTION
+========================== */
+
+
+.answer-section{
+
+
+    display:flex;
+
+    flex-direction:column;
+
+
+}
+
+
+
+
+.answer-section label{
+
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#334155;
+
+    margin-bottom:12px;
+
+
+}
+
+
+
+
+
+.answer-section textarea{
+
+
+    width:100%;
+
+    padding:18px;
+
+    border-radius:15px;
+
+    border:1px solid #cbd5e1;
+
+    resize:none;
+
+    font-size:16px;
+
+    outline:none;
+
+    min-height:200px;
+
+
+}
+
+
+
+
+.answer-section textarea:focus{
+
+
+    border-color:#2563eb;
+
+    box-shadow:
+    0 0 10px rgba(37,99,235,0.2);
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+      SUBMIT ANSWER BUTTON
+========================== */
+
+
+.submit-answer{
+
+
+    margin-top:20px;
+
+    padding:14px 35px;
+
+    width:max-content;
+
+    background:#16a34a;
+
+    color:white;
+
+    border:none;
+
+    border-radius:30px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+
+}
+
+
+
+
+.submit-answer:hover{
+
+
+    background:#15803d;
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+        QUICK TIPS
+========================== */
+
+
+.quick-tips{
+
+
+    width:90%;
+
+    margin:70px auto;
+
+
+}
+
+
+
+
+.tips-container{
+
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+.tip-card{
+
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+
+
+}
+
+
+
+
+.tip-card:hover{
+
+
+    transform:translateY(-6px);
+
+
+}
+
+
+
+
+
+.tip-card h3{
+
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.tip-card p{
+
+
+    color:#64748b;
+
+    line-height:1.6;
+
+
+}
+/* ==========================================
+        INTERVIEW PREP CSS
+        PART 3/3
+========================================== */
+
+
+
+
+
+/* ==========================
+      FEEDBACK SECTION
+========================== */
+
+
+.feedback-section{
+
+
+    width:90%;
+
+    margin:70px auto;
+
+
+}
+
+
+
+
+
+.feedback-container{
+
+
+    display:grid;
+
+    grid-template-columns:350px 1fr;
+
+    gap:30px;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================
+        SCORE CARD
+========================== */
+
+
+.score-card{
+
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+
+.score-card h3{
+
+
+    color:#1e40af;
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+
+
+.score-circle{
+
+
+    width:150px;
+
+    height:150px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#eff6ff;
+
+    border:10px solid #2563eb;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+}
+
+
+
+
+
+.score-circle span{
+
+
+    font-size:35px;
+
+    font-weight:700;
+
+    color:#2563eb;
+
+
+}
+
+
+
+
+
+
+
+.score-card p{
+
+
+    margin-top:20px;
+
+    color:#64748b;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+       AI ANALYSIS CARD
+========================== */
+
+
+.analysis-card{
+
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+
+
+.analysis-card h3{
+
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+.analysis-card ul{
+
+
+    list-style:none;
+
+
+}
+
+
+
+.analysis-card li{
+
+
+    background:#f8fafc;
+
+    padding:15px;
+
+    margin-bottom:15px;
+
+    border-radius:12px;
+
+    color:#475569;
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+     IMPROVEMENT SECTION
+========================== */
+
+
+.improvement-section{
+
+
+    width:90%;
+
+    margin:70px auto;
+
+
+}
+
+
+
+
+
+.improvement-cards{
+
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+
+
+.improve-card{
+
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.08);
+
+    transition:0.3s;
+
+
+}
+
+
+
+
+
+.improve-card:hover{
+
+
+    transform:translateY(-8px);
+
+    border-top:4px solid #2563eb;
+
+
+}
+
+
+
+
+
+.improve-card h3{
+
+
+    color:#1e40af;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+.improve-card p{
+
+
+    color:#64748b;
+
+    line-height:1.6;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+        CTA SECTION
+========================== */
+
+
+.cta-section{
+
+
+    width:90%;
+
+    margin:70px auto;
+
+    padding:50px;
+
+    text-align:center;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #1e40af
+    );
+
+
+    border-radius:25px;
+
+    color:white;
+
+
+}
+
+
+
+
+.cta-section h2{
+
+
+    font-size:35px;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+.cta-section p{
+
+
+    font-size:18px;
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+.practice-btn{
+
+
+    padding:15px 40px;
+
+    border:none;
+
+    background:white;
+
+    color:#2563eb;
+
+    border-radius:30px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+
+}
+
+
+
+
+.practice-btn:hover{
+
+
+    transform:translateY(-4px);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+          FOOTER
+========================== */
+
+
+.footer{
+
+
+    width:100%;
+
+    background:#0f172a;
+
+    color:white;
+
+    padding:25px;
+
+    text-align:center;
+
+    margin-top:50px;
+
+
+}
+
+
+
+.footer p{
+
+
+    font-size:15px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+      RESPONSIVE DESIGN
+========================== */
+
+
+@media(max-width:1000px){
+
+
+
+    .hero-section{
+
+
+        flex-direction:column;
+
+        text-align:center;
+
+
+    }
+
+
+
+
+    .hero-content,
+    .hero-image{
+
+
+        width:100%;
+
+
+    }
+
+
+
+
+    .assistant-cards,
+    .category-container,
+    .tips-container,
+    .improvement-cards{
+
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+
+    }
+
+
+
+
+
+    .interview-panel,
+    .feedback-container{
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+@media(max-width:600px){
+
+
+
+    .navbar{
+
+
+        flex-direction:column;
+
+        height:auto;
+
+        gap:20px;
+
+        padding:20px;
+
+
+    }
+
+
+
+
+
+    .navbar nav{
+
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+
+    }
+
+
+
+
+
+    .hero-content h1{
+
+
+        font-size:32px;
+
+
+    }
+
+
+
+
+
+    .assistant-cards,
+    .category-container,
+    .tips-container,
+    .improvement-cards{
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+
+
+
+    .question-box{
+
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+
+    }
+
+
+
+
+
+    .select-area{
+
+
+        width:100%;
+
+
+    }
+
+
+
+
+
+    .cta-section{
+
+
+        padding:35px 20px;
+
+
+    }
+
+
+
+    .cta-section h2{
+
+
+        font-size:26px;
+
+
+    }
+
+
+
+}

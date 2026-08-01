@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Job Recommendation</title>
+
+    <link rel="stylesheet" href="../css/ai_recommendation.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <script src="../js/ai_recommendation.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <h2>AI Job Portal</h2>
+
+        </div>
+
+        <ul>
+
+            <li class="active">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li>
+                <i class="fa-solid fa-robot"></i>
+                AI Recommendation
+            </li>
+
+            <li>
+                <i class="fa-solid fa-briefcase"></i>
+                Find Jobs
+            </li>
+
+            <li>
+                <i class="fa-solid fa-file-lines"></i>
+                Resume Analyzer
+            </li>
+
+            <li>
+                <i class="fa-solid fa-chart-line"></i>
+                Career Insights
+            </li>
+
+            <li>
+                <i class="fa-solid fa-graduation-cap"></i>
+                AI Courses
+            </li>
+
+            <li>
+                <i class="fa-solid fa-comments"></i>
+                Interview Prep
+            </li>
+
+            <li>
+                <i class="fa-solid fa-heart"></i>
+                Saved Jobs
+            </li>
+
+            <li>
+                <i class="fa-solid fa-user"></i>
+                Profile
+            </li>
+
+            <li>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- Navbar -->
+
+        <nav class="navbar">
+
+            <div>
+
+                <h2>🤖 AI Recommendation Dashboard</h2>
+
+                <p>Smart Career Suggestions</p>
+
+            </div>
+
+            <div class="nav-right">
+
+                <input
+                type="text"
+                placeholder="Search Jobs...">
+
+                <button>
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+                <i class="fa-solid fa-bell notification"></i>
+
+                <img src="../images/profile.png" alt="Profile">
+
+            </div>
+
+        </nav>
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h1>
+
+                    Your Personal AI Career Assistant 🚀
+
+                </h1>
+
+                <p>
+
+                    Our AI has analyzed your Resume,
+                    Skills, Projects, Certifications
+                    and Career Interests to recommend
+                    the best jobs for you.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button>
+
+                        Explore Jobs
+
+                    </button>
+
+                    <button>
+
+                        Analyze Resume
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img src="../images/ai.png">
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= AI DASHBOARD ================= -->
+
+        <section class="dashboard">
+
+            <div class="card">
+
+                <i class="fa-solid fa-file"></i>
+
+                <h2>91%</h2>
+
+                <p>Resume Score</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-robot"></i>
+
+                <h2>96%</h2>
+
+                <p>AI Match Score</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-user-check"></i>
+
+                <h2>88%</h2>
+
+                <p>Profile Strength</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                <h2>18 LPA</h2>
+
+                <p>Expected Salary</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SEARCH ================= -->
+
+        <section class="search-section">
+
+            <h2>
+
+                Find AI Recommended Jobs
+
+            </h2>
+
+            <div class="search-box">
+
+                <input
+                type="text"
+                placeholder="Job Title">
+
+                <select>
+
+                    <option>Location</option>
+
+                    <option>Delhi</option>
+
+                    <option>Noida</option>
+
+                    <option>Bangalore</option>
+
+                    <option>Pune</option>
+
+                </select>
+
+                <select>
+
+                    <option>Experience</option>
+
+                    <option>Fresher</option>
+
+                    <option>1 Year</option>
+
+                    <option>2 Years</option>
+
+                </select>
+
+                <select>
+
+                    <option>Job Type</option>
+
+                    <option>Full Time</option>
+
+                    <option>Internship</option>
+
+                    <option>Remote</option>
+
+                </select>
+
+                <button>
+
+                    Search
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= AI PROFILE SUMMARY ================= -->
+
+        <section class="summary">
+
+            <h2>
+
+                AI Profile Summary
+
+            </h2>
+
+            <div class="summary-container">
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-check-circle"></i>
+
+                    <h3>Matched Skills</h3>
+
+                    <p>
+
+                        HTML, CSS, JavaScript,
+                        Tailwind CSS,
+                        Git & GitHub
+
+                    </p>
+
+                </div>
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <h3>Missing Skills</h3>
+
+                    <p>
+
+                        React.js,
+                        Node.js,
+                        MongoDB
+
+                    </p>
+
+                </div>
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                    <h3>AI Suggestion</h3>
+
+                    <p>
+
+                        Learn React &
+                        Build 2 Full Stack Projects
+                        to increase your match score.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= PART 2 STARTS HERE ================= -->
+         <!-- ================= AI RECOMMENDED JOBS ================= -->
+
+<section class="recommended-jobs">
+
+    <div class="section-header">
+
+        <h2>🤖 AI Recommended Jobs</h2>
+
+        <a href="#">View All</a>
+
+    </div>
+
+    <div class="job-container">
+
+        <!-- Job Card 1 -->
+
+        <div class="job-card">
+
+            <div class="company">
+
+                <img src="../images/google.png" alt="Google">
+
+                <div>
+
+                    <h3>Frontend Developer</h3>
+
+                    <p>Google • Bangalore</p>
+
+                </div>
+
+            </div>
+
+            <div class="match">
+
+                <span>98% Match</span>
+
+            </div>
+
+            <div class="job-info">
+
+                <span><i class="fa-solid fa-money-bill-wave"></i> ₹18 LPA</span>
+
+                <span><i class="fa-solid fa-clock"></i> Full Time</span>
+
+                <span><i class="fa-solid fa-location-dot"></i> Hybrid</span>
+
+            </div>
+
+            <div class="skills">
+
+                <span>HTML</span>
+
+                <span>CSS</span>
+
+                <span>JavaScript</span>
+
+                <span>Tailwind</span>
+
+            </div>
+
+            <div class="buttons">
+
+                <button class="apply">Apply Now</button>
+
+                <button class="save">Save</button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Job Card 2 -->
+
+        <div class="job-card">
+
+            <div class="company">
+
+                <img src="../images/microsoft.png">
+
+                <div>
+
+                    <h3>Software Engineer</h3>
+
+                    <p>Microsoft • Hyderabad</p>
+
+                </div>
+
+            </div>
+
+            <div class="match">
+
+                <span>95% Match</span>
+
+            </div>
+
+            <div class="job-info">
+
+                <span>₹20 LPA</span>
+
+                <span>Remote</span>
+
+                <span>Fresher</span>
+
+            </div>
+
+            <div class="skills">
+
+                <span>C++</span>
+
+                <span>DSA</span>
+
+                <span>SQL</span>
+
+                <span>Git</span>
+
+            </div>
+
+            <div class="buttons">
+
+                <button class="apply">Apply Now</button>
+
+                <button class="save">Save</button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Job Card 3 -->
+
+        <div class="job-card">
+
+            <div class="company">
+
+                <img src="../images/amazon.png">
+
+                <div>
+
+                    <h3>AI Engineer</h3>
+
+                    <p>Amazon • Pune</p>
+
+                </div>
+
+            </div>
+
+            <div class="match">
+
+                <span>93% Match</span>
+
+            </div>
+
+            <div class="job-info">
+
+                <span>₹22 LPA</span>
+
+                <span>Hybrid</span>
+
+                <span>Internship</span>
+
+            </div>
+
+            <div class="skills">
+
+                <span>Python</span>
+
+                <span>Machine Learning</span>
+
+                <span>TensorFlow</span>
+
+            </div>
+
+            <div class="buttons">
+
+                <button class="apply">Apply Now</button>
+
+                <button class="save">Save</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ================= AI CAREER INSIGHTS ================= -->
+
+<section class="career-insights">
+
+    <h2>📊 AI Career Insights</h2>
+
+    <div class="insight-grid">
+
+        <div class="insight-card">
+
+            <h3>Profile Strength</h3>
+
+            <div class="progress">
+
+                <div class="progress-bar" style="width:92%;">
+
+                    92%
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="insight-card">
+
+            <h3>Technical Skills</h3>
+
+            <div class="progress">
+
+                <div class="progress-bar" style="width:88%;">
+
+                    88%
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="insight-card">
+
+            <h3>Communication</h3>
+
+            <div class="progress">
+
+                <div class="progress-bar" style="width:80%;">
+
+                    80%
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ================= AI SUGGESTIONS ================= -->
+
+<section class="ai-suggestions">
+
+    <h2>💡 AI Suggestions</h2>
+
+    <ul>
+
+        <li>✔ Learn React.js to improve your AI Match Score.</li>
+
+        <li>✔ Add 2 Full Stack Projects.</li>
+
+        <li>✔ Practice DSA regularly.</li>
+
+        <li>✔ Improve ATS Resume Score.</li>
+
+        <li>✔ Complete one Internship.</li>
+
+    </ul>
+
+</section>
+
+
+
+
+
+<!-- ================= TOP HIRING COMPANIES ================= -->
+
+<section class="companies">
+
+    <h2>🏢 Top Companies Hiring</h2>
+
+    <div class="company-grid">
+
+        <div class="company-box">
+            <img src="../images/google.png">
+            <p>Google</p>
+        </div>
+
+        <div class="company-box">
+            <img src="../images/microsoft.png">
+            <p>Microsoft</p>
+        </div>
+
+        <div class="company-box">
+            <img src="../images/amazon.png">
+            <p>Amazon</p>
+        </div>
+
+        <div class="company-box">
+            <img src="../images/adobe.png">
+            <p>Adobe</p>
+        </div>
+
+        <div class="company-box">
+            <img src="../images/tcs.png">
+            <p>TCS</p>
+        </div>
+
+        <div class="company-box">
+            <img src="../images/infosys.png">
+            <p>Infosys</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ================= AI ROADMAP ================= -->
+
+<section class="roadmap">
+
+    <h2>🚀 AI Career Roadmap</h2>
+
+    <div class="roadmap-box">
+
+        <div>Frontend Developer</div>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+        <div>Full Stack Developer</div>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+        <div>Software Engineer</div>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+        <div>Senior Software Engineer</div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+
+        © 2026 AI Job Portal | Powered by Artificial Intelligence
+
+    </p>
+
+</footer>
+
+</main>
+
+</div>
+
+<script src="../js/ai_recommendation.js"></script>
+
+</body>
+</html>

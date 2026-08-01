@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+
+    <meta charset="UTF-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Job Details | AI Job Portal</title>
+
+
+    <link rel="stylesheet" href="../css/job_details.css">
+
+
+</head>
+
+
+
+<body>
+
+
+
+
+
+<!-- ==========================
+          NAVBAR
+========================== -->
+
+
+<header class="navbar">
+
+
+    <div class="logo">
+
+
+        <h2>
+            AI Job Portal
+        </h2>
+
+
+    </div>
+
+
+
+
+
+    <nav>
+
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+
+        <a href="jobs.html">
+            Jobs
+        </a>
+
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+
+        <a href="interview_prep.html">
+            Interview Prep
+        </a>
+
+
+        <button onclick="logout()">
+
+            Logout
+
+        </button>
+
+
+    </nav>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+        JOB HERO SECTION
+========================== -->
+
+
+<section class="job-hero">
+
+
+
+    <div class="job-title-section">
+
+
+
+        <h1 id="jobTitle">
+
+            AI Engineer
+
+        </h1>
+
+
+
+        <h3 id="companyName">
+
+            Google
+
+        </h3>
+
+
+
+
+        <div class="job-meta">
+
+
+            <span>
+                📍 Bangalore, India
+            </span>
+
+
+            <span>
+                💼 Full Time
+            </span>
+
+
+            <span>
+                💰 8-12 LPA
+            </span>
+
+
+
+        </div>
+
+
+
+
+        <button 
+        class="apply-btn"
+        onclick="applyJob()">
+
+
+
+            Apply Now
+
+
+
+        </button>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="company-logo">
+
+
+        <img 
+        src="assets/company.png"
+        alt="Company Logo">
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+        JOB DETAILS SECTION
+========================== -->
+
+
+<section class="job-details-container">
+
+
+
+
+
+    <!-- LEFT CONTENT -->
+
+
+    <div class="job-main-content">
+
+
+
+
+
+        <div class="details-card">
+
+
+            <h2>
+                Job Description
+            </h2>
+
+
+
+            <p id="jobDescription">
+
+
+                We are looking for a talented AI Engineer
+                who can design, develop and deploy
+                machine learning solutions.
+
+
+                The candidate should have strong
+                programming skills and knowledge
+                of Artificial Intelligence.
+
+
+            </p>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="details-card">
+
+
+            <h2>
+                Responsibilities
+            </h2>
+
+
+
+            <ul>
+
+
+                <li>
+                    Develop AI and ML based solutions.
+                </li>
+
+
+                <li>
+                    Work with data processing and models.
+                </li>
+
+
+                <li>
+                    Collaborate with engineering teams.
+                </li>
+
+
+                <li>
+                    Improve existing AI systems.
+                </li>
+
+
+
+            </ul>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+<!-- Part 2 Continue Here -->
+ 
+
+
+
+
+
+
+        <div class="details-card">
+
+
+            <h2>
+                Required Skills
+            </h2>
+
+
+
+
+            <div class="skills-container">
+
+
+
+                <span>
+                    Python
+                </span>
+
+
+                <span>
+                    Machine Learning
+                </span>
+
+
+                <span>
+                    Deep Learning
+                </span>
+
+
+                <span>
+                    TensorFlow
+                </span>
+
+
+                <span>
+                    SQL
+                </span>
+
+
+                <span>
+                    Data Analysis
+                </span>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="details-card">
+
+
+            <h2>
+                Qualification & Experience
+            </h2>
+
+
+
+
+            <div class="info-list">
+
+
+                <p>
+
+                    🎓 Qualification:
+                    B.Tech / M.Tech in Computer Science,
+                    AI or related field
+
+                </p>
+
+
+
+
+                <p>
+
+                    💻 Experience:
+                    0-2 Years
+
+                </p>
+
+
+
+
+                <p>
+
+                    ⏳ Job Type:
+                    Full Time
+
+                </p>
+
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="details-card">
+
+
+            <h2>
+                Salary Details
+            </h2>
+
+
+
+
+            <div class="salary-box">
+
+
+                <h3>
+
+                    ₹8 LPA - ₹12 LPA
+
+                </h3>
+
+
+
+                <p>
+
+                    Based on skills, experience
+                    and interview performance.
+
+                </p>
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ==========================
+          RIGHT SIDEBAR
+    =========================== -->
+
+
+
+    <aside class="job-sidebar">
+
+
+
+
+
+        <!-- AI MATCH SCORE -->
+
+
+        <div class="ai-match-card">
+
+
+
+            <h2>
+                AI Resume Match
+            </h2>
+
+
+
+
+            <div class="match-circle">
+
+
+                <span id="matchScore">
+
+                    92%
+
+                </span>
+
+
+            </div>
+
+
+
+
+            <p>
+
+                Your profile matches this job
+                based on skills and experience.
+
+            </p>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- COMPANY DETAILS -->
+
+
+        <div class="company-card">
+
+
+            <h2>
+                About Company
+            </h2>
+
+
+
+
+            <h3>
+                Google
+            </h3>
+
+
+
+            <p>
+
+                Google is a technology company
+                working on AI, cloud computing,
+                software and innovative products.
+
+            </p>
+
+
+
+
+            <div class="company-info">
+
+
+                <p>
+                    🌎 Location:
+                    Bangalore
+                </p>
+
+
+
+                <p>
+                    👥 Employees:
+                    10000+
+                </p>
+
+
+
+                <p>
+                    ⭐ Rating:
+                    4.5/5
+                </p>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- BENEFITS SECTION -->
+
+
+        <div class="benefits-card">
+
+
+            <h2>
+                Job Benefits
+            </h2>
+
+
+
+
+            <ul>
+
+
+                <li>
+                    Work From Home Option
+                </li>
+
+
+                <li>
+                    Health Insurance
+                </li>
+
+
+                <li>
+                    Learning Opportunities
+                </li>
+
+
+                <li>
+                    Flexible Working Hours
+                </li>
+
+
+
+            </ul>
+
+
+
+        </div>
+
+
+
+
+
+
+<!-- Part 3 Continue Here -->
+
+
+
+
+
+
+
+<!-- ==========================
+        SIMILAR JOBS SECTION
+========================== -->
+
+
+<section class="similar-jobs">
+
+
+
+    <div class="section-title">
+
+
+        <h2>
+            Similar Jobs For You
+        </h2>
+
+
+        <p>
+
+            AI recommended jobs based on your profile.
+
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="similar-job-container">
+
+
+
+
+
+        <div class="similar-job-card">
+
+
+            <h3>
+                Machine Learning Engineer
+            </h3>
+
+
+            <p>
+                Microsoft
+            </p>
+
+
+            <span>
+                📍 Hyderabad
+            </span>
+
+
+            <button>
+                View Details
+            </button>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="similar-job-card">
+
+
+            <h3>
+                Data Scientist
+            </h3>
+
+
+            <p>
+                Amazon
+            </p>
+
+
+            <span>
+                📍 Delhi
+            </span>
+
+
+            <button>
+                View Details
+            </button>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="similar-job-card">
+
+
+            <h3>
+                AI Research Intern
+            </h3>
+
+
+            <p>
+                OpenAI
+            </p>
+
+
+            <span>
+                📍 Remote
+            </span>
+
+
+            <button>
+                View Details
+            </button>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+       APPLY JOB MODAL
+========================== -->
+
+
+<div 
+class="apply-modal"
+id="applyModal">
+
+
+
+    <div class="modal-content">
+
+
+
+        <span 
+        class="close-btn"
+        onclick="closeApplyForm()">
+
+
+            &times;
+
+
+        </span>
+
+
+
+
+
+        <h2>
+            Apply For This Job
+        </h2>
+
+
+
+
+
+        <form id="applyForm">
+
+
+
+
+
+            <label>
+                Full Name
+            </label>
+
+
+            <input 
+            type="text"
+            id="applicantName"
+            placeholder="Enter your name">
+
+
+
+
+
+            <label>
+                Email
+            </label>
+
+
+            <input 
+            type="email"
+            id="applicantEmail"
+            placeholder="Enter your email">
+
+
+
+
+
+            <label>
+                Upload Resume
+            </label>
+
+
+            <input 
+            type="file"
+            id="resumeUpload">
+
+
+
+
+
+            <label>
+                Cover Letter
+            </label>
+
+
+            <textarea
+            id="coverLetter"
+            rows="5"
+            placeholder="Write your cover letter">
+            </textarea>
+
+
+
+
+
+            <button 
+            type="submit"
+            class="submit-application">
+
+
+                Submit Application
+
+
+            </button>
+
+
+
+
+        </form>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+       FINAL CTA SECTION
+========================== -->
+
+
+<section class="job-cta">
+
+
+
+    <h2>
+
+        Ready To Apply For This Opportunity?
+
+    </h2>
+
+
+
+    <p>
+
+        Submit your application and start your
+        career journey with AI Job Portal.
+
+    </p>
+
+
+
+
+    <button 
+    onclick="applyJob()">
+
+
+        Apply Now
+
+
+    </button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+            FOOTER
+========================== -->
+
+
+<footer class="footer">
+
+
+    <p>
+
+        © 2026 AI Job Portal |
+        Smart Career Platform
+
+    </p>
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+       JAVASCRIPT CONNECTION
+========================== -->
+
+
+<script src="../js/job_details.js"></script>
+
+
+
+
+</body>
+
+
+</html>

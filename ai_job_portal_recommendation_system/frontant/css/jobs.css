@@ -1,0 +1,1933 @@
+/* ==========================================
+        AI JOB PORTAL
+        JOBS PAGE CSS
+        PART 1/3
+========================================== */
+
+
+
+
+
+/* ==========================
+        GLOBAL RESET
+========================== */
+
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+
+body{
+
+    background:#f8fafc;
+
+    color:#1e293b;
+
+    min-height:100vh;
+
+}
+
+
+
+
+
+
+
+/* ==========================
+            NAVBAR
+========================== */
+
+
+.navbar{
+
+
+    width:100%;
+
+    height:75px;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 55px;
+
+    box-shadow:
+
+    0 5px 20px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+
+.logo h2{
+
+
+    color:#2563eb;
+
+    font-size:28px;
+
+    font-weight:700;
+
+
+}
+
+
+
+
+
+.navbar nav{
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+.navbar nav a{
+
+
+    text-decoration:none;
+
+    color:#475569;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.navbar nav a:hover,
+.navbar nav .active{
+
+
+    color:#2563eb;
+
+
+}
+
+
+
+
+
+
+
+.navbar button{
+
+
+    padding:11px 25px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.3s;
+
+
+}
+
+
+
+
+.navbar button:hover{
+
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+        HERO SECTION
+========================== */
+
+
+.jobs-hero{
+
+
+    width:90%;
+
+    margin:50px auto;
+
+    padding:50px;
+
+    border-radius:25px;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+
+
+
+
+.hero-content{
+
+
+    width:55%;
+
+
+}
+
+
+
+
+
+
+.hero-content h1{
+
+
+    font-size:45px;
+
+    line-height:1.2;
+
+    color:#1e3a8a;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+
+
+.hero-content p{
+
+
+    font-size:18px;
+
+    color:#64748b;
+
+    line-height:1.7;
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+
+
+
+.hero-image{
+
+
+    width:35%;
+
+
+}
+
+
+
+
+
+.hero-image img{
+
+
+    width:100%;
+
+    object-fit:contain;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+          SEARCH BOX
+========================== */
+
+
+.search-box{
+
+
+    display:flex;
+
+    gap:15px;
+
+    background:#f8fafc;
+
+    padding:15px;
+
+    border-radius:20px;
+
+
+}
+
+
+
+
+
+
+
+.search-box input{
+
+
+    flex:1;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    border:1px solid #cbd5e1;
+
+    outline:none;
+
+    font-size:15px;
+
+
+}
+
+
+
+
+
+.search-box input:focus{
+
+
+    border-color:#2563eb;
+
+
+}
+
+
+
+
+
+.search-box button{
+
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+.search-box button:hover{
+
+
+    background:#1d4ed8;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+       AI BANNER
+========================== */
+
+
+.ai-banner{
+
+
+    width:90%;
+
+    margin:40px auto;
+
+    padding:30px;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #1e40af
+    );
+
+
+    color:white;
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+.ai-icon{
+
+
+    font-size:45px;
+
+
+}
+
+
+
+
+
+
+.ai-banner h2{
+
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+
+}
+
+
+
+
+
+.ai-banner p{
+
+
+    font-size:16px;
+
+    opacity:.9;
+
+
+}
+
+
+
+
+
+
+.ai-banner button{
+
+
+    margin-left:auto;
+
+    padding:13px 30px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:white;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+      CATEGORY SECTION
+========================== */
+
+
+.category-section{
+
+
+    width:90%;
+
+    margin:70px auto;
+
+
+}
+
+
+
+
+
+.section-title{
+
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+
+}
+
+
+
+
+
+.section-title h2{
+
+
+    font-size:32px;
+
+    color:#1e3a8a;
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+
+
+.section-title p{
+
+
+    color:#64748b;
+
+}
+
+
+
+
+
+
+
+
+.category-container{
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+.category-card{
+
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,0.08);
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.category-card:hover{
+
+
+    transform:translateY(-8px);
+
+    border-bottom:4px solid #2563eb;
+
+
+}
+
+
+
+
+
+.category-card h3{
+
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+    font-size:20px;
+
+
+}
+
+
+
+
+
+.category-card p{
+
+
+    color:#64748b;
+
+    line-height:1.6;
+
+
+}
+/* ==========================================
+        AI JOB PORTAL
+        JOBS PAGE CSS
+        PART 2/3
+========================================== */
+
+
+
+
+
+/* ==========================
+       JOB SECTION
+========================== */
+
+
+.jobs-section{
+
+
+    width:90%;
+
+    margin:70px auto;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+       JOBS LAYOUT
+========================== */
+
+
+.jobs-layout{
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    280px 1fr;
+
+    gap:35px;
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================
+      FILTER SIDEBAR
+========================== */
+
+
+.filter-sidebar{
+
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    height:max-content;
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+
+
+.filter-sidebar h2{
+
+
+    color:#1e40af;
+
+    margin-bottom:25px;
+
+    font-size:25px;
+
+
+}
+
+
+
+
+
+
+
+
+/* FILTER GROUP */
+
+
+.filter-group{
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+.filter-group h3{
+
+
+    font-size:18px;
+
+    color:#334155;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+.filter-group label{
+
+
+    display:block;
+
+    margin-bottom:12px;
+
+    color:#64748b;
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+.filter-group input{
+
+
+    margin-right:10px;
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* FILTER BUTTON */
+
+
+.filter-btn{
+
+
+    width:100%;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.filter-btn:hover{
+
+
+    background:#1d4ed8;
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+        JOB CARDS
+========================== */
+
+
+.job-cards-container{
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+
+
+.job-card{
+
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,0.08);
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.job-card:hover{
+
+
+    transform:translateY(-6px);
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,0.12);
+
+
+}
+
+
+
+
+
+
+
+
+/* JOB HEADER */
+
+
+.job-header{
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+
+.job-header h2{
+
+
+    color:#1e40af;
+
+    font-size:25px;
+
+
+}
+
+
+
+
+
+
+
+
+.job-header span{
+
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    font-weight:600;
+
+    font-size:14px;
+
+
+}
+
+
+
+
+
+
+
+
+.job-card h3{
+
+
+    color:#2563eb;
+
+    margin-bottom:12px;
+
+
+}
+
+
+
+
+
+
+
+
+.job-card p{
+
+
+    color:#64748b;
+
+    line-height:1.6;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+        SKILLS TAGS
+========================== */
+
+
+.job-skills{
+
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin:20px 0;
+
+
+}
+
+
+
+
+
+
+
+.job-skills span{
+
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+
+}
+
+
+
+
+.job-skills span:hover{
+
+
+    background:#2563eb;
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+       JOB ACTIONS
+========================== */
+
+
+.job-actions{
+
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:20px;
+
+
+}
+
+
+
+
+
+.job-actions button{
+
+
+    padding:12px 30px;
+
+    border-radius:30px;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+
+
+.job-actions button:first-child{
+
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+
+}
+
+
+
+
+
+.job-actions button:first-child:hover{
+
+
+    background:#2563eb;
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+.apply-btn{
+
+
+    background:#2563eb;
+
+    color:white;
+
+
+}
+
+
+
+
+
+.apply-btn:hover{
+
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+
+}
+
+/* ==========================================
+        AI JOB PORTAL
+        JOBS PAGE CSS
+        PART 3/3
+========================================== */
+
+
+
+
+
+/* ==========================
+      COMPANIES SECTION
+========================== */
+
+
+.companies-section{
+
+
+    width:90%;
+
+    margin:70px auto;
+
+
+}
+
+
+
+
+
+
+.companies-container{
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+
+
+.company-box{
+
+
+    background:white;
+
+    padding:30px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,0.08);
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.company-box:hover{
+
+
+    transform:translateY(-8px);
+
+    border-bottom:4px solid #2563eb;
+
+
+}
+
+
+
+
+
+.company-box h3{
+
+
+    color:#2563eb;
+
+    font-size:22px;
+
+    margin-bottom:12px;
+
+
+}
+
+
+
+
+
+.company-box p{
+
+
+    color:#64748b;
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+       CAREER TIPS SECTION
+========================== */
+
+
+.career-section{
+
+
+    width:90%;
+
+
+    margin:70px auto;
+
+
+}
+
+
+
+
+
+
+.tips-container{
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(3,1fr);
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+
+.career-card{
+
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,0.08);
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.career-card:hover{
+
+
+    transform:translateY(-7px);
+
+
+}
+
+
+
+
+
+.career-card h3{
+
+
+    color:#1e40af;
+
+    margin-bottom:15px;
+
+    font-size:21px;
+
+
+}
+
+
+
+
+
+.career-card p{
+
+
+    color:#64748b;
+
+    line-height:1.7;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+       NEWSLETTER SECTION
+========================== */
+
+
+.newsletter-section{
+
+
+    width:90%;
+
+    margin:70px auto;
+
+    padding:50px;
+
+    text-align:center;
+
+    border-radius:25px;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #1e40af
+    );
+
+    color:white;
+
+
+}
+
+
+
+
+
+.newsletter-section h2{
+
+
+    font-size:35px;
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+.newsletter-section p{
+
+
+    font-size:18px;
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+
+
+
+.newsletter-box{
+
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+
+}
+
+
+
+
+
+.newsletter-box input{
+
+
+    width:350px;
+
+    padding:15px 20px;
+
+    border:none;
+
+    border-radius:30px;
+
+    outline:none;
+
+    font-size:15px;
+
+
+}
+
+
+
+
+
+
+
+.newsletter-box button{
+
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:white;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.newsletter-box button:hover{
+
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+            FOOTER
+========================== */
+
+
+.footer{
+
+
+    width:100%;
+
+    background:#0f172a;
+
+    color:white;
+
+    padding:45px 8% 20px;
+
+}
+
+
+
+
+
+
+
+.footer-content{
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(3,1fr);
+
+    gap:40px;
+
+
+}
+
+
+
+
+
+.footer h3{
+
+
+    margin-bottom:18px;
+
+    color:white;
+
+
+}
+
+
+
+
+
+.footer p{
+
+
+    color:#cbd5e1;
+
+    line-height:1.6;
+
+
+}
+
+
+
+
+
+.footer a{
+
+
+    display:block;
+
+    text-decoration:none;
+
+    color:#cbd5e1;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.footer a:hover{
+
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+.copyright{
+
+
+    text-align:center;
+
+    margin-top:35px;
+
+    padding-top:20px;
+
+    border-top:1px solid #334155;
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================
+       RESPONSIVE DESIGN
+========================== */
+
+
+
+
+
+@media(max-width:1100px){
+
+
+
+    .category-container,
+    .companies-container{
+
+
+        grid-template-columns:
+
+        repeat(2,1fr);
+
+
+    }
+
+
+
+    .jobs-layout{
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+@media(max-width:750px){
+
+
+
+    .navbar{
+
+
+        flex-direction:column;
+
+        height:auto;
+
+        gap:20px;
+
+        padding:20px;
+
+
+    }
+
+
+
+
+
+    .navbar nav{
+
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+
+    }
+
+
+
+
+
+    .jobs-hero{
+
+
+        flex-direction:column;
+
+        padding:30px;
+
+        text-align:center;
+
+
+    }
+
+
+
+
+
+    .hero-content,
+    .hero-image{
+
+
+        width:100%;
+
+
+    }
+
+
+
+
+
+    .hero-content h1{
+
+
+        font-size:32px;
+
+
+    }
+
+
+
+
+
+    .search-box{
+
+
+        flex-direction:column;
+
+
+    }
+
+
+
+
+
+    .ai-banner{
+
+
+        flex-direction:column;
+
+        text-align:center;
+
+
+    }
+
+
+
+
+
+    .ai-banner button{
+
+
+        margin:auto;
+
+
+    }
+
+
+
+
+
+    .category-container,
+    .companies-container,
+    .tips-container{
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+
+
+
+    .newsletter-box{
+
+
+        flex-direction:column;
+
+
+    }
+
+
+
+
+
+    .newsletter-box input{
+
+
+        width:100%;
+
+
+    }
+
+
+
+
+
+    .footer-content{
+
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+
+    }
+
+
+
+
+
+    .job-actions{
+
+
+        flex-direction:column;
+
+
+    }
+
+
+
+}

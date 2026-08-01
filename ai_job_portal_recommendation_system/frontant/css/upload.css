@@ -1,0 +1,1426 @@
+/*==================================================
+            AI JOB PORTAL
+               UPLOAD PAGE
+               CSS - PART 1
+==================================================*/
+
+
+/*==================================
+            GOOGLE FONT
+==================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/*==================================
+            ROOT VARIABLES
+==================================*/
+
+:root{
+
+    --primary:#2563eb;
+    --secondary:#4f46e5;
+    --success:#22c55e;
+    --warning:#f59e0b;
+    --danger:#ef4444;
+
+    --bg:#f4f7fc;
+    --white:#ffffff;
+
+    --text:#1e293b;
+    --text-light:#64748b;
+
+    --border:#e2e8f0;
+
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+
+    --radius:20px;
+
+}
+
+
+
+/*==================================
+            RESET
+==================================*/
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+}
+
+img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+
+
+/*==================================
+            SCROLLBAR
+==================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#e5e7eb;
+
+}
+
+
+
+/*==================================
+            NAVBAR
+==================================*/
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    width:100%;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(10px);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 7%;
+
+    box-shadow:var(--shadow);
+
+    z-index:1000;
+
+}
+
+.logo h2{
+
+    color:var(--primary);
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+.navbar nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+}
+
+.navbar nav a{
+
+    color:var(--text-light);
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.navbar nav a:hover,
+
+.navbar nav a.active{
+
+    color:var(--primary);
+
+}
+
+.navbar button{
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    color:#fff;
+
+    padding:12px 28px;
+
+    border-radius:35px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.navbar button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+
+/*==================================
+            HERO SECTION
+==================================*/
+
+.hero{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:60px;
+
+    min-height:650px;
+
+    padding:90px 8%;
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    color:#ffffff;
+
+}
+
+.hero-content{
+
+    flex:1;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:10px 22px;
+
+    background:rgba(255,255,255,.18);
+
+    border-radius:40px;
+
+    margin-bottom:25px;
+
+}
+
+.hero-content h1{
+
+    font-size:58px;
+
+    margin-bottom:20px;
+
+    line-height:1.2;
+
+}
+
+.hero-content p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.hero-buttons button{
+
+    padding:15px 30px;
+
+    border-radius:35px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.hero-buttons button:first-child{
+
+    background:#fff;
+
+    color:var(--primary);
+
+}
+
+.hero-buttons button:last-child{
+
+    background:transparent;
+
+    border:2px solid #fff;
+
+    color:#fff;
+
+}
+
+.hero-buttons button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.hero-image{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.hero-image img{
+
+    max-width:500px;
+
+}
+
+
+
+/*==================================
+        STATS SECTION
+==================================*/
+
+.stats-section{
+
+    width:90%;
+
+    margin:70px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.stat-card{
+
+    background:#fff;
+
+    padding:35px;
+
+    text-align:center;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.stat-card h2{
+
+    font-size:38px;
+
+    color:var(--primary);
+
+    margin-bottom:10px;
+
+}
+
+.stat-card p{
+
+    color:var(--text-light);
+
+}
+
+
+
+/*==================================
+        SECTION TITLE
+==================================*/
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+.section-title h2{
+
+    font-size:38px;
+
+    margin-bottom:15px;
+
+}
+
+.section-title p{
+
+    color:var(--text-light);
+
+    font-size:17px;
+
+}
+
+
+
+/*==================================
+        UPLOAD SECTION
+==================================*/
+
+.upload-section{
+
+    width:90%;
+
+    margin:70px auto;
+
+}
+
+.upload-card{
+
+    background:#fff;
+
+    padding:45px;
+
+    border-radius:var(--radius);
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.upload-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.upload-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:0 auto 25px;
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#fff;
+
+    font-size:34px;
+
+}
+
+.upload-card h3{
+
+    margin-bottom:12px;
+
+    font-size:28px;
+
+}
+
+.upload-card p{
+
+    color:var(--text-light);
+
+    margin-bottom:25px;
+
+}
+
+.upload-card input[type="file"]{
+
+    width:100%;
+
+    padding:16px;
+
+    border:2px dashed var(--primary);
+
+    border-radius:14px;
+
+    margin-bottom:25px;
+
+    background:#f8fbff;
+
+}
+
+.upload-card button{
+
+    padding:14px 34px;
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    color:#fff;
+
+    border-radius:35px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.upload-card button:hover{
+
+    transform:translateY(-4px);
+
+}
+/*==================================================
+            AI JOB PORTAL
+              UPLOAD PAGE
+              CSS - PART 2
+==================================================*/
+
+
+/*==================================
+            FORM GROUP
+==================================*/
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    text-align:left;
+
+    margin-bottom:25px;
+
+}
+
+.form-group label{
+
+    font-size:16px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+    color:var(--text);
+
+}
+
+.form-group input{
+
+    width:100%;
+
+    padding:16px 18px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+
+    background:#ffffff;
+
+}
+
+.form-group input:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+.form-group input::placeholder{
+
+    color:#94a3b8;
+
+}
+
+
+
+/*==================================
+        UPLOAD CARD EFFECTS
+==================================*/
+
+.upload-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.upload-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+
+    left:-100%;
+
+    width:220px;
+
+    height:220px;
+
+    background:rgba(37,99,235,.05);
+
+    border-radius:50%;
+
+    transition:.6s;
+
+}
+
+.upload-card:hover::before{
+
+    top:-60px;
+
+    left:-60px;
+
+}
+
+
+
+/*==================================
+          FILE INPUT
+==================================*/
+
+.upload-card input[type="file"]{
+
+    cursor:pointer;
+
+}
+
+.upload-card input[type="file"]::-webkit-file-upload-button{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    margin-right:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.upload-card input[type="file"]::-webkit-file-upload-button:hover{
+
+    background:var(--secondary);
+
+}
+
+
+
+/*==================================
+        PROGRESS SECTION
+==================================*/
+
+.progress-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+.progress-card{
+
+    background:#ffffff;
+
+    padding:40px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+.progress-card label{
+
+    display:block;
+
+    margin:18px 0 8px;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+progress{
+
+    width:100%;
+
+    height:16px;
+
+    border:none;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+progress::-webkit-progress-bar{
+
+    background:#e5e7eb;
+
+    border-radius:20px;
+
+}
+
+progress::-webkit-progress-value{
+
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+
+    border-radius:20px;
+
+}
+
+
+
+/*==================================
+        BUTTONS
+==================================*/
+
+.upload-card button{
+
+    box-shadow:0 10px 20px rgba(37,99,235,.18);
+
+}
+
+.upload-card button:hover{
+
+    box-shadow:0 18px 35px rgba(37,99,235,.25);
+
+}
+
+
+
+/*==================================
+        SECTION ANIMATION
+==================================*/
+
+.upload-section,
+
+.progress-section{
+
+    animation:fadeUp .8s ease;
+
+}
+
+
+
+/*==================================
+        TITLE UNDERLINE
+==================================*/
+
+.section-title h2{
+
+    position:relative;
+
+}
+
+.section-title h2::after{
+
+    content:"";
+
+    width:80px;
+
+    height:4px;
+
+    display:block;
+
+    margin:12px auto 0;
+
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+
+    border-radius:20px;
+
+}
+
+
+
+/*==================================
+        HOVER EFFECT
+==================================*/
+
+.upload-card:hover{
+
+    box-shadow:0 18px 40px rgba(0,0,0,.12);
+
+}
+
+
+
+/*==================================
+          ANIMATION
+==================================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/*==================================
+      SMOOTH TRANSITIONS
+==================================*/
+
+*{
+
+    transition:
+
+        background .3s,
+
+        color .3s,
+
+        border .3s,
+
+        transform .3s,
+
+        box-shadow .3s;
+
+}
+/*==================================================
+            AI JOB PORTAL
+               UPLOAD PAGE
+               CSS - PART 3
+==================================================*/
+
+
+/*==================================
+        RECENT UPLOADS
+==================================*/
+
+.recent-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+.recent-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+.recent-card{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.recent-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.recent-card i{
+
+    font-size:50px;
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.recent-card h3{
+
+    margin-bottom:12px;
+
+}
+
+.recent-card p{
+
+    color:var(--text-light);
+
+    margin-bottom:18px;
+
+}
+
+
+
+/*==================================
+        STATUS BADGES
+==================================*/
+
+.success-badge,
+
+.pending-badge{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.success-badge{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}
+
+.pending-badge{
+
+    background:#fef3c7;
+
+    color:#b45309;
+
+}
+
+
+
+
+
+/*==================================
+        AI SECTION
+==================================*/
+
+.ai-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+.ai-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+
+}
+
+.ai-card{
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    color:#ffffff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    transition:.35s;
+
+}
+
+.ai-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.ai-card h3{
+
+    margin-bottom:18px;
+
+}
+
+.ai-card p{
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+/*==================================
+        GUIDELINES
+==================================*/
+
+.guidelines-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+.guideline-card{
+
+    background:#ffffff;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.guideline-card ul{
+
+    padding-left:25px;
+
+}
+
+.guideline-card li{
+
+    margin:18px 0;
+
+    color:var(--text);
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+/*==================================
+        CLOUD SYNC
+==================================*/
+
+.sync-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+.sync-card{
+
+    background:linear-gradient(135deg,#1d4ed8,#2563eb);
+
+    color:#ffffff;
+
+    text-align:center;
+
+    padding:45px;
+
+    border-radius:20px;
+
+}
+
+.sync-card h2{
+
+    margin-bottom:15px;
+
+}
+
+.sync-card p{
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
+
+.sync-card button{
+
+    background:#ffffff;
+
+    color:var(--primary);
+
+    padding:14px 30px;
+
+    border-radius:35px;
+
+    font-weight:600;
+
+}
+
+.sync-card button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+
+
+
+/*==================================
+        HELP SECTION
+==================================*/
+
+.help-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+.help-card{
+
+    background:#ffffff;
+
+    text-align:center;
+
+    padding:45px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.help-card h2{
+
+    margin-bottom:18px;
+
+}
+
+.help-card p{
+
+    color:var(--text-light);
+
+    margin-bottom:25px;
+
+}
+
+.help-card button{
+
+    padding:14px 34px;
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    color:#ffffff;
+
+    border:none;
+
+    border-radius:35px;
+
+    font-weight:600;
+
+}
+
+.help-card button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+
+
+
+/*==================================
+            FOOTER
+==================================*/
+
+.footer{
+
+    margin-top:90px;
+
+    background:#0f172a;
+
+    color:#ffffff;
+
+    padding:60px 8% 25px;
+
+}
+
+.footer-content{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:40px;
+
+}
+
+.footer h3{
+
+    margin-bottom:20px;
+
+}
+
+.footer p{
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+    margin-bottom:10px;
+
+}
+
+.footer a{
+
+    display:block;
+
+    color:#cbd5e1;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+.footer a:hover{
+
+    color:#ffffff;
+
+    padding-left:6px;
+
+}
+
+.footer-bottom{
+
+    margin-top:35px;
+
+    border-top:1px solid #334155;
+
+    text-align:center;
+
+    padding-top:20px;
+
+    color:#94a3b8;
+
+}
+
+
+
+
+
+/*==================================
+        RESPONSIVE
+==================================*/
+
+@media(max-width:1100px){
+
+    .stats-section,
+
+    .recent-grid,
+
+    .ai-grid,
+
+    .footer-content{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        padding:20px;
+
+    }
+
+    .navbar nav{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .hero-content h1{
+
+        font-size:42px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .stats-section,
+
+    .recent-grid,
+
+    .ai-grid,
+
+    .footer-content{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .upload-card,
+
+    .progress-card,
+
+    .guideline-card,
+
+    .sync-card,
+
+    .help-card{
+
+        padding:25px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .hero{
+
+        padding:60px 20px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:34px;
+
+    }
+
+    .section-title h2{
+
+        font-size:30px;
+
+    }
+
+    .stat-card{
+
+        padding:25px;
+
+    }
+
+}

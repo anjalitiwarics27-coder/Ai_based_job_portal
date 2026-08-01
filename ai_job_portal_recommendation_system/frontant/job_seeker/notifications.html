@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notifications | AI Job Portal</title>
+
+    <link rel="stylesheet" href="../css/notifications.css">
+
+</head>
+
+
+<body>
+
+
+
+<!-- ==========================
+            NAVBAR
+========================== -->
+
+
+<header class="navbar">
+
+
+    <div class="logo">
+
+        <h2>
+            AI Job Portal
+        </h2>
+
+    </div>
+
+
+
+    <nav>
+
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+
+        <a href="jobs.html">
+            Jobs
+        </a>
+
+
+        <a href="notifications.html" class="active">
+            Notifications
+        </a>
+
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+
+        <a href="interview_prep.html">
+            Interview Prep
+        </a>
+
+
+        <button onclick="logout()">
+            Logout
+        </button>
+
+
+    </nav>
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+        HERO SECTION
+========================== -->
+
+
+<section class="notification-hero">
+
+
+    <div class="hero-content">
+
+
+        <h1>
+            Never Miss Important Career Updates
+        </h1>
+
+
+
+        <p>
+
+            Get instant notifications about new job
+            opportunities, application status,
+            interview schedules and AI recommendations.
+
+        </p>
+
+
+
+
+        <button 
+        class="mark-btn"
+        onclick="markAllRead()">
+
+
+            Mark All Notifications Read
+
+
+        </button>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="hero-image">
+
+
+        <div class="bell-animation">
+
+            🔔
+
+        </div>
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+      NOTIFICATION SUMMARY
+========================== -->
+
+
+<section class="notification-summary">
+
+
+
+    <div class="summary-card">
+
+
+        <div class="summary-icon">
+
+            💼
+
+        </div>
+
+
+
+        <div class="summary-content">
+
+
+            <h3>
+                Job Alerts
+            </h3>
+
+
+            <p id="jobAlertCount">
+                12 New Opportunities
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="summary-card">
+
+
+        <div class="summary-icon">
+
+            📄
+
+        </div>
+
+
+
+        <div class="summary-content">
+
+
+            <h3>
+                Applications
+            </h3>
+
+
+            <p id="applicationCount">
+                5 Status Updates
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="summary-card">
+
+
+        <div class="summary-icon">
+
+            🤖
+
+        </div>
+
+
+
+        <div class="summary-content">
+
+
+            <h3>
+                AI Recommendations
+            </h3>
+
+
+            <p id="aiRecommendationCount">
+                8 New Matches
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="summary-card">
+
+
+        <div class="summary-icon">
+
+            🎤
+
+        </div>
+
+
+
+        <div class="summary-content">
+
+
+            <h3>
+                Interviews
+            </h3>
+
+
+            <p id="interviewCount">
+                2 Upcoming
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+       NOTIFICATION SECTION
+========================== -->
+
+
+<section class="notification-section">
+
+
+
+    <div class="section-header">
+
+
+        <h2>
+            Latest Notifications
+        </h2>
+
+
+
+
+        <div class="notification-filter">
+
+
+            <button class="filter-active">
+
+                All
+
+            </button>
+
+
+
+            <button>
+
+                Jobs
+
+            </button>
+
+
+
+            <button>
+
+                Applications
+
+            </button>
+
+
+
+            <button>
+
+                Interviews
+
+            </button>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+<!-- Part 2 Continue Here -->
+     
+
+
+
+    <!-- ==========================
+          NOTIFICATION CARDS
+    =========================== -->
+
+
+    <div class="notification-list">
+
+
+
+
+
+
+
+        <!-- JOB ALERT NOTIFICATION -->
+
+
+        <div class="notification-card unread">
+
+
+
+            <div class="notification-icon job-icon">
+
+                💼
+
+            </div>
+
+
+
+
+            <div class="notification-content">
+
+
+                <div class="notification-top">
+
+
+                    <h3>
+
+                        New Job Match Found
+
+                    </h3>
+
+
+
+                    <span>
+
+                        10 min ago
+
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <p>
+
+                    AI has found a new opportunity
+                    matching your profile.
+
+                </p>
+
+
+
+
+
+                <div class="job-notification-info">
+
+
+                    <strong>
+
+                        AI Engineer - Google
+
+                    </strong>
+
+
+                    <span>
+
+                        92% Profile Match
+
+                    </span>
+
+
+                </div>
+
+
+
+
+
+                <div class="notification-actions">
+
+
+                    <button>
+
+                        View Job
+
+                    </button>
+
+
+
+                    <button class="read-btn">
+
+                        Mark Read
+
+                    </button>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- APPLICATION STATUS -->
+
+
+        <div class="notification-card">
+
+
+
+            <div class="notification-icon application-icon">
+
+                📄
+
+            </div>
+
+
+
+
+            <div class="notification-content">
+
+
+                <div class="notification-top">
+
+
+                    <h3>
+
+                        Application Status Updated
+
+                    </h3>
+
+
+
+                    <span>
+
+                        2 hours ago
+
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <p>
+
+                    Your application for Full Stack
+                    Developer position has been reviewed.
+
+                </p>
+
+
+
+
+
+                <div class="status-box success">
+
+
+                    ✓ Shortlisted for Interview
+
+
+                </div>
+
+
+
+
+
+                <div class="notification-actions">
+
+
+                    <button>
+
+                        View Application
+
+                    </button>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- INTERVIEW NOTIFICATION -->
+
+
+        <div class="notification-card unread">
+
+
+
+            <div class="notification-icon interview-icon">
+
+                🎤
+
+            </div>
+
+
+
+
+            <div class="notification-content">
+
+
+                <div class="notification-top">
+
+
+                    <h3>
+
+                        Interview Scheduled
+
+                    </h3>
+
+
+
+                    <span>
+
+                        Yesterday
+
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <p>
+
+                    Your technical interview has been
+                    scheduled with Microsoft.
+
+                </p>
+
+
+
+
+
+                <div class="interview-details">
+
+
+                    <p>
+
+                        📅 Date:
+                        15 July 2026
+
+                    </p>
+
+
+
+                    <p>
+
+                        ⏰ Time:
+                        11:00 AM
+
+                    </p>
+
+
+
+                    <p>
+
+                        🌐 Mode:
+                        Online Interview
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="notification-actions">
+
+
+                    <button>
+
+                        Prepare Now
+
+                    </button>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- AI RECOMMENDATION -->
+
+
+        <div class="notification-card">
+
+
+
+            <div class="notification-icon ai-icon">
+
+                🤖
+
+            </div>
+
+
+
+
+            <div class="notification-content">
+
+
+                <div class="notification-top">
+
+
+                    <h3>
+
+                        AI Career Recommendation
+
+                    </h3>
+
+
+
+                    <span>
+
+                        1 day ago
+
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <p>
+
+                    Based on your skills, AI suggests
+                    improving your Machine Learning
+                    and Cloud Computing skills.
+
+                </p>
+
+
+
+
+
+                <div class="recommendation-tags">
+
+
+                    <span>
+
+                        Python
+
+                    </span>
+
+
+                    <span>
+
+                        ML
+
+                    </span>
+
+
+                    <span>
+
+                        AWS
+
+                    </span>
+
+
+                </div>
+
+
+
+
+
+                <div class="notification-actions">
+
+
+                    <button>
+
+                        Start Learning
+
+                    </button>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <!-- COMPANY MESSAGE -->
+
+
+        <div class="notification-card">
+
+
+
+            <div class="notification-icon company-icon">
+
+                🏢
+
+            </div>
+
+
+
+
+            <div class="notification-content">
+
+
+                <div class="notification-top">
+
+
+                    <h3>
+
+                        Company Message
+
+                    </h3>
+
+
+
+                    <span>
+
+                        3 days ago
+
+                    </span>
+
+
+
+                </div>
+
+
+
+
+
+                <p>
+
+                    A recruiter from Amazon viewed
+                    your profile.
+
+                </p>
+
+
+
+
+
+                <div class="notification-actions">
+
+
+                    <button>
+
+                        View Profile Activity
+
+                    </button>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+<!-- Part 3 Continue Here -->
+ 
+
+
+
+
+
+
+
+<!-- ==========================
+      NOTIFICATION SETTINGS
+========================== -->
+
+
+<section class="notification-settings">
+
+
+
+    <div class="settings-header">
+
+
+        <h2>
+
+            Notification Settings
+
+        </h2>
+
+
+
+        <p>
+
+            Manage how you receive career updates.
+
+        </p>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="settings-container">
+
+
+
+
+
+
+        <div class="setting-card">
+
+
+            <div>
+
+
+                <h3>
+
+                    Job Recommendations
+
+                </h3>
+
+
+
+                <p>
+
+                    Receive AI-based job suggestions.
+
+                </p>
+
+
+            </div>
+
+
+
+
+            <label class="switch">
+
+
+                <input 
+                type="checkbox"
+                checked>
+
+
+
+                <span class="slider"></span>
+
+
+            </label>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="setting-card">
+
+
+            <div>
+
+
+                <h3>
+
+                    Application Updates
+
+                </h3>
+
+
+
+                <p>
+
+                    Get updates about your job applications.
+
+                </p>
+
+
+            </div>
+
+
+
+
+            <label class="switch">
+
+
+                <input 
+                type="checkbox"
+                checked>
+
+
+
+                <span class="slider"></span>
+
+
+            </label>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="setting-card">
+
+
+            <div>
+
+
+                <h3>
+
+                    Interview Reminders
+
+                </h3>
+
+
+
+                <p>
+
+                    Receive reminders before interviews.
+
+                </p>
+
+
+            </div>
+
+
+
+
+            <label class="switch">
+
+
+                <input 
+                type="checkbox"
+                checked>
+
+
+
+                <span class="slider"></span>
+
+
+            </label>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="setting-card">
+
+
+            <div>
+
+
+                <h3>
+
+                    Email Notifications
+
+                </h3>
+
+
+
+                <p>
+
+                    Receive important updates through email.
+
+                </p>
+
+
+            </div>
+
+
+
+
+            <label class="switch">
+
+
+                <input 
+                type="checkbox">
+
+
+
+                <span class="slider"></span>
+
+
+            </label>
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+       NOTIFICATION ACTIONS
+========================== -->
+
+
+<section class="notification-actions-section">
+
+
+
+    <button 
+    class="clear-btn"
+    onclick="clearNotifications()">
+
+
+
+        Clear All Notifications
+
+
+
+    </button>
+
+
+
+
+    <button 
+    class="save-btn"
+    onclick="saveSettings()">
+
+
+
+        Save Settings
+
+
+
+    </button>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+             FOOTER
+========================== -->
+
+
+<footer class="footer">
+
+
+
+    <div class="footer-content">
+
+
+
+
+
+        <div>
+
+
+            <h3>
+
+                AI Job Portal
+
+            </h3>
+
+
+            <p>
+
+                Smart platform connecting
+                candidates with opportunities.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div>
+
+
+            <h3>
+
+                Quick Links
+
+            </h3>
+
+
+
+            <a href="dashboard.html">
+
+                Dashboard
+
+            </a>
+
+
+
+            <a href="jobs.html">
+
+                Jobs
+
+            </a>
+
+
+
+            <a href="interview_prep.html">
+
+                Interview Prep
+
+            </a>
+
+
+
+        </div>
+
+
+
+
+
+
+
+        <div>
+
+
+            <h3>
+
+                Support
+
+            </h3>
+
+
+
+            <p>
+
+                support@aijobportal.com
+
+            </p>
+
+
+
+            <p>
+
+                Help Center
+
+            </p>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <p class="copyright">
+
+
+        © 2026 AI Job Portal |
+        All Rights Reserved
+
+
+    </p>
+
+
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+       JAVASCRIPT LINK
+========================== -->
+
+
+<script src="../js/notifications.js"></script>
+
+
+
+
+
+
+
+</body>
+
+
+</html>
+

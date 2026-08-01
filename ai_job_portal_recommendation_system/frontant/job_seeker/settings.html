@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | AI Job Portal</title>
+
+    <link rel="stylesheet"
+          href="../css/settings.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+
+
+<!-- ==========================================
+                NAVBAR
+========================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <h2>AI Job Portal</h2>
+
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <a href="jobs.html">Jobs</a>
+
+        <a href="saved_jobs.html">Saved Jobs</a>
+
+        <a href="profile.html">Profile</a>
+
+        <a href="settings.html"
+           class="active">
+
+            Settings
+
+        </a>
+
+        <button onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+
+
+<!-- ==========================================
+                HERO SECTION
+========================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+
+            ⚙️ Personalize Your Experience
+
+        </span>
+
+        <h1>
+
+            Account Settings
+
+        </h1>
+
+        <p>
+
+            Manage your account preferences, privacy,
+            AI recommendations, notifications,
+            security and personalize your
+            AI Job Portal experience.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <button onclick="scrollToSettings()">
+
+                Open Settings
+
+            </button>
+
+            <button onclick="location.href='dashboard.html'">
+
+                Back to Dashboard
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="hero-image">
+
+        <img src="assets/settings.png"
+             alt="Settings">
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            ACCOUNT OVERVIEW
+========================================== -->
+
+<section class="stats-section">
+
+    <div class="stat-card">
+
+        <h2>
+
+            100%
+
+        </h2>
+
+        <p>
+
+            Profile Completion
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="stat-card">
+
+        <h2>
+
+            15
+
+        </h2>
+
+        <p>
+
+            Active Applications
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="stat-card">
+
+        <h2>
+
+            96%
+
+        </h2>
+
+        <p>
+
+            AI Resume Score
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="stat-card">
+
+        <h2>
+
+            Verified
+
+        </h2>
+
+        <p>
+
+            Account Status
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            ACCOUNT SETTINGS
+========================================== -->
+
+<section class="settings-section"
+         id="settingsSection">
+
+    <div class="section-title">
+
+        <h2>
+
+            Account Information
+
+        </h2>
+
+        <p>
+
+            Update your personal information and keep your profile up to date.
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="settings-card">
+
+        <div class="form-group">
+
+            <label>
+
+                Full Name
+
+            </label>
+
+            <input type="text"
+                   placeholder="Enter your full name">
+
+        </div>
+
+
+
+
+
+        <div class="form-group">
+
+            <label>
+
+                Email Address
+
+            </label>
+
+            <input type="email"
+                   placeholder="Enter your email">
+
+        </div>
+
+
+
+
+
+        <div class="form-group">
+
+            <label>
+
+                Phone Number
+
+            </label>
+
+            <input type="tel"
+                   placeholder="+91 XXXXXXXXXX">
+
+        </div>
+
+
+
+
+
+        <div class="form-group">
+
+            <label>
+
+                Current Location
+
+            </label>
+
+            <input type="text"
+                   placeholder="City, State">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        PART 2 STARTS HERE
+========================================== -->
+<!-- ==========================================
+        PRIVACY & SECURITY
+========================================== -->
+
+<section class="settings-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Privacy & Security
+
+        </h2>
+
+        <p>
+
+            Protect your account and control your privacy settings.
+
+        </p>
+
+    </div>
+
+    <div class="settings-card">
+
+        <div class="form-group">
+
+            <label>
+
+                Current Password
+
+            </label>
+
+            <input type="password"
+                   placeholder="Enter current password">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+
+                New Password
+
+            </label>
+
+            <input type="password"
+                   placeholder="Enter new password">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+
+                Confirm Password
+
+            </label>
+
+            <input type="password"
+                   placeholder="Confirm new password">
+
+        </div>
+
+        <div class="toggle-group">
+
+            <label>
+
+                Enable Two-Factor Authentication
+
+            </label>
+
+            <input type="checkbox">
+
+        </div>
+
+        <div class="toggle-group">
+
+            <label>
+
+                Login Alerts
+
+            </label>
+
+            <input type="checkbox"
+                   checked>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        NOTIFICATION SETTINGS
+========================================== -->
+
+<section class="settings-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Notification Preferences
+
+        </h2>
+
+        <p>
+
+            Choose which notifications you want to receive.
+
+        </p>
+
+    </div>
+
+    <div class="settings-card">
+
+        <div class="toggle-group">
+
+            <label>
+
+                Job Recommendations
+
+            </label>
+
+            <input type="checkbox"
+                   checked>
+
+        </div>
+
+        <div class="toggle-group">
+
+            <label>
+
+                Application Status Updates
+
+            </label>
+
+            <input type="checkbox"
+                   checked>
+
+        </div>
+
+        <div class="toggle-group">
+
+            <label>
+
+                Interview Invitations
+
+            </label>
+
+            <input type="checkbox"
+                   checked>
+
+        </div>
+
+        <div class="toggle-group">
+
+            <label>
+
+                Marketing Emails
+
+            </label>
+
+            <input type="checkbox">
+
+        </div>
+
+        <div class="toggle-group">
+
+            <label>
+
+                Weekly Career Tips
+
+            </label>
+
+            <input type="checkbox"
+                   checked>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        APPEARANCE & LANGUAGE
+========================================== -->
+
+<section class="settings-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Appearance & Language
+
+        </h2>
+
+    </div>
+
+    <div class="settings-card">
+
+        <div class="form-group">
+
+            <label>
+
+                Theme
+
+            </label>
+
+            <select>
+
+                <option>Light Theme</option>
+
+                <option>Dark Theme</option>
+
+                <option>System Default</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+
+                Language
+
+            </label>
+
+            <select>
+
+                <option>English</option>
+
+                <option>Hindi</option>
+
+                <option>French</option>
+
+                <option>German</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+
+                Time Zone
+
+            </label>
+
+            <select>
+
+                <option>Asia/Kolkata</option>
+
+                <option>UTC</option>
+
+                <option>America/New_York</option>
+
+                <option>Europe/London</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        AI PREFERENCES
+========================================== -->
+
+<section class="settings-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            AI Preferences
+
+        </h2>
+
+        <p>
+
+            Customize how AI recommends jobs and analyzes your profile.
+
+        </p>
+
+    </div>
+
+    <div class="settings-card">
+
+        <div class="toggle-group">
+
+            <label>
+
+                Enable AI Job Recommendations
+
+            </label>
+
+            <input type="checkbox"
+                   checked>
+
+        </div>
+
+        <div class="toggle-group">
+
+            <label>
+
+                AI Resume Analysis
+
+            </label>
+
+            <input type="checkbox"
+                   checked>
+
+        </div>
+
+        <div class="toggle-group">
+
+            <label>
+
+                AI Interview Suggestions
+
+            </label>
+
+            <input type="checkbox"
+                   checked>
+
+        </div>
+
+        <div class="toggle-group">
+
+            <label>
+
+                AI Career Insights
+
+            </label>
+
+            <input type="checkbox"
+                   checked>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        CONNECTED ACCOUNTS
+========================================== -->
+
+<section class="settings-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Connected Accounts
+
+        </h2>
+
+        <p>
+
+            Connect your professional accounts for faster job applications.
+
+        </p>
+
+    </div>
+
+    <div class="settings-card">
+
+        <div class="account-item">
+
+            <span>💼 LinkedIn</span>
+
+            <button>
+
+                Connect
+
+            </button>
+
+        </div>
+
+        <div class="account-item">
+
+            <span>💻 GitHub</span>
+
+            <button>
+
+                Connect
+
+            </button>
+
+        </div>
+
+        <div class="account-item">
+
+            <span>📧 Google</span>
+
+            <button>
+
+                Connected
+
+            </button>
+
+        </div>
+
+        <div class="account-item">
+
+            <span>☁️ Microsoft</span>
+
+            <button>
+
+                Connect
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        PART 3 STARTS HERE
+========================================== -->
+<!-- ==========================================
+        RESUME VISIBILITY
+========================================== -->
+
+<section class="settings-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Resume Visibility
+
+        </h2>
+
+        <p>
+
+            Control who can view your resume and profile.
+
+        </p>
+
+    </div>
+
+    <div class="settings-card">
+
+        <div class="form-group">
+
+            <label>
+
+                Resume Visibility
+
+            </label>
+
+            <select id="resumeVisibility">
+
+                <option>Visible to All Recruiters</option>
+
+                <option>Only Applied Companies</option>
+
+                <option>Private</option>
+
+            </select>
+
+        </div>
+
+        <div class="toggle-group">
+
+            <label>
+
+                Allow Recruiters to Contact Me
+
+            </label>
+
+            <input type="checkbox" checked>
+
+        </div>
+
+        <div class="toggle-group">
+
+            <label>
+
+                Show Profile in AI Recommendations
+
+            </label>
+
+            <input type="checkbox" checked>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        DATA & ACCOUNT
+========================================== -->
+
+<section class="settings-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Data & Account Management
+
+        </h2>
+
+        <p>
+
+            Download your data or permanently delete your account.
+
+        </p>
+
+    </div>
+
+    <div class="settings-card action-buttons">
+
+        <button class="secondary-btn"
+                onclick="downloadData()">
+
+            📥 Download My Data
+
+        </button>
+
+        <button class="secondary-btn"
+                onclick="exportResume()">
+
+            📄 Export Resume
+
+        </button>
+
+        <button class="danger-btn"
+                onclick="deleteAccount()">
+
+            🗑 Delete Account
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        SAVE SETTINGS
+========================================== -->
+
+<section class="save-section">
+
+    <button class="save-btn"
+            onclick="saveSettings()">
+
+        💾 Save All Changes
+
+    </button>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        HELP & SUPPORT
+========================================== -->
+
+<section class="help-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Help & Support
+
+        </h2>
+
+        <p>
+
+            Need assistance? Our support team is here to help.
+
+        </p>
+
+    </div>
+
+    <div class="help-grid">
+
+        <div class="help-card">
+
+            <h3>📘 Help Center</h3>
+
+            <p>
+
+                Browse guides and FAQs to quickly solve common issues.
+
+            </p>
+
+        </div>
+
+        <div class="help-card">
+
+            <h3>💬 Live Chat</h3>
+
+            <p>
+
+                Chat with our support team for instant assistance.
+
+            </p>
+
+        </div>
+
+        <div class="help-card">
+
+            <h3>📧 Contact Support</h3>
+
+            <p>
+
+                Email us at <strong>support@aijobportal.com</strong>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+                FOOTER
+========================================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+
+                AI Job Portal
+
+            </h3>
+
+            <p>
+
+                Empowering students and professionals with AI-powered career guidance, job discovery and smarter hiring solutions.
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <h3>
+
+                Quick Links
+
+            </h3>
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="jobs.html">Jobs</a>
+
+            <a href="saved_jobs.html">Saved Jobs</a>
+
+            <a href="profile.html">Profile</a>
+
+            <a href="settings.html">Settings</a>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <h3>
+
+                Contact
+
+            </h3>
+
+            <p>📧 support@aijobportal.com</p>
+
+            <p>📞 +91 XXXXX XXXXX</p>
+
+            <p>🌐 www.aijobportal.com</p>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 AI Job Portal. All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+
+
+<!-- ==========================================
+            JAVASCRIPT
+========================================== -->
+
+<script src="../js/settings.js"></script>
+
+</body>
+
+</html>
+

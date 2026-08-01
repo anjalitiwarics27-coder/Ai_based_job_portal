@@ -1,0 +1,1270 @@
+/*==================================================
+        AI JOB PORTAL
+            SETTINGS PAGE
+                PART 1
+==================================================*/
+
+
+/*==================================
+        GOOGLE FONT
+==================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/*==================================
+        ROOT VARIABLES
+==================================*/
+
+:root{
+
+    --primary:#2563eb;
+    --secondary:#4f46e5;
+    --success:#22c55e;
+    --danger:#ef4444;
+    --warning:#f59e0b;
+
+    --white:#ffffff;
+    --light:#f8fafc;
+    --border:#e2e8f0;
+
+    --text:#1e293b;
+    --text-light:#64748b;
+
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+    --radius:20px;
+
+}
+
+
+/*==================================
+        GLOBAL RESET
+==================================*/
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:#f5f7fb;
+    color:var(--text);
+    overflow-x:hidden;
+
+}
+
+img{
+
+    max-width:100%;
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+button{
+
+    cursor:pointer;
+    border:none;
+
+}
+
+
+/*==================================
+        SCROLLBAR
+==================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#edf2f7;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+    border-radius:50px;
+
+}
+
+
+/*==================================
+            NAVBAR
+==================================*/
+
+.navbar{
+
+    position:sticky;
+    top:0;
+
+    width:100%;
+    height:82px;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(12px);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 70px;
+
+    box-shadow:var(--shadow);
+
+    z-index:1000;
+
+}
+
+.logo h2{
+
+    color:var(--primary);
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+.navbar nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+}
+
+.navbar nav a{
+
+    color:var(--text-light);
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.navbar nav a:hover,
+
+.navbar nav a.active{
+
+    color:var(--primary);
+
+}
+
+.navbar button{
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    color:#fff;
+
+    padding:12px 28px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.navbar button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+/*==================================
+        HERO SECTION
+==================================*/
+
+.hero{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:70px;
+
+    min-height:650px;
+
+    padding:90px 8%;
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    color:#fff;
+
+}
+
+.hero-content{
+
+    flex:1;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:10px 22px;
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,.18);
+
+    margin-bottom:25px;
+
+    font-size:15px;
+
+}
+
+.hero-content h1{
+
+    font-size:60px;
+
+    line-height:1.2;
+
+    margin-bottom:22px;
+
+}
+
+.hero-content p{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    opacity:.95;
+
+    margin-bottom:35px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.hero-buttons button{
+
+    padding:15px 32px;
+
+    border-radius:35px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.hero-buttons button:first-child{
+
+    background:#fff;
+
+    color:var(--primary);
+
+}
+
+.hero-buttons button:last-child{
+
+    background:transparent;
+
+    border:2px solid #fff;
+
+    color:#fff;
+
+}
+
+.hero-buttons button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.hero-image{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.hero-image img{
+
+    max-width:500px;
+
+}
+
+
+/*==================================
+        STATS SECTION
+==================================*/
+
+.stats-section{
+
+    width:90%;
+
+    margin:70px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+.stat-card{
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:var(--radius);
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.stat-card h2{
+
+    color:var(--primary);
+
+    font-size:40px;
+
+    margin-bottom:10px;
+
+}
+
+.stat-card p{
+
+    color:var(--text-light);
+
+}
+
+
+/*==================================
+        SECTION TITLE
+==================================*/
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+.section-title h2{
+
+    font-size:38px;
+
+    color:var(--text);
+
+    margin-bottom:15px;
+
+}
+
+.section-title p{
+
+    color:var(--text-light);
+
+    font-size:17px;
+
+}
+
+
+/*==================================
+        SETTINGS SECTION
+==================================*/
+
+.settings-section{
+
+    width:90%;
+
+    margin:70px auto;
+
+}
+
+.settings-card{
+
+    background:#fff;
+
+    padding:40px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:25px;
+
+}
+
+.form-group label{
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+    color:var(--text);
+
+}
+
+.form-group input,
+
+.form-group select{
+
+    padding:16px 18px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.form-group input:focus,
+
+.form-group select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+/*==================================================
+            SETTINGS PAGE CSS
+                PART 2
+==================================================*/
+
+
+/*==================================
+        TOGGLE GROUP
+==================================*/
+
+.toggle-group{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.toggle-group:last-child{
+
+    border-bottom:none;
+
+}
+
+.toggle-group label{
+
+    font-size:16px;
+
+    font-weight:500;
+
+    color:var(--text);
+
+}
+
+
+
+
+
+/*==================================
+        CHECKBOX STYLE
+==================================*/
+
+.toggle-group input[type="checkbox"]{
+
+    width:22px;
+
+    height:22px;
+
+    accent-color:var(--primary);
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+/*==================================
+      CONNECTED ACCOUNTS
+==================================*/
+
+.account-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    margin-bottom:18px;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    background:#fafcff;
+
+    transition:.3s;
+
+}
+
+.account-item:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.account-item span{
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.account-item button{
+
+    padding:10px 24px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.account-item button:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+
+/*==================================
+        SELECT BOX
+==================================*/
+
+select{
+
+    cursor:pointer;
+
+    background:#fff;
+
+}
+
+
+
+
+
+/*==================================
+      SETTINGS CARD HOVER
+==================================*/
+
+.settings-card{
+
+    transition:.35s;
+
+}
+
+.settings-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+
+
+
+
+/*==================================
+        FORM INPUTS
+==================================*/
+
+.form-group input,
+
+.form-group select{
+
+    background:#fff;
+
+    color:var(--text);
+
+}
+
+.form-group input::placeholder{
+
+    color:#94a3b8;
+
+}
+
+
+
+
+
+/*==================================
+      INPUT HOVER EFFECT
+==================================*/
+
+.form-group input:hover,
+
+.form-group select:hover{
+
+    border-color:var(--primary);
+
+}
+
+
+
+
+
+/*==================================
+      SETTINGS SECTIONS
+==================================*/
+
+.settings-section{
+
+    animation:fadeUp .8s ease;
+
+}
+
+
+
+
+
+/*==================================
+        ICON STYLE
+==================================*/
+
+.section-title h2{
+
+    position:relative;
+
+}
+
+.section-title h2::after{
+
+    content:"";
+
+    width:80px;
+
+    height:4px;
+
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+
+    display:block;
+
+    margin:12px auto 0;
+
+    border-radius:20px;
+
+}
+
+
+
+
+
+/*==================================
+      BUTTON ANIMATION
+==================================*/
+
+.account-item button,
+
+.hero-buttons button,
+
+.navbar button{
+
+    transition:.3s ease;
+
+}
+
+.account-item button:hover,
+
+.hero-buttons button:hover,
+
+.navbar button:hover{
+
+    box-shadow:0 12px 24px rgba(37,99,235,.25);
+
+}
+
+
+
+
+
+/*==================================
+       FADE UP ANIMATION
+==================================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+
+/*==================================
+        CUSTOM FOCUS
+==================================*/
+
+button:focus,
+
+input:focus,
+
+select:focus{
+
+    outline:none;
+
+}
+
+
+
+
+
+/*==================================
+      SMOOTH TRANSITIONS
+==================================*/
+
+*{
+
+    transition:
+
+        background .3s,
+
+        color .3s,
+
+        border .3s,
+
+        transform .3s,
+
+        box-shadow .3s;
+
+}
+/*==================================================
+            SETTINGS PAGE CSS
+                PART 3
+==================================================*/
+
+
+/*==================================
+      RESUME VISIBILITY
+==================================*/
+
+#resumeVisibility{
+
+    background:#ffffff;
+
+}
+
+
+
+
+
+/*==================================
+        ACTION BUTTONS
+==================================*/
+
+.action-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.secondary-btn{
+
+    background:#ffffff;
+
+    color:var(--primary);
+
+    border:2px solid var(--primary);
+
+    padding:14px 28px;
+
+    border-radius:35px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.secondary-btn:hover{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    transform:translateY(-4px);
+
+}
+
+.danger-btn{
+
+    background:var(--danger);
+
+    color:#ffffff;
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:35px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.danger-btn:hover{
+
+    background:#dc2626;
+
+    transform:translateY(-4px);
+
+}
+
+
+
+
+
+/*==================================
+        SAVE SECTION
+==================================*/
+
+.save-section{
+
+    width:90%;
+
+    margin:60px auto;
+
+    text-align:center;
+
+}
+
+.save-btn{
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    color:#ffffff;
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:40px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.save-btn:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+
+
+/*==================================
+        HELP SECTION
+==================================*/
+
+.help-section{
+
+    width:90%;
+
+    margin:70px auto;
+
+}
+
+.help-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.help-card{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:var(--radius);
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+}
+
+.help-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.help-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:18px;
+
+    font-size:22px;
+
+}
+
+.help-card p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+/*==================================
+            FOOTER
+==================================*/
+
+.footer{
+
+    margin-top:90px;
+
+    background:#0f172a;
+
+    color:#ffffff;
+
+    padding:60px 8% 25px;
+
+}
+
+.footer-content{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:40px;
+
+}
+
+.footer h3{
+
+    margin-bottom:20px;
+
+    font-size:22px;
+
+}
+
+.footer p{
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+    margin-bottom:10px;
+
+}
+
+.footer a{
+
+    display:block;
+
+    color:#cbd5e1;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+.footer a:hover{
+
+    color:#ffffff;
+
+    padding-left:6px;
+
+}
+
+.footer-bottom{
+
+    text-align:center;
+
+    margin-top:35px;
+
+    border-top:1px solid #334155;
+
+    padding-top:20px;
+
+    color:#94a3b8;
+
+}
+
+
+
+
+
+/*==================================
+        RESPONSIVE
+==================================*/
+
+@media(max-width:1100px){
+
+    .stats-section,
+
+    .help-grid,
+
+    .footer-content{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:20px;
+
+        gap:20px;
+
+    }
+
+    .navbar nav{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .hero-content h1{
+
+        font-size:42px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .stats-section,
+
+    .help-grid,
+
+    .footer-content{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .action-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .secondary-btn,
+
+    .danger-btn,
+
+    .save-btn{
+
+        width:100%;
+
+        max-width:320px;
+
+    }
+
+    .settings-card{
+
+        padding:25px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .hero{
+
+        padding:60px 20px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:34px;
+
+    }
+
+    .section-title h2{
+
+        font-size:30px;
+
+    }
+
+    .stat-card{
+
+        padding:25px;
+
+    }
+
+    .help-card{
+
+        padding:25px;
+
+    }
+
+}

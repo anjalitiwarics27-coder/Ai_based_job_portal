@@ -1,0 +1,1575 @@
+/*==================================================
+        AI JOB PORTAL
+        SAVED JOBS PAGE
+        PART 1
+===================================================*/
+
+
+
+
+
+/*==========================
+        GOOGLE FONT
+==========================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+
+
+
+/*==========================
+        GLOBAL RESET
+==========================*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+
+
+body{
+
+    background:#f5f7fb;
+
+    color:#1e293b;
+
+    overflow-x:hidden;
+
+}
+
+
+
+
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+
+
+
+
+a{
+
+    text-decoration:none;
+
+}
+
+
+
+
+
+button{
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+/*==========================
+        NAVBAR
+==========================*/
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    width:100%;
+
+    height:80px;
+
+    background:#ffffff;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 70px;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+
+    z-index:1000;
+
+}
+
+
+
+
+
+.logo h2{
+
+    color:#2563eb;
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+.navbar nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+}
+
+
+
+
+
+.navbar nav a{
+
+    color:#475569;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.navbar nav a:hover,
+
+.navbar nav a.active{
+
+    color:#2563eb;
+
+}
+
+
+
+
+
+.navbar button{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+    border:none;
+
+    padding:12px 28px;
+
+    border-radius:30px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.navbar button:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
+
+/*==========================
+        HERO SECTION
+==========================*/
+
+.hero{
+
+    width:100%;
+
+    min-height:650px;
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:80px 8%;
+
+    color:#ffffff;
+
+    gap:60px;
+
+}
+
+
+
+
+
+.hero-content{
+
+    flex:1;
+
+}
+
+
+
+
+
+.badge{
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.18);
+
+    padding:10px 20px;
+
+    border-radius:40px;
+
+    margin-bottom:25px;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+
+
+
+
+.hero-content h1{
+
+    font-size:58px;
+
+    line-height:1.2;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+.hero-content p{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    opacity:.95;
+
+    margin-bottom:35px;
+
+}
+
+
+
+
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+
+
+
+
+.hero-buttons button{
+
+    padding:15px 35px;
+
+    border-radius:35px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.hero-buttons button:first-child{
+
+    background:#ffffff;
+
+    color:#2563eb;
+
+    border:none;
+
+}
+
+
+
+
+
+.hero-buttons button:last-child{
+
+    background:transparent;
+
+    border:2px solid #ffffff;
+
+    color:#ffffff;
+
+}
+
+
+
+
+
+.hero-buttons button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+
+
+
+.hero-image{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+
+
+
+.hero-image img{
+
+    width:90%;
+
+    max-width:520px;
+
+}
+
+
+
+
+
+/*==========================
+        QUICK STATS
+==========================*/
+
+.stats-section{
+
+    width:90%;
+
+    margin:70px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+.stat-card{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+
+.stat-card h2{
+
+    color:#2563eb;
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+.stat-card p{
+
+    color:#64748b;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+/*==========================
+        SECTION TITLE
+==========================*/
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+
+
+
+
+.section-title h2{
+
+    font-size:38px;
+
+    color:#1e293b;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.section-title p{
+
+    color:#64748b;
+
+    font-size:17px;
+
+}
+
+
+
+
+
+/*==========================
+        SEARCH & FILTER
+==========================*/
+
+.filter-section{
+
+    width:90%;
+
+    margin:70px auto;
+
+}
+
+
+
+
+
+.filter-container{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1fr;
+
+    gap:20px;
+
+}
+
+
+
+
+
+.filter-container input,
+
+.filter-container select{
+
+    padding:16px 18px;
+
+    border:1px solid #dbe4f0;
+
+    border-radius:12px;
+
+    outline:none;
+
+    background:#ffffff;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.filter-container input:focus,
+
+.filter-container select:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+/*==================================================
+        SAVED JOBS PAGE CSS
+                PART 2
+===================================================*/
+
+
+/*==========================
+      SAVED JOBS SECTION
+==========================*/
+
+.saved-jobs-container{
+
+    width:90%;
+
+    margin:70px auto;
+
+}
+
+.job-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
+    gap:30px;
+
+}
+
+
+
+
+
+/*==========================
+          JOB CARD
+==========================*/
+
+.job-card{
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+
+
+.job-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(37,99,235,.18);
+
+}
+
+
+
+
+
+.job-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:linear-gradient(90deg,#2563eb,#4f46e5);
+
+}
+
+
+
+
+
+/*==========================
+        JOB HEADER
+==========================*/
+
+.job-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+.job-header h3{
+
+    font-size:23px;
+
+    color:#1e293b;
+
+    margin-bottom:8px;
+
+}
+
+
+
+
+
+.job-header h4{
+
+    color:#2563eb;
+
+    font-size:18px;
+
+    margin-bottom:6px;
+
+}
+
+
+
+
+
+.job-header p{
+
+    color:#64748b;
+
+    font-size:15px;
+
+}
+
+
+
+
+
+.favorite{
+
+    background:#ffe4e6;
+
+    color:#e11d48;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+/*==========================
+        JOB DETAILS
+==========================*/
+
+.job-details{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin:22px 0;
+
+}
+
+
+
+
+
+.job-details span{
+
+    background:#eef4ff;
+
+    color:#2563eb;
+
+    padding:10px 16px;
+
+    border-radius:25px;
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
+
+
+
+
+
+/*==========================
+      DESCRIPTION
+==========================*/
+
+.description{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+/*==========================
+        ACTION BUTTONS
+==========================*/
+
+.job-actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+
+
+
+
+.job-actions button{
+
+    flex:1;
+
+    min-width:120px;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:13px 18px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.job-actions button:first-child{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+}
+
+
+
+
+
+.job-actions button:first-child:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+
+
+.job-actions button:nth-child(2){
+
+    background:#eef2ff;
+
+    color:#4338ca;
+
+}
+
+
+
+
+
+.job-actions button:nth-child(2):hover{
+
+    background:#dbeafe;
+
+}
+
+
+
+
+
+.job-actions button:last-child{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+
+
+
+
+.job-actions button:last-child:hover{
+
+    background:#fecaca;
+
+}
+
+
+
+
+
+/*==========================
+      AI INSIGHTS
+==========================*/
+
+.insight-section{
+
+    width:90%;
+
+    margin:90px auto;
+
+}
+
+
+
+
+
+.insight-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+.insight-card{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+
+
+
+
+.insight-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+
+.insight-card{
+
+    font-size:42px;
+
+}
+
+
+
+
+
+.insight-card h3{
+
+    margin:20px 0 15px;
+
+    color:#2563eb;
+
+    font-size:22px;
+
+}
+
+
+
+
+
+.insight-card p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+/*==========================
+     SMALL ANIMATION
+==========================*/
+
+.job-card,
+
+.insight-card{
+
+    animation:fadeUp .8s ease;
+
+}
+
+
+
+
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/*==================================================
+        SAVED JOBS PAGE CSS
+                PART 3
+===================================================*/
+
+
+/*==========================
+    APPLICATION PROGRESS
+==========================*/
+
+.progress-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+.progress-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.progress-card{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.progress-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.progress-card h3{
+
+    color:#1e293b;
+
+    margin-bottom:15px;
+
+}
+
+.progress-card h1{
+
+    color:#2563eb;
+
+    font-size:42px;
+
+    margin-bottom:18px;
+
+}
+
+.progress-card progress{
+
+    width:100%;
+
+    height:16px;
+
+}
+
+
+
+
+
+/*==========================
+    RECOMMENDATIONS
+==========================*/
+
+.recommendation-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+.recommendation-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.recommendation-card{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.recommendation-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.recommendation-card h3{
+
+    color:#2563eb;
+
+    margin-bottom:12px;
+
+}
+
+.recommendation-card p{
+
+    color:#64748b;
+
+    margin-bottom:10px;
+
+}
+
+.recommendation-card button{
+
+    margin-top:15px;
+
+    border:none;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:12px 28px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.recommendation-card button:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+
+
+/*==========================
+        CAREER TIPS
+==========================*/
+
+.career-tips{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+.tips-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.tip-card{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    font-size:40px;
+
+}
+
+.tip-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.tip-card h3{
+
+    margin:18px 0 12px;
+
+    color:#2563eb;
+
+    font-size:22px;
+
+}
+
+.tip-card p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+/*==========================
+      NEWSLETTER
+==========================*/
+
+.newsletter-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    color:#ffffff;
+
+    padding:60px 40px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+}
+
+.newsletter-section h2{
+
+    font-size:36px;
+
+    margin-bottom:15px;
+
+}
+
+.newsletter-section p{
+
+    margin-bottom:30px;
+
+    opacity:.95;
+
+}
+
+.newsletter-box{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.newsletter-box input{
+
+    width:420px;
+
+    max-width:100%;
+
+    padding:15px 18px;
+
+    border:none;
+
+    border-radius:35px;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+.newsletter-box button{
+
+    border:none;
+
+    background:#ffffff;
+
+    color:#2563eb;
+
+    padding:15px 30px;
+
+    border-radius:35px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.newsletter-box button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+/*==========================
+          FOOTER
+==========================*/
+
+.footer{
+
+    background:#0f172a;
+
+    color:#ffffff;
+
+    margin-top:80px;
+
+    padding:60px 8% 25px;
+
+}
+
+.footer-content{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:40px;
+
+}
+
+.footer h3{
+
+    margin-bottom:18px;
+
+}
+
+.footer p{
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+}
+
+.footer a{
+
+    display:block;
+
+    color:#cbd5e1;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+.footer a:hover{
+
+    color:#ffffff;
+
+}
+
+.copyright{
+
+    margin-top:35px;
+
+    text-align:center;
+
+    padding-top:20px;
+
+    border-top:1px solid #334155;
+
+    color:#94a3b8;
+
+}
+
+
+
+
+
+/*==========================
+      RESPONSIVE DESIGN
+==========================*/
+
+@media(max-width:1100px){
+
+    .stats-section,
+
+    .progress-container,
+
+    .recommendation-grid,
+
+    .tips-grid,
+
+    .footer-content{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:20px;
+
+        gap:20px;
+
+    }
+
+    .navbar nav{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .hero-content h1{
+
+        font-size:40px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .stats-section,
+
+    .filter-container,
+
+    .job-grid,
+
+    .insight-grid,
+
+    .progress-container,
+
+    .recommendation-grid,
+
+    .tips-grid,
+
+    .footer-content{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .newsletter-box{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .newsletter-box input,
+
+    .newsletter-box button{
+
+        width:100%;
+
+    }
+
+}

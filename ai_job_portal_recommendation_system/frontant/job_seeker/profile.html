@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | AI Job Portal</title>
+
+    <link rel="stylesheet"
+          href="../css/profile.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+<!-- ==========================================
+                NAVBAR
+========================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <h2>AI Job Portal</h2>
+
+    </div>
+
+
+
+    <nav>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <a href="jobs.html">Jobs</a>
+
+        <a href="notifications.html">Notifications</a>
+
+        <a href="profile.html" class="active">Profile</a>
+
+        <a href="interview_prep.html">Interview Prep</a>
+
+        <button onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+
+
+<!-- ==========================================
+              PROFILE HERO
+========================================== -->
+
+<section class="profile-hero">
+
+    <div class="hero-overlay">
+
+        <div class="profile-card">
+
+            <div class="profile-image-box">
+
+                <img src="assets/profile.png"
+                     alt="Profile Picture"
+                     class="profile-image">
+
+                <button class="camera-btn">
+
+                    📷
+
+                </button>
+
+            </div>
+
+
+
+            <div class="profile-details">
+
+                <h1 id="userName">
+
+                    Anjali Tiwari
+
+                </h1>
+
+                <h3>
+
+                    AI & Full Stack Developer
+
+                </h3>
+
+                <p>
+
+                    Passionate about Artificial Intelligence,
+                    Web Development,
+                    Machine Learning,
+                    Data Science and Problem Solving.
+
+                </p>
+
+
+
+                <div class="profile-meta">
+
+                    <span>📍 Greater Noida</span>
+
+                    <span>💼 Open to Work</span>
+
+                    <span>🎓 B.Tech CSE (AI/ML)</span>
+
+                </div>
+
+
+
+                <div class="profile-buttons">
+
+                    <button onclick="editProfile()">
+
+                        Edit Profile
+
+                    </button>
+
+                    <button onclick="downloadResume()">
+
+                        Download Resume
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+          PROFILE OVERVIEW
+========================================== -->
+
+<section class="profile-overview">
+
+    <div class="overview-card">
+
+        <h2>
+
+            Profile Completion
+
+        </h2>
+
+        <div class="progress-container">
+
+            <div class="progress-bar">
+
+                <div class="progress-fill"
+                     id="progressBar">
+
+                    85%
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p>
+
+            Complete your profile to increase
+            recruiter visibility.
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="overview-card">
+
+        <h2>
+
+            Resume Score
+
+        </h2>
+
+        <h1>
+
+            91%
+
+        </h1>
+
+        <p>
+
+            AI Resume Analyzer
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="overview-card">
+
+        <h2>
+
+            Job Matches
+
+        </h2>
+
+        <h1>
+
+            26
+
+        </h1>
+
+        <p>
+
+            AI Recommended Jobs
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="overview-card">
+
+        <h2>
+
+            Applications
+
+        </h2>
+
+        <h1>
+
+            12
+
+        </h1>
+
+        <p>
+
+            Successfully Applied
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+          PERSONAL INFORMATION
+========================================== -->
+
+<section class="profile-container">
+
+    <div class="left-section">
+
+        <div class="profile-box">
+
+            <h2>
+
+                Personal Information
+
+            </h2>
+
+            <div class="info-grid">
+
+                <div class="info-item">
+
+                    <label>
+
+                        Full Name
+
+                    </label>
+
+                    <p>
+
+                        Anjali Tiwari
+
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="info-item">
+
+                    <label>
+
+                        Email
+
+                    </label>
+
+                    <p>
+
+                        anjali@example.com
+
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="info-item">
+
+                    <label>
+
+                        Phone
+
+                    </label>
+
+                    <p>
+
+                        +91 XXXXX XXXXX
+
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="info-item">
+
+                    <label>
+
+                        Location
+
+                    </label>
+
+                    <p>
+
+                        Greater Noida, Uttar Pradesh
+
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="info-item">
+
+                    <label>
+
+                        Date of Birth
+
+                    </label>
+
+                    <p>
+
+                        -- / -- / ----
+
+                    </p>
+
+                </div>
+
+
+
+
+
+                <div class="info-item">
+
+                    <label>
+
+                        Languages
+
+                    </label>
+
+                    <p>
+
+                        English, Hindi
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+<!-- ==========================
+      PART 2 CONTINUE HERE
+========================== -->
+        <!-- ==========================================
+                    EDUCATION
+        ========================================== -->
+
+        <div class="profile-box">
+
+            <h2>
+
+                Education
+
+            </h2>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <h3>
+
+                        B.Tech in Computer Science (AI & ML)
+
+                    </h3>
+
+                    <h4>
+
+                        IILM University, Greater Noida
+
+                    </h4>
+
+                    <span>
+
+                        2023 - 2027
+
+                    </span>
+
+                    <p>
+
+                        Currently pursuing Bachelor's Degree in
+                        Computer Science & Engineering with
+                        specialization in Artificial Intelligence
+                        and Machine Learning.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- ==========================================
+                    EXPERIENCE
+        ========================================== -->
+
+        <div class="profile-box">
+
+            <h2>
+
+                Experience
+
+            </h2>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <h3>
+
+                        Full Stack Development Intern
+
+                    </h3>
+
+                    <h4>
+
+                        Cognifyz Technologies
+
+                    </h4>
+
+                    <span>
+
+                        Remote Internship
+
+                    </span>
+
+                    <p>
+
+                        Worked on frontend development,
+                        responsive UI design, JavaScript,
+                        HTML, CSS and web application projects.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- ==========================================
+                    TECHNICAL SKILLS
+        ========================================== -->
+
+        <div class="profile-box">
+
+            <h2>
+
+                Technical Skills
+
+            </h2>
+
+            <div class="skills-container">
+
+                <span>HTML5</span>
+
+                <span>CSS3</span>
+
+                <span>JavaScript</span>
+
+                <span>Tailwind CSS</span>
+
+                <span>C Programming</span>
+
+                <span>C++</span>
+
+                <span>Python</span>
+
+                <span>Machine Learning</span>
+
+                <span>Git</span>
+
+                <span>GitHub</span>
+
+                <span>SQL</span>
+
+                <span>Problem Solving</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- ==========================================
+                RIGHT SIDEBAR
+    ========================================== -->
+
+    <div class="right-section">
+
+
+
+
+        <!-- RESUME -->
+
+        <div class="profile-box">
+
+            <h2>
+
+                Resume
+
+            </h2>
+
+            <p>
+
+                Upload your latest resume
+                for better AI job recommendations.
+
+            </p>
+
+            <input type="file">
+
+            <button onclick="uploadResume()">
+
+                Upload Resume
+
+            </button>
+
+        </div>
+
+
+
+
+
+        <!-- AI SCORE -->
+
+        <div class="profile-box">
+
+            <h2>
+
+                AI Resume Analysis
+
+            </h2>
+
+            <div class="ai-score">
+
+                <h1>
+
+                    91%
+
+                </h1>
+
+                <p>
+
+                    Excellent Resume Score
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- AI INSIGHTS -->
+
+        <div class="profile-box">
+
+            <h2>
+
+                AI Career Insights
+
+            </h2>
+
+            <ul>
+
+                <li>
+
+                    Improve Cloud Computing skills.
+
+                </li>
+
+                <li>
+
+                    Add more real-world projects.
+
+                </li>
+
+                <li>
+
+                    Earn AWS or Azure certification.
+
+                </li>
+
+                <li>
+
+                    Practice Data Structures regularly.
+
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+
+
+        <!-- SOCIAL LINKS -->
+
+        <div class="profile-box">
+
+            <h2>
+
+                Portfolio Links
+
+            </h2>
+
+            <a href="#">
+
+                🌐 Portfolio Website
+
+            </a>
+
+            <a href="#">
+
+                💻 GitHub Profile
+
+            </a>
+
+            <a href="#">
+
+                💼 LinkedIn Profile
+
+            </a>
+
+        </div>
+
+
+
+
+
+        <!-- CERTIFICATES -->
+
+        <div class="profile-box">
+
+            <h2>
+
+                Certifications
+
+            </h2>
+
+            <ul>
+
+                <li>
+
+                    AI & Machine Learning
+
+                </li>
+
+                <li>
+
+                    Full Stack Development
+
+                </li>
+
+                <li>
+
+                    Python Programming
+
+                </li>
+
+                <li>
+
+                    Data Analytics
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+      PART 3 CONTINUE HERE
+========================== -->
+
+<!-- ==========================================
+        RECENT JOB APPLICATIONS
+========================================== -->
+
+<section class="applications-section">
+
+    <h2>
+
+        Recent Job Applications
+
+    </h2>
+
+    <div class="application-list">
+
+        <div class="application-card">
+
+            <h3>
+
+                AI Engineer
+
+            </h3>
+
+            <p>
+
+                Google • Bangalore
+
+            </p>
+
+            <span class="status applied">
+
+                Applied
+
+            </span>
+
+        </div>
+
+
+
+
+
+        <div class="application-card">
+
+            <h3>
+
+                Full Stack Developer
+
+            </h3>
+
+            <p>
+
+                Microsoft • Hyderabad
+
+            </p>
+
+            <span class="status interview">
+
+                Interview Scheduled
+
+            </span>
+
+        </div>
+
+
+
+
+
+        <div class="application-card">
+
+            <h3>
+
+                Data Analyst
+
+            </h3>
+
+            <p>
+
+                Amazon • Delhi
+
+            </p>
+
+            <span class="status review">
+
+                Under Review
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        UPCOMING INTERVIEWS
+========================================== -->
+
+<section class="interview-section">
+
+    <h2>
+
+        Upcoming Interviews
+
+    </h2>
+
+    <div class="interview-card">
+
+        <h3>
+
+            Technical Interview
+
+        </h3>
+
+        <p>
+
+            Company : Microsoft
+
+        </p>
+
+        <p>
+
+            Date : 15 July 2026
+
+        </p>
+
+        <p>
+
+            Time : 11:00 AM
+
+        </p>
+
+        <button onclick="startPreparation()">
+
+            Prepare Now
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        ACHIEVEMENTS
+========================================== -->
+
+<section class="achievement-section">
+
+    <h2>
+
+        Achievements
+
+    </h2>
+
+    <div class="achievement-container">
+
+        <div class="achievement-card">
+
+            🏆
+
+            <h3>
+
+                Resume Score
+
+            </h3>
+
+            <p>
+
+                Above 90%
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div class="achievement-card">
+
+            ⭐
+
+            <h3>
+
+                Top Candidate
+
+            </h3>
+
+            <p>
+
+                AI Recommended
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div class="achievement-card">
+
+            🚀
+
+            <h3>
+
+                Skill Growth
+
+            </h3>
+
+            <p>
+
+                +12 New Skills
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        SAVED JOBS
+========================================== -->
+
+<section class="saved-jobs-section">
+
+    <h2>
+
+        Saved Jobs
+
+    </h2>
+
+    <ul>
+
+        <li>
+
+            Machine Learning Engineer
+
+        </li>
+
+        <li>
+
+            Frontend Developer
+
+        </li>
+
+        <li>
+
+            Software Engineer
+
+        </li>
+
+        <li>
+
+            AI Research Intern
+
+        </li>
+
+    </ul>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        AI CAREER PROGRESS
+========================================== -->
+
+<section class="career-progress">
+
+    <h2>
+
+        AI Career Progress
+
+    </h2>
+
+    <div class="progress-box">
+
+        <div class="progress-item">
+
+            <label>
+
+                HTML & CSS
+
+            </label>
+
+            <progress value="95" max="100"></progress>
+
+        </div>
+
+
+
+
+
+        <div class="progress-item">
+
+            <label>
+
+                JavaScript
+
+            </label>
+
+            <progress value="82" max="100"></progress>
+
+        </div>
+
+
+
+
+
+        <div class="progress-item">
+
+            <label>
+
+                Python
+
+            </label>
+
+            <progress value="78" max="100"></progress>
+
+        </div>
+
+
+
+
+
+        <div class="progress-item">
+
+            <label>
+
+                Machine Learning
+
+            </label>
+
+            <progress value="70" max="100"></progress>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+                FOOTER
+========================================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+
+                AI Job Portal
+
+            </h3>
+
+            <p>
+
+                Empowering students and professionals
+                with AI-powered career opportunities.
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <h3>
+
+                Quick Links
+
+            </h3>
+
+            <a href="dashboard.html">
+
+                Dashboard
+
+            </a>
+
+            <a href="jobs.html">
+
+                Jobs
+
+            </a>
+
+            <a href="notifications.html">
+
+                Notifications
+
+            </a>
+
+            <a href="interview_prep.html">
+
+                Interview Prep
+
+            </a>
+
+        </div>
+
+
+
+
+
+        <div>
+
+            <h3>
+
+                Contact
+
+            </h3>
+
+            <p>
+
+                support@aijobportal.com
+
+            </p>
+
+            <p>
+
+                +91 XXXXX XXXXX
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="copyright">
+
+        © 2026 AI Job Portal | All Rights Reserved
+
+    </div>
+
+</footer>
+
+
+
+
+
+<!-- ==========================================
+            JAVASCRIPT
+========================================== -->
+
+<script src="../js/profile.js"></script>
+
+</body>
+
+</html>

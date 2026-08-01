@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied Jobs | AI Job Portal</title>
+
+    <link rel="stylesheet" href="../css/applied_jobs.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-robot"></i>
+            <h2>AI Job Portal</h2>
+        </div>
+
+        <ul>
+
+            <li>
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li>
+                <i class="fa-solid fa-briefcase"></i>
+                Jobs
+            </li>
+
+            <li class="active">
+                <i class="fa-solid fa-paper-plane"></i>
+                Applied Jobs
+            </li>
+
+            <li>
+                <i class="fa-solid fa-robot"></i>
+                AI Recommendation
+            </li>
+
+            <li>
+                <i class="fa-solid fa-file-lines"></i>
+                Resume Analyzer
+            </li>
+
+            <li>
+                <i class="fa-solid fa-heart"></i>
+                Saved Jobs
+            </li>
+
+            <li>
+                <i class="fa-solid fa-user"></i>
+                Profile
+            </li>
+
+            <li>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- Navbar -->
+
+        <nav class="navbar">
+
+            <div>
+
+                <h2>📄 Applied Jobs Dashboard</h2>
+
+                <p>Track your applications with AI Insights</p>
+
+            </div>
+
+            <div class="nav-right">
+
+                <input
+                type="text"
+                placeholder="Search Applied Jobs">
+
+                <button>
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+                <i class="fa-solid fa-bell notification"></i>
+
+                <img src="../images/profile.png">
+
+            </div>
+
+        </nav>
+
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h1>
+
+                    Manage Your Applications 🚀
+
+                </h1>
+
+                <p>
+
+                    View every job you've applied for,
+                    monitor application status,
+                    and get AI-powered suggestions to
+                    improve your hiring chances.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button>
+
+                        View All Applications
+
+                    </button>
+
+                    <button>
+
+                        AI Suggestions
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img src="../images/applied_jobs.png">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section class="dashboard">
+
+            <div class="card">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                <h2>28</h2>
+
+                <p>Total Applied</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <h2>12</h2>
+
+                <p>Under Review</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <h2>6</h2>
+
+                <p>Interview Scheduled</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-star"></i>
+
+                <h2>94%</h2>
+
+                <p>Application Score</p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= SEARCH FILTER ================= -->
+
+        <section class="search-section">
+
+            <h2>
+
+                Search Your Applications
+
+            </h2>
+
+            <div class="search-box">
+
+                <input
+                type="text"
+                placeholder="Job Title">
+
+                <select>
+
+                    <option>Status</option>
+
+                    <option>Applied</option>
+
+                    <option>Under Review</option>
+
+                    <option>Interview</option>
+
+                    <option>Rejected</option>
+
+                </select>
+
+                <select>
+
+                    <option>Company</option>
+
+                    <option>Google</option>
+
+                    <option>Microsoft</option>
+
+                    <option>Amazon</option>
+
+                </select>
+
+                <button>
+
+                    Search
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= AI SUMMARY ================= -->
+
+        <section class="summary">
+
+            <h2>
+
+                🤖 AI Application Summary
+
+            </h2>
+
+            <div class="summary-container">
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <h3>Success Rate</h3>
+
+                    <p>
+
+                        Your application success
+                        probability is <b>82%</b>.
+
+                    </p>
+
+                </div>
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                    <h3>AI Suggestion</h3>
+
+                    <p>
+
+                        Apply to 5 more Frontend
+                        Developer jobs this week.
+
+                    </p>
+
+                </div>
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-user-check"></i>
+
+                    <h3>Profile Strength</h3>
+
+                    <p>
+
+                        Your profile is stronger
+                        than 90% of freshers.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ========= PART 2 STARTS FROM HERE ========= -->
+                 <!-- ================= APPLIED JOBS ================= -->
+
+        <section class="applied-jobs">
+
+            <div class="section-header">
+
+                <h2>📋 My Applied Jobs</h2>
+
+                <a href="#">View All</a>
+
+            </div>
+
+            <div class="job-container">
+
+                <!-- Job Card 1 -->
+
+                <div class="job-card">
+
+                    <div class="company">
+
+                        <img src="../images/google.png" alt="Google">
+
+                        <div>
+
+                            <h3>Frontend Developer</h3>
+
+                            <p>Google • Bangalore</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="status interview">
+
+                        Interview Scheduled
+
+                    </div>
+
+                    <div class="job-info">
+
+                        <span>
+                            <i class="fa-solid fa-calendar"></i>
+                            Applied : 12 July 2026
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-money-bill-wave"></i>
+                            ₹18 LPA
+                        </span>
+
+                    </div>
+
+                    <div class="progress-box">
+
+                        <div class="progress">
+
+                            <div class="progress-bar" style="width:85%;">
+
+                                85%
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="ai-feedback">
+
+                        <h4>🤖 AI Feedback</h4>
+
+                        <p>
+
+                            Your resume perfectly matches this role.
+                            Prepare React.js and JavaScript Interview Questions.
+
+                        </p>
+
+                    </div>
+
+                    <div class="buttons">
+
+                        <button class="details">
+
+                            View Details
+
+                        </button>
+
+                        <button class="withdraw">
+
+                            Withdraw
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Job Card 2 -->
+
+                <div class="job-card">
+
+                    <div class="company">
+
+                        <img src="../images/microsoft.png">
+
+                        <div>
+
+                            <h3>Software Engineer</h3>
+
+                            <p>Microsoft • Hyderabad</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="status review">
+
+                        Under Review
+
+                    </div>
+
+                    <div class="job-info">
+
+                        <span>
+
+                            Applied : 08 July 2026
+
+                        </span>
+
+                        <span>
+
+                            ₹22 LPA
+
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div class="progress-bar" style="width:65%;">
+
+                            65%
+
+                        </div>
+
+                    </div>
+
+                    <div class="ai-feedback">
+
+                        <h4>🤖 AI Feedback</h4>
+
+                        <p>
+
+                            Improve your DSA profile to increase
+                            interview chances.
+
+                        </p>
+
+                    </div>
+
+                    <div class="buttons">
+
+                        <button class="details">
+
+                            View Details
+
+                        </button>
+
+                        <button class="withdraw">
+
+                            Withdraw
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Job Card 3 -->
+
+                <div class="job-card">
+
+                    <div class="company">
+
+                        <img src="../images/amazon.png">
+
+                        <div>
+
+                            <h3>AI Engineer Intern</h3>
+
+                            <p>Amazon • Remote</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="status applied">
+
+                        Applied
+
+                    </div>
+
+                    <div class="job-info">
+
+                        <span>
+
+                            Applied : 05 July 2026
+
+                        </span>
+
+                        <span>
+
+                            ₹30,000 / Month
+
+                        </span>
+
+                    </div>
+
+                    <div class="progress">
+
+                        <div class="progress-bar" style="width:40%;">
+
+                            40%
+
+                        </div>
+
+                    </div>
+
+                    <div class="ai-feedback">
+
+                        <h4>🤖 AI Feedback</h4>
+
+                        <p>
+
+                            Add Machine Learning projects to
+                            improve your application strength.
+
+                        </p>
+
+                    </div>
+
+                    <div class="buttons">
+
+                        <button class="details">
+
+                            View Details
+
+                        </button>
+
+                        <button class="withdraw">
+
+                            Withdraw
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= APPLICATION TIMELINE ================= -->
+
+        <section class="timeline">
+
+            <h2>📈 Application Progress</h2>
+
+            <div class="timeline-box">
+
+                <div class="step completed">
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Applied
+
+                </div>
+
+                <div class="step completed">
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Resume Reviewed
+
+                </div>
+
+                <div class="step active">
+
+                    <i class="fa-solid fa-user-check"></i>
+
+                    Interview
+
+                </div>
+
+                <div class="step">
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                    Selected
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= INTERVIEW TIPS ================= -->
+
+        <section class="tips">
+
+            <h2>🎯 AI Interview Tips</h2>
+
+            <div class="tips-grid">
+
+                <div class="tip-card">
+
+                    <i class="fa-solid fa-code"></i>
+
+                    <h3>Practice Coding</h3>
+
+                    <p>
+
+                        Solve 2 DSA questions daily.
+
+                    </p>
+
+                </div>
+
+                <div class="tip-card">
+
+                    <i class="fa-solid fa-file-lines"></i>
+
+                    <h3>Resume</h3>
+
+                    <p>
+
+                        Keep your resume ATS Friendly.
+
+                    </p>
+
+                </div>
+
+                <div class="tip-card">
+
+                    <i class="fa-solid fa-comments"></i>
+
+                    <h3>HR Round</h3>
+
+                    <p>
+
+                        Prepare Introduction &
+                        Project Explanation.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer>
+
+            <p>
+
+                © 2026 AI Job Portal | Applied Jobs Dashboard
+
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="../js/applied_jobs.js"></script>
+
+</body>
+
+</html>

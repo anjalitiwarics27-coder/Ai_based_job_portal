@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create account — SyncPath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12172B;
+    --ink-2:#1B2140;
+    --ink-3:#262D52;
+    --paper:#EDEEF2;
+    --paper-dim:#B8BBD1;
+    --amber:#F2A93B;
+    --mint:#6FE7C8;
+    --line: rgba(237,238,242,0.12);
+    --radius: 14px;
+    --err:#F27A5E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{ height:100%; }
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--amber); color:var(--ink); }
+  h1,h2,h3{ font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em; }
+  .mono{ font-family:'IBM Plex Mono',monospace; }
+  a{ color:inherit; text-decoration:none; }
+  img,svg{ display:block; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:2px solid var(--mint); outline-offset:3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:13px 22px; border-radius:10px;
+    font-size:14.5px; font-weight:600; cursor:pointer; border:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{ background:var(--amber); color:var(--ink); width:100%; }
+  .btn-primary:hover{ transform:translateY(-1px); box-shadow:0 8px 24px rgba(242,169,59,0.25); }
+  .btn-primary:disabled{ opacity:0.55; cursor:not-allowed; transform:none; box-shadow:none; }
+  .btn-social{ background:var(--ink-2); border:1px solid var(--line); color:var(--paper); width:100%; }
+  .btn-social:hover{ border-color:var(--paper-dim); }
+
+  /* ---------- LAYOUT ---------- */
+  .screen{ min-height:100vh; display:grid; grid-template-columns:1fr 1fr; }
+  @media (max-width:920px){ .screen{ grid-template-columns:1fr; } }
+
+  /* LEFT — brand / signal panel */
+  .panel{
+    background:linear-gradient(160deg, var(--ink-3), var(--ink) 70%);
+    padding:48px; display:flex; flex-direction:column; justify-content:space-between;
+    border-right:1px solid var(--line);
+    position:relative; overflow:hidden;
+  }
+  @media (max-width:920px){ .panel{ display:none; } }
+  .panel .logo{ display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-size:20px; font-weight:600; position:relative; z-index:2; }
+  .logo-mark{ width:22px; height:22px; flex-shrink:0; }
+
+  .panel-mid{ position:relative; z-index:2; max-width:420px; }
+  .panel-mid .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:0.06em;
+    color:var(--mint); border:1px solid rgba(111,231,200,0.3);
+    padding:6px 12px; border-radius:999px; margin-bottom:24px;
+  }
+  .panel-mid .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--mint); animation:pulse 2s infinite; }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+  .panel-mid h1{ font-size:clamp(28px,3vw,36px); line-height:1.15; }
+  .panel-mid h1 em{ font-style:italic; color:var(--amber); }
+  .panel-mid p{ margin-top:16px; color:var(--paper-dim); font-size:15px; max-width:38ch; }
+
+  .panel-checklist{ position:relative; z-index:2; margin-top:32px; display:flex; flex-direction:column; gap:14px; }
+  .panel-checklist .item{ display:flex; align-items:flex-start; gap:12px; font-size:14px; color:var(--paper); }
+  .panel-checklist .item svg{ flex-shrink:0; margin-top:2px; }
+
+  .panel-quote{ position:relative; z-index:2; border-top:1px solid var(--line); padding-top:24px; }
+  .panel-quote p{ font-size:14px; color:var(--paper); max-width:36ch; }
+  .panel-quote .who{ margin-top:12px; font-size:12.5px; color:var(--paper-dim); font-family:'IBM Plex Mono',monospace; }
+
+  .panel::before{
+    content:''; position:absolute; width:600px; height:600px; border-radius:50%;
+    border:1px solid var(--line); top:-220px; right:-260px; z-index:1;
+  }
+  .panel::after{
+    content:''; position:absolute; width:420px; height:420px; border-radius:50%;
+    border:1px solid var(--line); top:-140px; right:-180px; z-index:1;
+  }
+
+  /* RIGHT — form */
+  .form-side{ display:flex; align-items:center; justify-content:center; padding:48px 32px; }
+  .form-box{ width:100%; max-width:420px; }
+
+  .mobile-logo{ display:none; align-items:center; gap:10px; font-family:'Fraunces',serif; font-size:20px; font-weight:600; margin-bottom:36px; }
+  @media (max-width:920px){ .mobile-logo{ display:flex; } }
+
+  .form-box h2{ font-size:28px; }
+  .form-box .sub{ color:var(--paper-dim); font-size:14.5px; margin-top:10px; }
+  .form-box .sub a{ color:var(--mint); font-weight:600; }
+  .form-box .sub a:hover{ text-decoration:underline; }
+
+  /* role toggle */
+  .role-toggle{
+    display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:26px;
+    background:var(--ink-2); border:1px solid var(--line); border-radius:10px; padding:5px;
+  }
+  .role-toggle input{ display:none; }
+  .role-toggle label{
+    text-align:center; padding:10px 8px; border-radius:7px; font-size:13.5px; font-weight:600;
+    color:var(--paper-dim); cursor:pointer; transition:background .15s, color .15s;
+  }
+  .role-toggle input:checked + label{ background:var(--ink-3); color:var(--paper); }
+  .role-toggle input:focus-visible + label{ outline:2px solid var(--mint); outline-offset:2px; }
+
+  .social-row{ display:flex; flex-direction:column; gap:12px; margin-top:22px; }
+
+  .divider{ display:flex; align-items:center; gap:14px; margin:24px 0; }
+  .divider .line{ flex:1; height:1px; background:var(--line); }
+  .divider span{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--paper-dim); letter-spacing:0.05em; }
+
+  form{ display:flex; flex-direction:column; gap:18px; }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:480px){ .field-row{ grid-template-columns:1fr; } }
+  .field label{
+    display:block; font-family:'IBM Plex Mono',monospace; font-size:12px;
+    color:var(--paper-dim); letter-spacing:0.04em; margin-bottom:8px;
+  }
+  .field-wrap{ position:relative; }
+  .field input{
+    width:100%; background:var(--ink-2); border:1px solid var(--line); border-radius:10px;
+    padding:13px 14px; color:var(--paper); font-size:14.5px; font-family:'Inter',sans-serif;
+    transition:border-color .15s;
+  }
+  .field input:focus{ outline:none; border-color:var(--mint); }
+  .field input::placeholder{ color:#6A6F91; }
+  .field.invalid input{ border-color:var(--err); }
+  .field .error-msg{ font-size:12.5px; color:var(--err); margin-top:6px; display:none; }
+  .field.invalid .error-msg{ display:block; }
+
+  .toggle-pw{
+    position:absolute; right:12px; top:50%; transform:translateY(-50%);
+    background:none; border:none; cursor:pointer; padding:4px; color:var(--paper-dim);
+    display:flex; align-items:center;
+  }
+  .toggle-pw:hover{ color:var(--paper); }
+
+  /* password strength */
+  .strength{ margin-top:8px; display:flex; gap:5px; }
+  .strength .bar{ height:3px; flex:1; border-radius:2px; background:var(--line); transition:background .2s; }
+  .strength-label{ font-size:12px; color:var(--paper-dim); margin-top:6px; }
+
+  .terms-row{ display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--paper-dim); }
+  .terms-row input{ width:15px; height:15px; margin-top:2px; accent-color:var(--mint); cursor:pointer; flex-shrink:0; }
+  .terms-row a{ color:var(--mint); }
+  .terms-row a:hover{ text-decoration:underline; }
+
+  .signin-line{ text-align:center; margin-top:24px; font-size:14px; color:var(--paper-dim); }
+  .signin-line a{ color:var(--mint); font-weight:600; }
+  .signin-line a:hover{ text-decoration:underline; }
+
+  .success-banner{
+    display:none; align-items:center; gap:12px; margin-top:20px;
+    border:1px solid rgba(111,231,200,0.35); background:rgba(111,231,200,0.08);
+    border-radius:10px; padding:14px 16px; font-size:13.5px; color:var(--paper);
+  }
+  .success-banner.show{ display:flex; }
+</style>
+</head>
+<body>
+
+<div class="screen">
+
+  <!-- LEFT PANEL -->
+  <div class="panel">
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="9" stroke="#F2A93B" stroke-width="1.6"/>
+        <path d="M12 6v6l4 2" stroke="#6FE7C8" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      SyncPath
+    </a>
+
+    <div class="panel-mid">
+      <span class="eyebrow"><span class="dot"></span>Join SyncPath</span>
+      <h1>Tune your resume to the <em>right</em> roles.</h1>
+      <p>Create a free account and let the matching engine start scoring you against live openings today.</p>
+
+      <div class="panel-checklist">
+        <div class="item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6FE7C8" stroke-width="1.6"/><path d="M8 12l3 3 5-6" stroke="#6FE7C8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Ranked, explainable job matches — not keyword guessing</span>
+        </div>
+        <div class="item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6FE7C8" stroke-width="1.6"/><path d="M8 12l3 3 5-6" stroke="#6FE7C8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Free for candidates, always</span>
+        </div>
+        <div class="item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6FE7C8" stroke-width="1.6"/><path d="M8 12l3 3 5-6" stroke="#6FE7C8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Re-synced automatically as new roles open</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-quote">
+      <p>"Signed up on a Friday, had three ranked matches by Monday morning."</p>
+      <div class="who">— UX DESIGNER, MATCHED 2025</div>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div class="form-side">
+    <div class="form-box">
+      <a href="index.html" class="mobile-logo">
+        <svg class="logo-mark" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="#F2A93B" stroke-width="1.6"/>
+          <path d="M12 6v6l4 2" stroke="#6FE7C8" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        SyncPath
+      </a>
+
+      <h2>Create your account</h2>
+      <p class="sub">Already have one? <a href="login.html">Sign in</a></p>
+
+      <div class="role-toggle" role="radiogroup" aria-label="I'm signing up as">
+        <input type="radio" id="roleCandidate" name="accountRole" value="candidate" checked>
+        <label for="roleCandidate">Job seeker</label>
+        <input type="radio" id="roleEmployer" name="accountRole" value="employer">
+        <label for="roleEmployer">Employer</label>
+      </div>
+
+      <div class="social-row">
+        <button type="button" class="btn btn-social">
+          <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 01-1.8 2.72v2.26h2.9c1.7-1.57 2.7-3.87 2.7-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.9-2.26c-.8.54-1.84.86-3.06.86-2.35 0-4.34-1.59-5.05-3.72H.95v2.33A9 9 0 009 18z"/><path fill="#FBBC05" d="M3.95 10.7A5.4 5.4 0 013.68 9c0-.59.1-1.17.27-1.7V4.97H.95A9 9 0 000 9c0 1.45.35 2.83.95 4.03l3-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.51.45 3.44 1.35l2.58-2.58C13.46.9 11.43 0 9 0A9 9 0 00.95 4.97l3 2.33C4.66 5.17 6.65 3.58 9 3.58z"/></svg>
+          Continue with Google
+        </button>
+      </div>
+
+      <div class="divider"><div class="line"></div><span>OR SIGN UP WITH EMAIL</span><div class="line"></div></div>
+
+      <form id="registerForm" novalidate>
+        <div class="field-row">
+          <div class="field" id="field-firstName">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Ananya" autocomplete="given-name">
+            <div class="error-msg">Enter your first name.</div>
+          </div>
+          <div class="field" id="field-lastName">
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Kapoor" autocomplete="family-name">
+            <div class="error-msg">Enter your last name.</div>
+          </div>
+        </div>
+
+        <div class="field" id="field-email">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email">
+          <div class="error-msg">Enter a valid email address.</div>
+        </div>
+
+        <div class="field" id="field-password">
+          <label for="password">Password</label>
+          <div class="field-wrap">
+            <input type="password" id="password" name="password" placeholder="Create a password" autocomplete="new-password">
+            <button type="button" class="toggle-pw" id="togglePw" aria-label="Show password">
+              <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>
+            </button>
+          </div>
+          <div class="strength" id="strengthBars">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          </div>
+          <div class="strength-label" id="strengthLabel">Use 8+ characters</div>
+          <div class="error-msg">Password must be at least 8 characters.</div>
+        </div>
+
+        <div class="terms-row">
+          <input type="checkbox" id="terms">
+          <label for="terms">I agree to SyncPath's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+        </div>
+        <div class="field" id="field-terms" style="margin-top:-10px;">
+          <div class="error-msg">You need to accept the terms to continue.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submitBtn">Create account</button>
+      </form>
+
+      <div class="success-banner" id="successBanner">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><circle cx="12" cy="12" r="10" stroke="#6FE7C8" stroke-width="1.6"/><path d="M8 12l3 3 5-6" stroke="#6FE7C8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Account created — check your email to verify and get matched.</span>
+      </div>
+
+      <p class="signin-line">Already have an account? <a href="login.html">Sign in</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('registerForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successBanner = document.getElementById('successBanner');
+
+  function validateField(id, isValid){
+    const field = document.getElementById('field-' + id);
+    field.classList.toggle('invalid', !isValid);
+    return isValid;
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const termsAccepted = document.getElementById('terms').checked;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const okFirst = validateField('firstName', firstName.length > 1);
+    const okLast = validateField('lastName', lastName.length > 1);
+    const okEmail = validateField('email', emailPattern.test(email));
+    const okPassword = validateField('password', password.length >= 8);
+    const okTerms = validateField('terms', termsAccepted);
+
+    if (okFirst && okLast && okEmail && okPassword && okTerms){
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Creating account…';
+      // Placeholder — wire this to your real registration endpoint.
+      setTimeout(() => {
+        successBanner.classList.add('show');
+        submitBtn.textContent = 'Create account';
+        submitBtn.disabled = false;
+      }, 700);
+    }
+  });
+
+  ['firstName','lastName','email','password'].forEach(id => {
+    document.getElementById(id).addEventListener('input', () => {
+      document.getElementById('field-' + id).classList.remove('invalid');
+      successBanner.classList.remove('show');
+    });
+  });
+  document.getElementById('terms').addEventListener('change', () => {
+    document.getElementById('field-terms').classList.remove('invalid');
+  });
+
+  // show/hide password
+  const pwInput = document.getElementById('password');
+  const togglePw = document.getElementById('togglePw');
+  togglePw.addEventListener('click', () => {
+    const isPw = pwInput.type === 'password';
+    pwInput.type = isPw ? 'text' : 'password';
+    togglePw.setAttribute('aria-label', isPw ? 'Hide password' : 'Show password');
+  });
+
+  // password strength meter
+  const bars = document.querySelectorAll('#strengthBars .bar');
+  const strengthLabel = document.getElementById('strengthLabel');
+  const colors = ['#F27A5E', '#F2A93B', '#F2A93B', '#6FE7C8'];
+  const labels = ['Too weak', 'Weak', 'Good', 'Strong'];
+
+  pwInput.addEventListener('input', () => {
+    const val = pwInput.value;
+    let score = 0;
+    if (val.length >= 8) score++;
+    if (/[A-Z]/.test(val) && /[a-z]/.test(val)) score++;
+    if (/[0-9]/.test(val)) score++;
+    if (/[^A-Za-z0-9]/.test(val) && val.length >= 10) score++;
+    const level = val.length === 0 ? 0 : Math.max(1, score);
+
+    bars.forEach((bar, i) => {
+      bar.style.background = i < level ? colors[level - 1] : 'var(--line)';
+    });
+    strengthLabel.textContent = val.length === 0 ? 'Use 8+ characters' : labels[level - 1];
+  });
+</script>
+
+</body>
+</html>

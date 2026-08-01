@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Upload Documents | AI Job Portal</title>
+
+    <link rel="stylesheet"
+          href="../css/upload.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+
+
+
+
+<!-- ==========================================
+                NAVBAR
+========================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <h2>AI Job Portal</h2>
+
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <a href="jobs.html">Jobs</a>
+
+        <a href="saved_jobs.html">Saved Jobs</a>
+
+        <a href="profile.html">Profile</a>
+
+        <a href="upload.html"
+           class="active">Upload</a>
+
+        <a href="settings.html">Settings</a>
+
+        <button onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+
+
+<!-- ==========================================
+                HERO SECTION
+========================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+
+            📁 Smart Document Manager
+
+        </span>
+
+        <h1>
+
+            Upload Your Career Documents
+
+        </h1>
+
+        <p>
+
+            Securely upload your resume, cover letter,
+            certificates, portfolio links and profile photo.
+            Keep everything organized and ready for one-click
+            job applications with AI-powered recommendations.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <button onclick="scrollToUpload()">
+
+                Upload Documents
+
+            </button>
+
+            <button onclick="location.href='resume_analysis.html'">
+
+                AI Resume Analysis
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="hero-image">
+
+        <img src="assets/upload.png"
+             alt="Upload Documents">
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            UPLOAD OVERVIEW
+========================================== -->
+
+<section class="stats-section">
+
+    <div class="stat-card">
+
+        <h2>6</h2>
+
+        <p>Uploaded Documents</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>95%</h2>
+
+        <p>Resume Score</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>18</h2>
+
+        <p>Applications Submitted</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>Verified</h2>
+
+        <p>Profile Status</p>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            RESUME UPLOAD
+========================================== -->
+
+<section class="upload-section"
+         id="uploadSection">
+
+    <div class="section-title">
+
+        <h2>
+
+            Resume Upload
+
+        </h2>
+
+        <p>
+
+            Upload your latest resume in PDF or DOCX format.
+            AI will analyze it and recommend improvements.
+
+        </p>
+
+    </div>
+
+
+
+
+
+    <div class="upload-card">
+
+        <div class="upload-icon">
+
+            <i class="fa-solid fa-file-arrow-up"></i>
+
+        </div>
+
+        <h3>
+
+            Drag & Drop Resume
+
+        </h3>
+
+        <p>
+
+            Supported formats: PDF, DOC, DOCX (Maximum 5 MB)
+
+        </p>
+
+        <input type="file"
+               id="resumeUpload"
+               accept=".pdf,.doc,.docx">
+
+        <button onclick="uploadResume()">
+
+            Upload Resume
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        PART 2 STARTS HERE
+========================================== -->
+<!-- ==========================================
+            PROFILE PHOTO UPLOAD
+========================================== -->
+
+<section class="upload-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Profile Photo
+
+        </h2>
+
+        <p>
+
+            Upload a professional profile picture to improve
+            your profile visibility.
+
+        </p>
+
+    </div>
+
+    <div class="upload-card">
+
+        <div class="upload-icon">
+
+            <i class="fa-solid fa-camera"></i>
+
+        </div>
+
+        <h3>
+
+            Upload Profile Photo
+
+        </h3>
+
+        <p>
+
+            JPG, PNG or JPEG • Maximum 2 MB
+
+        </p>
+
+        <input type="file"
+               id="profilePhoto"
+               accept=".jpg,.jpeg,.png">
+
+        <button onclick="uploadPhoto()">
+
+            Upload Photo
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            COVER LETTER
+========================================== -->
+
+<section class="upload-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Cover Letter
+
+        </h2>
+
+        <p>
+
+            Upload a customized cover letter to make your
+            application more impressive.
+
+        </p>
+
+    </div>
+
+    <div class="upload-card">
+
+        <div class="upload-icon">
+
+            <i class="fa-solid fa-envelope-open-text"></i>
+
+        </div>
+
+        <h3>
+
+            Upload Cover Letter
+
+        </h3>
+
+        <p>
+
+            PDF or DOCX • Maximum 5 MB
+
+        </p>
+
+        <input type="file"
+               id="coverLetter"
+               accept=".pdf,.doc,.docx">
+
+        <button onclick="uploadCoverLetter()">
+
+            Upload Cover Letter
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            CERTIFICATES
+========================================== -->
+
+<section class="upload-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Certificates
+
+        </h2>
+
+        <p>
+
+            Showcase your achievements by uploading
+            professional certificates.
+
+        </p>
+
+    </div>
+
+    <div class="upload-card">
+
+        <div class="upload-icon">
+
+            <i class="fa-solid fa-award"></i>
+
+        </div>
+
+        <h3>
+
+            Upload Certificates
+
+        </h3>
+
+        <p>
+
+            Multiple PDF or Image files are supported.
+
+        </p>
+
+        <input type="file"
+               id="certificateUpload"
+               multiple
+               accept=".pdf,.jpg,.jpeg,.png">
+
+        <button onclick="uploadCertificates()">
+
+            Upload Certificates
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            PORTFOLIO LINKS
+========================================== -->
+
+<section class="upload-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Portfolio & Professional Links
+
+        </h2>
+
+        <p>
+
+            Add links to showcase your projects and coding profiles.
+
+        </p>
+
+    </div>
+
+    <div class="upload-card">
+
+        <div class="form-group">
+
+            <label>
+
+                GitHub Profile
+
+            </label>
+
+            <input type="url"
+                   placeholder="https://github.com/username">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+
+                LinkedIn Profile
+
+            </label>
+
+            <input type="url"
+                   placeholder="https://linkedin.com/in/username">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+
+                Portfolio Website
+
+            </label>
+
+            <input type="url"
+                   placeholder="https://yourportfolio.com">
+
+        </div>
+
+        <button onclick="savePortfolioLinks()">
+
+            Save Links
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            UPLOAD PROGRESS
+========================================== -->
+
+<section class="progress-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Upload Progress
+
+        </h2>
+
+        <p>
+
+            Complete your profile by uploading all required documents.
+
+        </p>
+
+    </div>
+
+    <div class="progress-card">
+
+        <label>Resume</label>
+
+        <progress value="100" max="100"></progress>
+
+        <label>Profile Photo</label>
+
+        <progress value="80" max="100"></progress>
+
+        <label>Cover Letter</label>
+
+        <progress value="60" max="100"></progress>
+
+        <label>Certificates</label>
+
+        <progress value="75" max="100"></progress>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+        PART 3 STARTS HERE
+========================================== -->
+<!-- ==========================================
+            RECENT UPLOADS
+========================================== -->
+
+<section class="recent-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Recent Uploads
+
+        </h2>
+
+        <p>
+
+            View your latest uploaded documents and their current status.
+
+        </p>
+
+    </div>
+
+    <div class="recent-grid">
+
+        <div class="recent-card">
+
+            <i class="fa-solid fa-file-pdf"></i>
+
+            <h3>Resume.pdf</h3>
+
+            <p>Uploaded: Today</p>
+
+            <span class="success-badge">Verified</span>
+
+        </div>
+
+        <div class="recent-card">
+
+            <i class="fa-solid fa-image"></i>
+
+            <h3>Profile Photo</h3>
+
+            <p>Uploaded: Yesterday</p>
+
+            <span class="success-badge">Approved</span>
+
+        </div>
+
+        <div class="recent-card">
+
+            <i class="fa-solid fa-award"></i>
+
+            <h3>Certificates.zip</h3>
+
+            <p>Uploaded: 2 Days Ago</p>
+
+            <span class="pending-badge">Processing</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            AI RECOMMENDATIONS
+========================================== -->
+
+<section class="ai-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            AI Upload Suggestions
+
+        </h2>
+
+        <p>
+
+            Improve your profile by completing the following recommendations.
+
+        </p>
+
+    </div>
+
+    <div class="ai-grid">
+
+        <div class="ai-card">
+
+            <h3>🤖 Resume Optimization</h3>
+
+            <p>
+
+                Your resume score is 95%. Add measurable achievements to improve it further.
+
+            </p>
+
+        </div>
+
+        <div class="ai-card">
+
+            <h3>📄 Cover Letter</h3>
+
+            <p>
+
+                Upload a customized cover letter for each application to increase your chances.
+
+            </p>
+
+        </div>
+
+        <div class="ai-card">
+
+            <h3>🏆 Certifications</h3>
+
+            <p>
+
+                Add your latest certifications to strengthen your professional profile.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            UPLOAD GUIDELINES
+========================================== -->
+
+<section class="guidelines-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Upload Guidelines
+
+        </h2>
+
+    </div>
+
+    <div class="guideline-card">
+
+        <ul>
+
+            <li>✅ Upload only clear and readable documents.</li>
+
+            <li>✅ Resume should be updated with your latest skills and projects.</li>
+
+            <li>✅ Keep file size within the allowed limits.</li>
+
+            <li>✅ Use PDF format whenever possible.</li>
+
+            <li>✅ Ensure all information is accurate before uploading.</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            CLOUD SYNC STATUS
+========================================== -->
+
+<section class="sync-section">
+
+    <div class="sync-card">
+
+        <h2>☁️ Cloud Sync Status</h2>
+
+        <p>
+
+            All your uploaded files are securely synced and available across devices.
+
+        </p>
+
+        <button onclick="syncFiles()">
+
+            Sync Now
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+            HELP & SUPPORT
+========================================== -->
+
+<section class="help-section">
+
+    <div class="help-card">
+
+        <h2>Need Help?</h2>
+
+        <p>
+
+            Contact our support team if you face any upload issues.
+
+        </p>
+
+        <button onclick="location.href='contact.html'">
+
+            Contact Support
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ==========================================
+                FOOTER
+========================================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>AI Job Portal</h3>
+
+            <p>
+
+                Upload your career documents securely and get AI-powered recommendations to boost your job opportunities.
+
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="jobs.html">Jobs</a>
+
+            <a href="resume_analysis.html">Resume Analysis</a>
+
+            <a href="profile.html">Profile</a>
+
+            <a href="settings.html">Settings</a>
+
+        </div>
+
+        <div>
+
+            <h3>Support</h3>
+
+            <p>📧 support@aijobportal.com</p>
+
+            <p>📞 +91 XXXXX XXXXX</p>
+
+            <p>🌍 Available 24 × 7</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 AI Job Portal. All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+
+
+<!-- ==========================================
+            JAVASCRIPT
+========================================== -->
+
+<script src="../js/upload.js"></script>
+
+</body>
+
+</html>

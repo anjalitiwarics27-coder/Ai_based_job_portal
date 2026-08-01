@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+
+    <meta charset="UTF-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Interview Preparation | AI Job Portal</title>
+
+
+    <link rel="stylesheet" href="../css/interview_prep.css">
+
+
+</head>
+
+
+
+<body>
+
+
+
+
+<!-- ===========================
+          NAVBAR
+=========================== -->
+
+
+<header class="navbar">
+
+
+    <div class="logo">
+
+
+        <h2>
+            AI Job Portal
+        </h2>
+
+
+    </div>
+
+
+
+    <nav>
+
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+
+        <a href="jobs.html">
+            Jobs
+        </a>
+
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+
+        <a href="interview_prep.html" class="active">
+            Interview Prep
+        </a>
+
+
+        <button onclick="logout()">
+            Logout
+        </button>
+
+
+    </nav>
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- ===========================
+        HERO SECTION
+=========================== -->
+
+
+<section class="hero-section">
+
+
+    <div class="hero-content">
+
+
+        <h1>
+            AI Powered Interview Preparation
+        </h1>
+
+
+        <p>
+
+            Prepare smarter with AI generated questions,
+            mock interviews and personalized feedback.
+
+        </p>
+
+
+
+        <button class="start-btn">
+
+            Start Practice
+
+        </button>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="hero-image">
+
+
+        <img 
+        src="assets/interview.png"
+        alt="Interview Preparation">
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ===========================
+       AI INTERVIEW ASSISTANT
+=========================== -->
+
+
+<section class="ai-assistant-section">
+
+
+
+    <div class="section-title">
+
+
+        <h2>
+            Your AI Interview Assistant
+        </h2>
+
+
+        <p>
+
+            Improve your confidence and crack your dream job interview.
+
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+    <div class="assistant-cards">
+
+
+
+        <div class="assistant-card">
+
+
+            <h3>
+                🤖 AI Mock Interview
+            </h3>
+
+
+            <p>
+
+                Practice real interview questions
+                with AI based evaluation.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="assistant-card">
+
+
+            <h3>
+                📄 Resume Based Questions
+            </h3>
+
+
+            <p>
+
+                Get questions generated from
+                your resume and skills.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="assistant-card">
+
+
+            <h3>
+                📊 Performance Analysis
+            </h3>
+
+
+            <p>
+
+                Get feedback on your answers,
+                confidence and improvement areas.
+
+            </p>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ===========================
+      PREPARATION CATEGORY
+=========================== -->
+
+
+<section class="preparation-section">
+
+
+    <div class="section-title">
+
+
+        <h2>
+            Choose Interview Category
+        </h2>
+
+
+    </div>
+
+
+
+    <div class="category-container">
+
+
+        <div class="category-card">
+
+
+            <h3>
+                Technical Interview
+            </h3>
+
+
+            <p>
+
+                DSA, Programming, AI/ML,
+                Web Development questions.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <div class="category-card">
+
+
+            <h3>
+                HR Interview
+            </h3>
+
+
+            <p>
+
+                Communication, introduction
+                and behavioral questions.
+
+            </p>
+
+
+        </div>
+
+
+
+
+        <!-- Part 2 Continue Here -->
+         
+
+
+
+
+        <div class="category-card">
+
+
+            <h3>
+                🧠 AI/ML Interview
+            </h3>
+
+
+            <p>
+
+                Machine Learning,
+                Deep Learning, Python and AI concepts.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="category-card">
+
+
+            <h3>
+                💻 Coding Interview
+            </h3>
+
+
+            <p>
+
+                Practice DSA,
+                algorithms and coding problems.
+
+            </p>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ===============================
+      AI QUESTION GENERATOR SECTION
+================================ -->
+
+
+<section class="question-generator">
+
+
+
+    <div class="section-title">
+
+
+        <h2>
+            AI Generated Interview Questions
+        </h2>
+
+
+        <p>
+
+            Select your role and get personalized
+            interview questions.
+
+        </p>
+
+
+    </div>
+
+
+
+
+
+    <div class="question-box">
+
+
+
+        <div class="select-area">
+
+
+
+            <label>
+                Select Job Role
+            </label>
+
+
+            <select id="jobRole">
+
+
+                <option>
+                    Frontend Developer
+                </option>
+
+
+                <option>
+                    Backend Developer
+                </option>
+
+
+                <option>
+                    AI Engineer
+                </option>
+
+
+                <option>
+                    Data Analyst
+                </option>
+
+
+                <option>
+                    Full Stack Developer
+                </option>
+
+
+
+            </select>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <button 
+        class="generate-btn"
+        onclick="generateQuestion()">
+
+
+            Generate Question
+
+
+        </button>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+<!-- ===============================
+       QUESTION DISPLAY AREA
+================================ -->
+
+
+<div class="question-display">
+
+
+
+    <h3>
+        Interview Question
+    </h3>
+
+
+
+    <p id="aiQuestion">
+
+
+        Click on generate button
+        to get AI questions.
+
+
+    </p>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ===============================
+       MOCK INTERVIEW SECTION
+================================ -->
+
+
+<section class="mock-interview">
+
+
+
+    <div class="section-title">
+
+
+        <h2>
+            Mock Interview Practice
+        </h2>
+
+
+        <p>
+
+            Answer the question like a real interview.
+
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="interview-panel">
+
+
+
+        <div class="interviewer-card">
+
+
+
+            <img 
+            src="assets/ai-avatar.png"
+            alt="AI Interviewer">
+
+
+
+            <h3>
+                AI Interviewer
+            </h3>
+
+
+
+            <p>
+
+                Hello! I will conduct your
+                technical interview.
+
+            </p>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="answer-section">
+
+
+
+            <label>
+
+                Your Answer
+
+            </label>
+
+
+
+
+            <textarea 
+            id="answerInput"
+            rows="8"
+            placeholder="Type your answer here...">
+            </textarea>
+
+
+
+
+
+            <button 
+            class="submit-answer"
+            onclick="submitAnswer()">
+
+
+
+                Submit Answer
+
+
+
+            </button>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ===============================
+       QUICK TIPS SECTION
+================================ -->
+
+
+<section class="quick-tips">
+
+
+    <div class="section-title">
+
+
+        <h2>
+            Interview Preparation Tips
+        </h2>
+
+
+    </div>
+
+
+
+
+
+    <div class="tips-container">
+
+
+
+        <div class="tip-card">
+
+
+            <h3>
+                ✅ Research Company
+            </h3>
+
+
+            <p>
+
+                Understand company values,
+                products and technology.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="tip-card">
+
+
+            <h3>
+                ✅ Practice Daily
+            </h3>
+
+
+            <p>
+
+                Regular practice improves
+                confidence and communication.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <div class="tip-card">
+
+
+            <h3>
+                ✅ Improve Skills
+            </h3>
+
+
+            <p>
+
+                Focus on technical and
+                soft skills.
+
+            </p>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+<!-- Part 3 Continue Here -->
+ 
+
+
+
+
+
+
+
+<!-- ===============================
+        AI FEEDBACK SECTION
+================================ -->
+
+
+<section class="feedback-section">
+
+
+    <div class="section-title">
+
+
+        <h2>
+            AI Interview Feedback
+        </h2>
+
+
+        <p>
+
+            Get detailed analysis of your interview performance.
+
+        </p>
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="feedback-container">
+
+
+
+        <div class="score-card">
+
+
+            <h3>
+                Overall Score
+            </h3>
+
+
+            <div class="score-circle">
+
+
+                <span id="score">
+                    0%
+                </span>
+
+
+            </div>
+
+
+            <p>
+                Interview Performance
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+
+        <div class="analysis-card">
+
+
+            <h3>
+                AI Analysis
+            </h3>
+
+
+            <ul>
+
+
+                <li id="communication">
+                    Communication: Waiting...
+                </li>
+
+
+                <li id="technical">
+                    Technical Skills: Waiting...
+                </li>
+
+
+                <li id="confidence">
+                    Confidence: Waiting...
+                </li>
+
+
+                <li id="improvement">
+                    Improvement: Waiting...
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ===============================
+       IMPROVEMENT PLAN SECTION
+================================ -->
+
+
+<section class="improvement-section">
+
+
+    <div class="section-title">
+
+
+        <h2>
+            Personalized Improvement Plan
+        </h2>
+
+
+    </div>
+
+
+
+
+
+
+    <div class="improvement-cards">
+
+
+
+        <div class="improve-card">
+
+
+            <h3>
+                🎯 Technical Growth
+            </h3>
+
+
+            <p>
+
+                Practice DSA, programming concepts
+                and project explanations.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="improve-card">
+
+
+            <h3>
+                🗣 Communication Skills
+            </h3>
+
+
+            <p>
+
+                Improve your speaking,
+                confidence and explanation skills.
+
+            </p>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="improve-card">
+
+
+            <h3>
+                🚀 Career Preparation
+            </h3>
+
+
+            <p>
+
+                Build projects and prepare
+                industry-level skills.
+
+            </p>
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ===============================
+        FINAL CTA SECTION
+================================ -->
+
+
+<section class="cta-section">
+
+
+    <h2>
+        Ready To Crack Your Dream Interview?
+    </h2>
+
+
+
+    <p>
+
+        Practice with AI and improve your
+        chances of getting hired.
+
+    </p>
+
+
+
+
+    <button 
+    class="practice-btn"
+    onclick="startPractice()">
+
+
+
+        Start New Interview
+
+
+
+    </button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ===============================
+          FOOTER
+================================ -->
+
+
+<footer class="footer">
+
+
+    <p>
+
+        © 2026 AI Job Portal |
+        Smart Career Preparation Platform
+
+    </p>
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+<!-- ===============================
+      JAVASCRIPT CONNECTION
+================================ -->
+
+
+<script src="../js/interview_prep.js"></script>
+
+
+
+
+</body>
+
+
+</html>
+
+
+
+

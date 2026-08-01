@@ -1,0 +1,1693 @@
+/* ==========================================
+        AI JOB PORTAL
+        RESUME ANALYSIS PAGE CSS
+        PART 1
+========================================== */
+
+
+
+
+
+/* ==========================================
+            GOOGLE FONT
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+
+
+
+/* ==========================================
+            GLOBAL RESET
+========================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+
+
+
+body{
+
+    background:#f5f7fb;
+
+    color:#1e293b;
+
+    overflow-x:hidden;
+
+}
+
+
+
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+
+
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+
+
+
+
+/* ==========================================
+                NAVBAR
+========================================== */
+
+.navbar{
+
+    width:100%;
+
+    height:80px;
+
+    background:#ffffff;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 70px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+}
+
+
+
+
+
+.logo h2{
+
+    color:#2563eb;
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+.navbar nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+}
+
+
+
+
+
+.navbar nav a{
+
+    text-decoration:none;
+
+    color:#475569;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.navbar nav a:hover,
+
+.navbar nav a.active{
+
+    color:#2563eb;
+
+}
+
+
+
+
+
+.navbar button{
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:12px 28px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.navbar button:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
+
+/* ==========================================
+                HERO
+========================================== */
+
+.hero{
+
+    width:100%;
+
+    min-height:650px;
+
+    padding:80px 8%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:60px;
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    color:#ffffff;
+
+}
+
+
+
+
+
+.hero-content{
+
+    flex:1;
+
+}
+
+
+
+
+
+.badge{
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.18);
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    font-size:15px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+.hero-content h1{
+
+    font-size:56px;
+
+    line-height:1.2;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+.hero-content p{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    opacity:.95;
+
+    margin-bottom:35px;
+
+}
+
+
+
+
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+
+
+
+
+.hero-buttons button{
+
+    padding:15px 32px;
+
+    border:none;
+
+    border-radius:35px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.hero-buttons button:first-child{
+
+    background:#ffffff;
+
+    color:#2563eb;
+
+}
+
+
+
+
+
+.hero-buttons button:last-child{
+
+    background:transparent;
+
+    color:#ffffff;
+
+    border:2px solid #ffffff;
+
+}
+
+
+
+
+
+.hero-buttons button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+
+
+
+.hero-image{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+
+
+
+.hero-image img{
+
+    width:90%;
+
+    max-width:520px;
+
+}
+
+
+
+
+
+/* ==========================================
+            QUICK STATS
+========================================== */
+
+.stats-section{
+
+    width:90%;
+
+    margin:70px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+.stat-card{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+
+.stat-card h2{
+
+    color:#2563eb;
+
+    font-size:42px;
+
+    margin-bottom:12px;
+
+}
+
+
+
+
+
+.stat-card p{
+
+    color:#64748b;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+/* ==========================================
+            SECTION TITLE
+========================================== */
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+}
+
+
+
+
+
+.section-title h2{
+
+    color:#1e293b;
+
+    font-size:38px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.section-title p{
+
+    color:#64748b;
+
+    font-size:17px;
+
+}
+/* ==========================================
+        AI JOB PORTAL
+        RESUME ANALYSIS PAGE CSS
+        PART 2
+========================================== */
+
+
+
+
+
+/* ==========================================
+            UPLOAD SECTION
+========================================== */
+
+.upload-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+
+
+
+
+.upload-container{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:35px;
+
+}
+
+
+
+
+
+.upload-box{
+
+    background:#ffffff;
+
+    padding:50px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    border:3px dashed #2563eb;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.upload-box:hover{
+
+    transform:translateY(-6px);
+
+}
+
+
+
+
+
+.upload-icon{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+.upload-box h3{
+
+    color:#1e293b;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.upload-box p{
+
+    color:#64748b;
+
+    margin-bottom:18px;
+
+}
+
+
+
+
+
+.upload-box input[type="file"]{
+
+    width:100%;
+
+    padding:15px;
+
+    margin:20px 0;
+
+}
+
+
+
+
+
+.upload-box button{
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.upload-box button:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+
+
+.upload-info{
+
+    background:#ffffff;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+
+
+.upload-info h3{
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+.upload-info ul{
+
+    list-style:none;
+
+}
+
+
+
+
+
+.upload-info li{
+
+    margin-bottom:15px;
+
+    color:#475569;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+/* ==========================================
+        ANALYSIS DASHBOARD
+========================================== */
+
+.analysis-dashboard{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+
+
+
+
+.score-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+.score-card{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.score-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+
+.score-card h3{
+
+    color:#1e293b;
+
+    margin-bottom:18px;
+
+}
+
+
+
+
+
+.score-card h2{
+
+    color:#2563eb;
+
+    font-size:40px;
+
+    margin-bottom:18px;
+
+}
+
+
+
+
+
+.score-card progress{
+
+    width:100%;
+
+    height:18px;
+
+}
+
+
+
+
+
+.overall{
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    color:#ffffff;
+
+}
+
+
+
+
+
+.overall h3,
+
+.overall p{
+
+    color:#ffffff;
+
+}
+
+
+
+
+
+.circle-score{
+
+    width:150px;
+
+    height:150px;
+
+    margin:25px auto;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    color:#2563eb;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:36px;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+/* ==========================================
+        FEEDBACK SECTION
+========================================== */
+
+.feedback-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+}
+
+
+
+
+
+.feedback-card{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+
+
+
+.feedback-card h2{
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+.feedback-card ul{
+
+    padding-left:20px;
+
+}
+
+
+
+
+
+.feedback-card li{
+
+    margin-bottom:14px;
+
+    color:#475569;
+
+    line-height:1.7;
+
+}
+
+
+
+
+
+.strengths{
+
+    border-top:6px solid #16a34a;
+
+}
+
+
+
+
+
+.improvements{
+
+    border-top:6px solid #f59e0b;
+
+}
+
+
+
+
+
+/* ==========================================
+        AI SUGGESTIONS
+========================================== */
+
+.ai-suggestions{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+
+
+
+
+.suggestion-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+.suggestion-card{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.suggestion-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+
+.suggestion-card h3{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.suggestion-card p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+}
+/* ==========================================
+        AI JOB PORTAL
+        RESUME ANALYSIS PAGE CSS
+        PART 3
+========================================== */
+
+
+
+
+
+/* ==========================================
+        ROADMAP SECTION
+========================================== */
+
+.roadmap-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+
+
+
+
+.roadmap-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+.roadmap-card{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.roadmap-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+
+.roadmap-card h3{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+    font-size:24px;
+
+}
+
+
+
+
+
+.roadmap-card p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+/* ==========================================
+        CERTIFICATION SECTION
+========================================== */
+
+.certification-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+
+
+
+
+.certificate-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+.certificate-card{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.certificate-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+
+.certificate-card h3{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.certificate-card p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+/* ==========================================
+        RECOMMENDED JOBS
+========================================== */
+
+.recommended-jobs{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+
+
+
+
+.job-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+.job-card{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.job-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+
+.job-card h3{
+
+    color:#1e293b;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.job-card p{
+
+    color:#64748b;
+
+}
+
+
+
+
+
+.job-card strong{
+
+    color:#2563eb;
+
+}
+
+
+
+
+
+/* ==========================================
+        ACTION BUTTONS
+========================================== */
+
+.action-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+}
+
+
+
+
+
+.action-section button{
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:35px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.action-section button:first-child{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+}
+
+
+
+
+
+.action-section button:last-child{
+
+    background:#e2e8f0;
+
+    color:#1e293b;
+
+}
+
+
+
+
+
+.action-section button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+/* ==========================================
+        FEATURES SECTION
+========================================== */
+
+.features-section{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+
+
+
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+
+
+.feature-card{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    font-size:45px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+
+.feature-card h3{
+
+    margin:20px 0 12px;
+
+    font-size:22px;
+
+    color:#2563eb;
+
+}
+
+
+
+
+
+.feature-card p{
+
+    color:#64748b;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+/* ==========================================
+                FOOTER
+========================================== */
+
+.footer{
+
+    background:#0f172a;
+
+    color:#ffffff;
+
+    margin-top:80px;
+
+    padding:55px 8% 25px;
+
+}
+
+
+
+
+
+.footer-content{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:40px;
+
+}
+
+
+
+
+
+.footer h3{
+
+    margin-bottom:18px;
+
+}
+
+
+
+
+
+.footer p{
+
+    color:#cbd5e1;
+
+    line-height:1.8;
+
+}
+
+
+
+
+
+.footer a{
+
+    display:block;
+
+    color:#cbd5e1;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.footer a:hover{
+
+    color:#ffffff;
+
+}
+
+
+
+
+
+.copyright{
+
+    text-align:center;
+
+    margin-top:40px;
+
+    padding-top:20px;
+
+    border-top:1px solid #334155;
+
+    color:#94a3b8;
+
+}
+
+
+
+
+
+/* ==========================================
+            RESPONSIVE DESIGN
+========================================== */
+
+@media(max-width:1100px){
+
+    .stats-section,
+
+    .roadmap-container,
+
+    .certificate-grid,
+
+    .job-grid,
+
+    .feature-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .score-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+
+
+
+@media(max-width:768px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:20px;
+
+        gap:20px;
+
+    }
+
+    .navbar nav{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .hero{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .hero-content h1{
+
+        font-size:38px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .stats-section,
+
+    .upload-container,
+
+    .score-grid,
+
+    .feedback-section,
+
+    .suggestion-grid,
+
+    .roadmap-container,
+
+    .certificate-grid,
+
+    .job-grid,
+
+    .feature-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .action-section{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .footer-content{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+}
