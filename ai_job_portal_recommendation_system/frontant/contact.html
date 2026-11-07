@@ -3,439 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Setu — Contact Us</title>
+<title>Contact — HireNova AI</title>
+<meta name="description" content="Contact HireNova AI — a real person replies within one business day.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/landing.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <style>
-  :root{
-    --bg:#F5F6FA;
-    --surface:#FFFFFF;
-    --surface-2:#ECEEF5;
-    --text:#14171F;
-    --text-muted:#565B72;
-    --primary:#1B1F3B;
-    --accent:#E8940C;
-    --accent-soft:#FFE9C2;
-    --secondary:#00897A;
-    --border:rgba(20,23,31,0.10);
-    --shadow: 0 20px 50px -25px rgba(20,23,31,0.25);
-    --radius: 18px;
-    color-scheme: light;
-  }
-  [data-theme="dark"]{
-    --bg:#0B0D17;
-    --surface:#14172B;
-    --surface-2:#1B1E36;
-    --text:#EDEEF5;
-    --text-muted:#9AA0BE;
-    --primary:#EDEEF5;
-    --accent:#FFB84D;
-    --accent-soft:#3A2C10;
-    --secondary:#2FD9C3;
-    --border:rgba(237,238,245,0.10);
-    --shadow: 0 20px 60px -20px rgba(0,0,0,0.55);
-    color-scheme: dark;
-  }
- 
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Newsreader', serif;
-    font-size:17px;
-    line-height:1.65;
-    transition:background .4s ease, color .4s ease;
-  }
-  h1,h2,h3,.brand,.eyebrow,button,.nav-link,.stat-num,label,input,textarea,select{
-    font-family:'Space Grotesk', sans-serif;
-    letter-spacing:-0.01em;
-  }
-  a{color:inherit;}
-  img,svg{display:block;max-width:100%;}
-  ::selection{background:var(--accent-soft);color:var(--primary);}
-  :focus-visible{outline:2.5px solid var(--secondary);outline-offset:3px;border-radius:4px;}
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
-  }
- 
-  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
- 
-  /* NAV */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:color-mix(in srgb, var(--bg) 85%, transparent);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-  }
-  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1120px;margin:0 auto;}
-  .brand{font-weight:700;font-size:1.25rem;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
-  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);}
-  .nav-links{display:flex;gap:30px;align-items:center;list-style:none;margin:0;padding:0;}
-  .nav-link{font-size:.92rem;font-weight:500;text-decoration:none;color:var(--text-muted);transition:color .2s;}
-  .nav-link:hover{color:var(--text);}
-  .nav-link.active{color:var(--text);}
-  .theme-toggle{
-    width:52px;height:30px;border-radius:20px;border:1px solid var(--border);
-    background:var(--surface-2);position:relative;cursor:pointer;
-    transition:background .3s;flex-shrink:0;
-  }
-  .theme-toggle::after{
-    content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;
-    background:var(--accent);transition:transform .3s cubic-bezier(.4,0,.2,1);
-    box-shadow:0 2px 6px rgba(0,0,0,.2);
-  }
-  [data-theme="dark"] .theme-toggle::after{transform:translateX(22px);}
-  .nav-right{display:flex;align-items:center;gap:22px;}
- 
-  /* HERO */
-  .hero{padding:80px 0 20px;}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
-    font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--secondary);margin-bottom:22px;
-  }
-  .eyebrow::before{content:'';width:16px;height:1.5px;background:var(--secondary);}
-  h1{
-    font-size:clamp(2.2rem, 5vw, 3.6rem);
-    font-weight:700;line-height:1.06;margin:0 0 22px;letter-spacing:-0.02em;
-    max-width:760px;
-  }
-  h1 em{font-style:italic;font-family:'Newsreader',serif;font-weight:500;color:var(--accent);}
-  .hero p.lede{font-size:1.15rem;color:var(--text-muted);max-width:580px;margin:0;}
- 
-  /* MAIN GRID */
-  .contact-grid{
-    display:grid;grid-template-columns:1.15fr 0.85fr;gap:40px;
-    padding:50px 0 80px;align-items:start;
-  }
- 
-  /* FORM CARD */
-  .form-card{
-    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-    padding:40px;box-shadow:var(--shadow);
-  }
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
-  .field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;}
-  .field label{font-size:.82rem;font-weight:600;color:var(--text-muted);}
-  .field input, .field select, .field textarea{
-    font-family:'Newsreader',serif;font-size:1rem;color:var(--text);
-    background:var(--surface-2);border:1px solid var(--border);border-radius:10px;
-    padding:13px 15px;transition:border-color .2s, background .2s;
-    width:100%;
-  }
-  .field input:focus, .field select:focus, .field textarea:focus{
-    border-color:var(--secondary);background:var(--surface);outline:none;
-  }
-  .field textarea{resize:vertical;min-height:120px;}
-  .radio-group{display:flex;gap:10px;flex-wrap:wrap;}
-  .radio-pill{
-    position:relative;
-  }
-  .radio-pill input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0;width:100%;height:100%;}
-  .radio-pill span{
-    display:inline-flex;align-items:center;padding:9px 18px;border-radius:100px;
-    border:1px solid var(--border);font-size:.88rem;font-weight:500;color:var(--text-muted);
-    transition:all .2s;
-  }
-  .radio-pill input:checked + span{
-    background:var(--accent-soft);border-color:var(--accent);color:var(--primary);
-  }
-  [data-theme="dark"] .radio-pill input:checked + span{color:var(--accent);}
-  .radio-pill input:focus-visible + span{outline:2.5px solid var(--secondary);outline-offset:2px;}
- 
-  .btn{
-    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.95rem;
-    padding:14px 26px;border-radius:100px;border:1px solid transparent;cursor:pointer;
-    text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .25s;
-  }
-  .btn-primary{background:var(--primary);color:var(--bg);width:100%;justify-content:center;margin-top:4px;}
-  [data-theme="dark"] .btn-primary{background:var(--accent);color:var(--primary);}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
-  .btn-primary:disabled{opacity:.6;cursor:default;transform:none;}
-  .form-note{font-size:.82rem;color:var(--text-muted);margin-top:12px;text-align:center;}
- 
-  .success-msg{
-    display:none;text-align:center;padding:50px 20px;
-  }
-  .success-msg.show{display:block;}
-  .success-msg .check{
-    width:56px;height:56px;border-radius:50%;background:var(--accent-soft);
-    display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
-  }
-  .success-msg .check svg{width:26px;height:26px;stroke:var(--accent);}
-  .success-msg h3{font-size:1.3rem;margin:0 0 10px;}
-  .success-msg p{color:var(--text-muted);margin:0;}
- 
-  /* SIDEBAR */
-  .side-card{
-    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-    padding:28px;margin-bottom:20px;
-  }
-  .side-card h3{font-size:1rem;font-weight:600;margin:0 0 18px;}
-  .contact-item{
-    display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--border);
-  }
-  .contact-item:first-of-type{border-top:none;padding-top:0;}
-  .contact-icon{
-    width:38px;height:38px;border-radius:10px;background:var(--accent-soft);flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .contact-icon svg{width:18px;height:18px;stroke:var(--accent);}
-  .contact-item strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:.9rem;font-weight:600;margin-bottom:3px;}
-  .contact-item span{font-size:.92rem;color:var(--text-muted);}
- 
-  .band-mini{
-    background:var(--primary);color:var(--bg);border-radius:var(--radius);padding:26px;
-  }
-  [data-theme="dark"] .band-mini{background:var(--surface-2);}
-  .band-mini h3{color:inherit;margin:0 0 10px;}
-  .band-mini p{color:color-mix(in srgb, var(--bg) 70%, transparent);font-size:.92rem;margin:0 0 16px;}
-  [data-theme="dark"] .band-mini p{color:var(--text-muted);}
-  .social-row{display:flex;gap:10px;}
-  .social-row a{
-    width:36px;height:36px;border-radius:50%;border:1px solid color-mix(in srgb, var(--bg) 30%, transparent);
-    display:flex;align-items:center;justify-content:center;transition:all .2s;
-  }
-  [data-theme="dark"] .social-row a{border-color:var(--border);}
-  .social-row a:hover{background:var(--accent);border-color:var(--accent);}
-  .social-row svg{width:16px;height:16px;stroke:currentColor;}
- 
-  /* FAQ */
-  section.faq{padding:20px 0 80px;}
-  .section-head{max-width:600px;margin-bottom:40px;}
-  h2{font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:700;margin:0 0 14px;letter-spacing:-0.015em;}
-  .section-head p{color:var(--text-muted);font-size:1.05rem;margin:0;}
-  .faq-item{border-top:1px solid var(--border);}
-  .faq-item:last-child{border-bottom:1px solid var(--border);}
-  .faq-q{
-    width:100%;text-align:left;background:none;border:none;cursor:pointer;
-    padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;
-    font-size:1.05rem;font-weight:600;color:var(--text);
-  }
-  .faq-q .plus{
-    width:24px;height:24px;flex-shrink:0;position:relative;
-  }
-  .faq-q .plus::before, .faq-q .plus::after{
-    content:'';position:absolute;background:var(--accent);border-radius:2px;
-    transition:transform .3s;
-  }
-  .faq-q .plus::before{width:14px;height:2px;top:11px;left:5px;}
-  .faq-q .plus::after{width:2px;height:14px;top:5px;left:11px;}
-  .faq-item.open .faq-q .plus::after{transform:rotate(90deg);}
-  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
-  .faq-item.open .faq-a{max-height:200px;}
-  .faq-a p{margin:0 0 22px;color:var(--text-muted);max-width:640px;}
- 
-  /* FOOTER */
-  footer{border-top:1px solid var(--border);padding:44px 0;}
-  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-  .footer-row p{margin:0;color:var(--text-muted);font-size:.9rem;}
- 
-  @media (max-width:900px){
-    .contact-grid{grid-template-columns:1fr;}
-  }
-  @media (max-width:640px){
-    .form-row{grid-template-columns:1fr;}
-    .nav-links{display:none;}
-    .form-card{padding:26px;}
-    .wrap{padding:0 20px;}
-  }
+.contact-grid { display:grid; grid-template-columns: 1.1fr .9fr; gap:24px; align-items:start; padding: 40px 0 72px; }
+.faq-item { border-top:1px solid var(--border); }
+.faq-item:last-child { border-bottom:1px solid var(--border); }
+.faq-q { width:100%; text-align:left; background:none; border:none; cursor:pointer; padding:18px 0; display:flex; justify-content:space-between; align-items:center; gap:16px; font-size:var(--text-md); font-weight:700; color:var(--text-900); }
+.faq-q .plus { width:26px; height:26px; flex-shrink:0; border:1px solid var(--border); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--primary); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .3s ease; }
+.faq-item.open .faq-a { max-height:200px; }
+.faq-a p { padding-bottom:18px; font-size:var(--text-sm); }
+.radio-pill { position:relative; display:inline-block; }
+.radio-pill input { position:absolute; opacity:0; inset:0; cursor:pointer; }
+.radio-pill span { display:inline-flex; padding:8px 16px; border-radius:999px; border:1px solid var(--border); font-size:var(--text-sm); font-weight:600; color:var(--text-500); }
+.radio-pill input:checked + span { background:var(--primary-soft); border-color:var(--primary); color:var(--primary); }
+@media (max-width: 860px) { .contact-grid { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
- 
-<header>
-  <nav>
-    <a href="about.html" class="brand"><span class="dot"></span>Setu <span style="color:var(--text-muted);font-weight:500;">/ सेतु</span></a>
-    <ul class="nav-links">
-      <li><a class="nav-link" href="about.html">About</a></li>
-      <li><a class="nav-link active" href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav-right">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode"></button>
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="brand"><span class="mark">H</span><span>HireNova AI</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#jobs">Open roles</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="login.html" class="btn btn-outline btn-sm">Sign in</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Get started free</a>
+      <button class="hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
     </div>
-  </nav>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#jobs">Open roles</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Sign in</a>
+    <a href="register.html">Get started free</a>
+  </div>
 </header>
- 
+
 <main>
-  <section class="hero wrap">
-    <span class="eyebrow">Get in touch</span>
-    <h1>Questions, feedback, or a <em>partnership</em> in mind — we're listening.</h1>
-    <p class="lede">Whether you're a candidate stuck on a match, an employer exploring Setu for your hiring, or just curious about the AI — drop us a line and a real person replies within one business day.</p>
+  <section class="hero" style="padding-bottom:0;">
+    <div class="container" style="max-width:780px;">
+      <span class="eyebrow">Get in touch</span>
+      <h1>Questions, feedback, or a <em>partnership</em> in mind — we're listening.</h1>
+      <p class="lead">Whether you're a candidate stuck on a match, an employer exploring HireNova AI, or just curious about the AI — drop us a line and a real person replies within one business day.</p>
+    </div>
   </section>
- 
-  <div class="wrap">
+
+  <div class="container">
     <div class="contact-grid">
- 
-      <!-- FORM -->
-      <div class="form-card">
+      <div class="card">
         <form id="contactForm" novalidate>
           <div id="formFields">
             <div class="field">
               <label>I am reaching out as a</label>
-              <div class="radio-group">
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
                 <label class="radio-pill"><input type="radio" name="role" value="candidate" checked><span>Candidate</span></label>
                 <label class="radio-pill"><input type="radio" name="role" value="employer"><span>Employer</span></label>
                 <label class="radio-pill"><input type="radio" name="role" value="other"><span>Something else</span></label>
               </div>
             </div>
- 
-            <div class="form-row">
-              <div class="field">
-                <label for="name">Full name</label>
-                <input type="text" id="name" name="name" placeholder="e.g. Ananya Sharma" required>
-              </div>
-              <div class="field">
-                <label for="email">Email address</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required>
-              </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="form-row">
+              <div class="field"><label for="name">Full name</label><input type="text" id="name" placeholder="e.g. Ananya Sharma" required></div>
+              <div class="field"><label for="email">Email address</label><input type="email" id="email" placeholder="you@example.com" required></div>
             </div>
- 
-            <div class="field">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
-            </div>
- 
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us a bit more..." required></textarea>
-            </div>
- 
-            <button type="submit" class="btn btn-primary" id="submitBtn">Send message</button>
-            <p class="form-note">We typically respond within 24 hours, Monday to Saturday.</p>
+            <div class="field"><label for="subject">Subject</label><input type="text" id="subject" placeholder="What's this about?" required></div>
+            <div class="field"><label for="message">Message</label><textarea id="message" rows="5" placeholder="Tell us a bit more..." required></textarea></div>
+            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Send message</button>
+            <p style="text-align:center;font-size:var(--text-xs);color:var(--text-500);margin-top:12px;">We typically respond within 24 hours, Monday to Saturday.</p>
           </div>
- 
-          <div class="success-msg" id="successMsg">
-            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <div id="successMsg" style="display:none;text-align:center;padding:40px 16px;">
+            <div style="width:56px;height:56px;border-radius:50%;background:var(--success-bg);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--success);font-size:22px;"><i class="fa-solid fa-check"></i></div>
             <h3>Message sent</h3>
-            <p>Thanks for reaching out — our team will get back to you shortly.</p>
+            <p style="margin-top:8px;font-size:var(--text-sm);">Thanks for reaching out — our team will get back to you shortly.</p>
           </div>
         </form>
       </div>
- 
-      <!-- SIDEBAR -->
-      <div>
-        <div class="side-card">
-          <h3>Reach us directly</h3>
-          <div class="contact-item">
-            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg></div>
-            <div><strong>Email</strong><span>hello@setu.ai</span></div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card">
+          <h3 style="font-size:var(--text-lg);margin-bottom:12px;">Reach us directly</h3>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--border);">
+            <span style="width:38px;height:38px;border-radius:10px;background:var(--primary-soft);color:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-regular fa-envelope"></i></span>
+            <div><strong style="font-size:var(--text-sm);">Email</strong><div style="font-size:var(--text-sm);color:var(--text-500);">hello@hirenova.ai</div></div>
           </div>
-          <div class="contact-item">
-            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8.1 9.7a16 16 0 006.2 6.2l1.2-1.2a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z"/></svg></div>
-            <div><strong>Phone</strong><span>+91 98765 43210</span></div>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--border);">
+            <span style="width:38px;height:38px;border-radius:10px;background:var(--primary-soft);color:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-phone"></i></span>
+            <div><strong style="font-size:var(--text-sm);">Phone</strong><div style="font-size:var(--text-sm);color:var(--text-500);">+91 98765 43210</div></div>
           </div>
-          <div class="contact-item">
-            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div><strong>Office</strong><span>Cyber Hub, DLF Phase 2, Gurugram, Haryana</span></div>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--border);">
+            <span style="width:38px;height:38px;border-radius:10px;background:var(--primary-soft);color:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-location-dot"></i></span>
+            <div><strong style="font-size:var(--text-sm);">Office</strong><div style="font-size:var(--text-sm);color:var(--text-500);">Cyber Hub, DLF Phase 2, Gurugram, Haryana</div></div>
           </div>
-          <div class="contact-item">
-            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-            <div><strong>Hours</strong><span>Mon – Sat, 10 AM – 7 PM IST</span></div>
+          <div style="display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--border);">
+            <span style="width:38px;height:38px;border-radius:10px;background:var(--primary-soft);color:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-regular fa-clock"></i></span>
+            <div><strong style="font-size:var(--text-sm);">Hours</strong><div style="font-size:var(--text-sm);color:var(--text-500);">Mon – Sat, 10 AM – 7 PM IST</div></div>
           </div>
         </div>
- 
-        <div class="band-mini">
-          <h3>Follow the build</h3>
-          <p>Product updates, AI matching notes, and hiring insights — posted regularly.</p>
-          <div class="social-row">
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9h4v2a4 4 0 018 0v9h-4v-8a2 2 0 00-4 0v8h-4z"/></svg></a>
-            <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <div style="background:var(--brand-900);color:#fff;border-radius:var(--radius-lg);padding:24px;">
+          <h3 style="color:#fff;font-size:var(--text-lg);">Follow the build</h3>
+          <p style="color:#bfdbfe;font-size:var(--text-sm);margin:8px 0 16px;">Product updates, AI matching notes, and hiring insights — posted regularly.</p>
+          <div style="display:flex;gap:10px;">
+            <a href="#" aria-label="LinkedIn" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:#fff;"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="X" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:#fff;"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="Instagram" style="width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:#fff;"><i class="fa-brands fa-instagram"></i></a>
           </div>
         </div>
       </div>
- 
+    </div>
+
+    <div style="padding-bottom:72px;max-width:760px;">
+      <div class="section-head"><span class="kicker">Before you write in</span><h2>Quick answers</h2><p>A few things people usually ask us first.</p></div>
+      <div class="faq-list">
+        <div class="faq-item open"><button class="faq-q" type="button"><span>How fast do you reply?</span><span class="plus">+</span></button><div class="faq-a"><p>Most messages get a reply within 24 hours on business days. Urgent employer queries are usually answered same-day.</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button"><span>Is HireNova AI free for candidates?</span><span class="plus">+</span></button><div class="faq-a"><p>Yes — creating a profile, getting AI-matched, and applying to roles is completely free for job seekers.</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button"><span>Can I report an issue with a match?</span><span class="plus">+</span></button><div class="faq-a"><p>Absolutely — use the form above and select "Something else". Flag the role and we'll review the match logic manually.</p></div></div>
+        <div class="faq-item"><button class="faq-q" type="button"><span>Do you offer enterprise hiring plans?</span><span class="plus">+</span></button><div class="faq-a"><p>Yes — select "Employer" in the form and mention your hiring volume. Our team will set up a walkthrough.</p></div></div>
+      </div>
     </div>
   </div>
- 
-  <section class="faq wrap">
-    <div class="section-head">
-      <span class="eyebrow">Before you write in</span>
-      <h2>Quick answers</h2>
-      <p>A few things people usually ask us first.</p>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item open">
-        <button class="faq-q"><span>How fast do you reply?</span><span class="plus"></span></button>
-        <div class="faq-a"><p>Most messages get a reply within 24 hours on business days. Urgent employer queries are usually answered same-day.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>Is Setu free for candidates?</span><span class="plus"></span></button>
-        <div class="faq-a"><p>Yes — creating a profile, getting AI-matched, and applying to roles is completely free for job seekers.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>Can I report an issue with a match?</span><span class="plus"></span></button>
-        <div class="faq-a"><p>Absolutely, use the form above and select "Something else" — flag the role and we'll review the match logic manually.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span>Do you offer enterprise hiring plans?</span><span class="plus"></span></button>
-        <div class="faq-a"><p>Yes, select "Employer" in the form and mention your hiring volume — our team will set up a walkthrough.</p></div>
-      </div>
-    </div>
-  </section>
- 
-  <footer class="wrap">
-    <div class="footer-row">
-      <a href="about.html" class="brand" style="font-size:1rem;"><span class="dot"></span>Setu</a>
-      <p>Built with an AI matching engine, for people who'd rather work than search. © 2026</p>
-    </div>
-  </footer>
 </main>
- 
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div><a href="index.html" class="brand" style="color:#fff;"><span class="mark">H</span><span>HireNova AI</span></a><p style="margin-top:14px;">Built with an AI matching engine, for people who'd rather work than search.</p></div>
+    <div><h4>Candidates</h4><a href="register.html">Create free account</a><a href="job_seeker/jobs.html">Find jobs</a><a href="job_seeker/ai_recommendation.html">AI recommendations</a></div>
+    <div><h4>Employers</h4><a href="register.html">Post a role</a><a href="about.html">How matching works</a><a href="contact.html">Talk to us</a></div>
+    <div><h4>Company</h4><a href="about.html">About</a><a href="contact.html">Contact</a><a href="login.html">Sign in</a></div>
+  </div>
+  <div class="footer-bottom">© 2026 HireNova AI · AI-Matched Hiring</div>
+</footer>
+
+<script src="js/layout.js"></script>
 <script>
-  (function(){
-    const root = document.documentElement;
-    const toggle = document.getElementById('themeToggle');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    let manualOverride = false;
- 
-    function applyTheme(theme){ root.setAttribute('data-theme', theme); }
-    applyTheme(prefersDark.matches ? 'dark' : 'light');
- 
-    prefersDark.addEventListener('change', (e) => {
-      if(!manualOverride) applyTheme(e.matches ? 'dark' : 'light');
-    });
- 
-    toggle.addEventListener('click', () => {
-      manualOverride = true;
-      const current = root.getAttribute('data-theme');
-      applyTheme(current === 'dark' ? 'light' : 'dark');
-    });
-  })();
- 
-  // FAQ accordion
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.querySelector('.faq-q').addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if(!isOpen) item.classList.add('open');
-    });
+document.querySelectorAll('.faq-item').forEach(function (item) {
+  item.querySelector('.faq-q').addEventListener('click', function () {
+    var wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); i.querySelector('.plus').textContent = '+'; });
+    if (!wasOpen) { item.classList.add('open'); item.querySelector('.plus').textContent = '−'; }
   });
- 
-  // Form submit (front-end only demo — wire up your backend/API here)
-  const form = document.getElementById('contactForm');
-  const fields = document.getElementById('formFields');
-  const success = document.getElementById('successMsg');
-  const submitBtn = document.getElementById('submitBtn');
- 
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(!form.checkValidity()){
-      form.reportValidity();
-      return;
-    }
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-    setTimeout(() => {
-      fields.style.display = 'none';
-      success.classList.add('show');
-    }, 700);
-  });
+});
+var form = document.getElementById('contactForm');
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  setTimeout(function () {
+    document.getElementById('formFields').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+    window.toast('Message sent!');
+  }, 700);
+});
 </script>
- 
+<style>@media (max-width: 640px) { .form-row { grid-template-columns: 1fr !important; } }</style>
+<script src="js/api.js"></script>
+<script src="js/live.js"></script>
 </body>
 </html>

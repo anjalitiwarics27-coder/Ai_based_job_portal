@@ -587,7 +587,7 @@ function logout() {
 
     localStorage.removeItem("user");
 
-    window.location.href = "index.html";
+    window.location.href = "../login.html";
 
 }
 /*==================================================

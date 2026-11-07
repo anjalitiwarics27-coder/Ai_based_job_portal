@@ -6,21 +6,24 @@
 // Check User Login
 document.addEventListener("DOMContentLoaded", () => {
 
-    const user = JSON.parse(localStorage.getItem("user"));
+    let user = null;
+    try {
+        user = JSON.parse(localStorage.getItem("user"));
+    } catch (e) { user = null; }
 
     if (!user) {
-        alert("Please login first!");
-        window.location.href = "login.html";
+        // Demo-friendly: allow dashboard preview, but prompt to sign in via toast
+        // (Remove the redirect below if you want to enforce auth strictly.)
+        if (window.toast) window.toast("Tip: Sign in to sync your matches.");
         return;
     }
 
+    // Load User Information (guarded — elements may not exist on some layouts)
+    const nameEl = document.getElementById("userName");
+    if (nameEl) nameEl.innerText = user.name || "User";
 
-    // Load User Information
-    document.getElementById("userName").innerText =
-        user.name || "User";
-
-    document.getElementById("userEmail").innerText =
-        user.email || "example@gmail.com";
+    const emailEl = document.getElementById("userEmail");
+    if (emailEl) emailEl.innerText = user.email || "example@gmail.com";
 
 
     // Load Dashboard Data
@@ -286,6 +289,6 @@ function logout(){
     alert("Logged out successfully");
 
 
-    window.location.href="index.html";
+    window.location.href="../login.html";
 
 }

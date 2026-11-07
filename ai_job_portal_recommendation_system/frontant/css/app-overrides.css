@@ -1,0 +1,160 @@
+/* HireNova AI — App overrides: unify legacy pages to the professional light system.
+   Loaded last on job_seeker / employer pages. Keeps existing layout classes,
+   but replaces the old dark-glass / harsh cyan treatment with the token palette. */
+body {
+  background: var(--bg-page) !important;
+  color: var(--text-900);
+  font-family: var(--font-sans) !important;
+}
+
+/* Containers */
+.container { display: flex; min-height: 100vh; }
+
+/* Sidebar — dark navy, professional */
+.sidebar {
+  background: var(--navy-900) !important;
+  border-right: none !important;
+  box-shadow: none !important;
+}
+.sidebar .logo { color: #fff !important; }
+.sidebar .logo h2 { color: #fff !important; font-size: 17px; letter-spacing: -.01em; }
+.sidebar .logo i { color: #93c5fd !important; }
+.sidebar ul li, .sidebar nav a {
+  color: #cbd5e1 !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background .18s, color .18s;
+}
+.sidebar ul li:hover, .sidebar nav a:hover { background: rgba(255,255,255,.08) !important; color: #fff !important; transform: none !important; }
+.sidebar ul li.active, .sidebar nav a.active { background: var(--brand-600) !important; color: #fff !important; font-weight: 600; }
+
+/* Navbar */
+.navbar {
+  background: #fff !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+  backdrop-filter: none !important;
+}
+.nav-left h2 { color: var(--text-900) !important; font-size: 22px !important; }
+.nav-left p { color: var(--text-500) !important; font-size: 14px; }
+.search-box { background: var(--bg-page) !important; border: 1px solid var(--border); }
+.search-box input { background: transparent !important; color: var(--text-900) !important; }
+.notification { color: var(--text-700) !important; }
+.notification:hover { color: var(--primary) !important; }
+.profile img { border-color: var(--border) !important; }
+
+/* Top header variant used on jobs/profile pages */
+header.navbar {
+  background: #fff !important;
+  border: none !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+header.navbar .logo h2 { color: var(--brand-700) !important; }
+header.navbar nav a { color: var(--text-700) !important; }
+header.navbar nav a:hover, header.navbar nav a.active { color: var(--primary) !important; }
+header.navbar nav button {
+  background: var(--primary) !important;
+  color: #fff !important;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--brand-900), var(--brand-600)) !important;
+  border: none !important;
+}
+.hero-left h1, .hero-left p { color: #fff !important; }
+.hero-left p { opacity: .9; }
+.tag { background: rgba(255,255,255,.16) !important; }
+
+/* Cards — white surfaces, subtle border */
+.stat-card, .action-card, .job-card, .interview-card, .insight-card,
+.notification-card, .achievement-card, .skills-container,
+.category-card, .company-box, .career-card, .profile-box,
+.overview-card, .filter-sidebar, .ai-banner,
+.chat-container, .form-card, .settings-card,
+.candidate-card, .admin-card {
+  background: #fff !important;
+  backdrop-filter: none !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+  color: var(--text-900);
+}
+.stat-card:hover, .action-card:hover, .job-card:hover, .interview-card:hover,
+.insight-card:hover, .notification-card:hover, .achievement-card:hover,
+.category-card:hover, .company-box:hover, .career-card:hover {
+  box-shadow: var(--shadow-md) !important;
+  transform: translateY(-4px) !important;
+}
+.stat-card i, .action-card i, .interview-card i, .insight-card i, .notification-card i { color: var(--primary) !important; }
+.stat-card p, .action-card p, .job-card p, .interview-card p,
+.insight-card p, .notification-card p, .achievement-card p,
+.category-card p, .company-box p, .career-card p { color: var(--text-500) !important; }
+.action-card h3, .job-card h3, .interview-card h3, .insight-card h3 { color: var(--text-900) !important; }
+
+.company-logo { background: var(--primary-soft) !important; color: var(--primary) !important; }
+.salary { background: var(--success-bg) !important; color: #15803d !important; }
+.job-tags span { background: var(--bg-page) !important; color: var(--text-700) !important; border: 1px solid var(--border); }
+
+/* Buttons */
+.primary-btn, .apply-btn, .filter-btn, .job-card button:not(.ghost),
+.job-actions button.apply-btn, .action-card button, .interview-card button {
+  background: var(--primary) !important;
+  color: #fff !important;
+}
+.primary-btn:hover, .apply-btn:hover, .filter-btn:hover,
+.job-card button:hover, .action-card button:hover, .interview-card button:hover {
+  background: var(--primary-hover) !important;
+}
+.secondary-btn { border-color: rgba(255,255,255,.6) !important; color: #fff !important; }
+
+/* Tables */
+.recent-applications table { background: #fff !important; backdrop-filter: none !important; }
+.recent-applications th { background: var(--bg-page) !important; color: var(--text-700) !important; }
+.recent-applications td { color: var(--text-900) !important; border-color: var(--border) !important; }
+
+/* Progress */
+.progress-bar, .progress-fill { background: linear-gradient(90deg, var(--primary), var(--accent)) !important; }
+.progress { background: #eef2f7 !important; }
+.skills-container { padding: 28px !important; }
+
+/* Footer */
+footer, .footer {
+  background: var(--brand-900) !important;
+  color: #cbd5e1 !important;
+  backdrop-filter: none !important;
+}
+.footer-content h3 { color: #fff !important; }
+.footer-content p { color: #94a3b8 !important; }
+.social-icons a { background: rgba(255,255,255,.12) !important; color: #fff !important; }
+.social-icons a:hover { background: var(--brand-500) !important; }
+.copyright { color: #94a3b8 !important; }
+
+/* Inputs */
+input, select, textarea { font-family: var(--font-sans) !important; }
+input:focus, select:focus, textarea:focus { border-color: var(--primary) !important; }
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb { background: var(--border-strong) !important; }
+::-webkit-scrollbar-track { background: #f1f5f9 !important; }
+
+/* Remove float/rotate exuberance, keep subtle motion */
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.hero-right img { animation: float 4s ease-in-out infinite; }
+.social-icons a:hover { transform: translateY(-3px) !important; }
+
+/* Responsive guards */
+@media (max-width: 992px) {
+  .sidebar { width: 84px !important; }
+  .main { margin-left: 84px !important; width: calc(100% - 84px) !important; }
+  .sidebar h2, .sidebar li span, .sidebar nav a span { display: none !important; }
+}
+@media (max-width: 640px) {
+  .main { margin-left: 84px !important; }
+  .hero { padding: 32px 24px !important; }
+  .hero-left h1 { font-size: 30px !important; }
+  .navbar { padding: 16px 20px !important; }
+}

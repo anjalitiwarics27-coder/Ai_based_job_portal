@@ -6,10 +6,15 @@
     <title>AI Job Recommendation</title>
 
     <link rel="stylesheet" href="../css/ai_recommendation.css">
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/app-overrides.css">
 
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-    <script src="../js/ai_recommendation.js"></script>
+    
 
 </head>
 
@@ -25,61 +30,58 @@
 
             <i class="fa-solid fa-brain"></i>
 
-            <h2>AI Job Portal</h2>
+            <h2>HireNova AI</h2>
 
         </div>
 
         <ul>
 
-            <li class="active">
-                <i class="fa-solid fa-house"></i>
-                Dashboard
-            </li>
+            <li class="active"><a href="dashboard.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-house"></i> Dashboard </a></li>
 
-            <li>
+            <li><a href="ai_recommendation.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;">
                 <i class="fa-solid fa-robot"></i>
                 AI Recommendation
-            </li>
+            </a></li>
 
-            <li>
+            <li><a href="jobs.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;">
                 <i class="fa-solid fa-briefcase"></i>
                 Find Jobs
-            </li>
+            </a></li>
 
-            <li>
+            <li><a href="resume_analysis.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;">
                 <i class="fa-solid fa-file-lines"></i>
                 Resume Analyzer
-            </li>
+            </a></li>
 
-            <li>
+            <li><a href="ai_recommendation.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;">
                 <i class="fa-solid fa-chart-line"></i>
                 Career Insights
-            </li>
+            </a></li>
 
-            <li>
+            <li><a href="interview_prep.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;">
                 <i class="fa-solid fa-graduation-cap"></i>
                 AI Courses
-            </li>
+            </a></li>
 
-            <li>
+            <li><a href="chatbot.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;">
                 <i class="fa-solid fa-comments"></i>
                 Interview Prep
-            </li>
+            </a></li>
 
-            <li>
+            <li><a href="saved_jobs.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;">
                 <i class="fa-solid fa-heart"></i>
                 Saved Jobs
-            </li>
+            </a></li>
 
-            <li>
+            <li><a href="profile.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;">
                 <i class="fa-solid fa-user"></i>
                 Profile
-            </li>
+            </a></li>
 
-            <li>
+            <li><a href="../login.html" onclick="logout();return false;">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 Logout
-            </li>
+            </a></li>
 
         </ul>
 
@@ -711,7 +713,7 @@
 
     <p>
 
-        © 2026 AI Job Portal | Powered by Artificial Intelligence
+        © 2026 HireNova AI | Powered by Artificial Intelligence
 
     </p>
 
@@ -723,5 +725,8 @@
 
 <script src="../js/ai_recommendation.js"></script>
 
+<script src="../js/layout.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/live.js"></script>
 </body>
 </html>

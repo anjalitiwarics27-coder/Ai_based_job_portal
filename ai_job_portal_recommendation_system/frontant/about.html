@@ -3,363 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Setu — About the AI Job Portal</title>
+<title>About — HireNova AI</title>
+<meta name="description" content="HireNova AI is an AI-powered job portal that connects candidates and employers using ranked, explainable matching.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#F5F6FA;
-    --surface:#FFFFFF;
-    --surface-2:#ECEEF5;
-    --text:#14171F;
-    --text-muted:#565B72;
-    --primary:#1B1F3B;
-    --accent:#E8940C;
-    --accent-soft:#FFE9C2;
-    --secondary:#00897A;
-    --border:rgba(20,23,31,0.10);
-    --shadow: 0 20px 50px -25px rgba(20,23,31,0.25);
-    --radius: 18px;
-    color-scheme: light;
-  }
-  [data-theme="dark"]{
-    --bg:#0B0D17;
-    --surface:#14172B;
-    --surface-2:#1B1E36;
-    --text:#EDEEF5;
-    --text-muted:#9AA0BE;
-    --primary:#EDEEF5;
-    --accent:#FFB84D;
-    --accent-soft:#3A2C10;
-    --secondary:#2FD9C3;
-    --border:rgba(237,238,245,0.10);
-    --shadow: 0 20px 60px -20px rgba(0,0,0,0.55);
-    color-scheme: dark;
-  }
- 
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Newsreader', serif;
-    font-size:17px;
-    line-height:1.65;
-    transition:background .4s ease, color .4s ease;
-  }
-  h1,h2,h3,.brand,.eyebrow,button,.nav-link,.stat-num{
-    font-family:'Space Grotesk', sans-serif;
-    letter-spacing:-0.01em;
-  }
-  a{color:inherit;}
-  img,svg{display:block;max-width:100%;}
-  ::selection{background:var(--accent-soft);color:var(--primary);}
-  :focus-visible{outline:2.5px solid var(--secondary);outline-offset:3px;border-radius:4px;}
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
-  }
- 
-  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
- 
-  /* NAV */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:color-mix(in srgb, var(--bg) 85%, transparent);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-  }
-  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;max-width:1120px;margin:0 auto;}
-  .brand{font-weight:700;font-size:1.25rem;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
-  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);}
-  .nav-links{display:flex;gap:30px;align-items:center;list-style:none;margin:0;padding:0;}
-  .nav-link{font-size:.92rem;font-weight:500;text-decoration:none;color:var(--text-muted);transition:color .2s;}
-  .nav-link:hover{color:var(--text);}
-  .theme-toggle{
-    width:52px;height:30px;border-radius:20px;border:1px solid var(--border);
-    background:var(--surface-2);position:relative;cursor:pointer;
-    transition:background .3s;flex-shrink:0;
-  }
-  .theme-toggle::after{
-    content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;
-    background:var(--accent);transition:transform .3s cubic-bezier(.4,0,.2,1);
-    box-shadow:0 2px 6px rgba(0,0,0,.2);
-  }
-  [data-theme="dark"] .theme-toggle::after{transform:translateX(22px);}
-  .nav-right{display:flex;align-items:center;gap:22px;}
- 
-  /* HERO */
-  .hero{padding:90px 0 70px;position:relative;overflow:hidden;}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
-    font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--secondary);margin-bottom:22px;
-  }
-  .eyebrow::before{content:'';width:16px;height:1.5px;background:var(--secondary);}
-  h1{
-    font-size:clamp(2.4rem, 5.5vw, 4.1rem);
-    font-weight:700;line-height:1.04;margin:0 0 26px;letter-spacing:-0.02em;
-    max-width:820px;
-  }
-  h1 em{font-style:italic;font-family:'Newsreader',serif;font-weight:500;color:var(--accent);}
-  .hero p.lede{font-size:1.2rem;color:var(--text-muted);max-width:600px;margin:0 0 36px;}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
-  .btn{
-    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.95rem;
-    padding:14px 26px;border-radius:100px;border:1px solid transparent;cursor:pointer;
-    text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .25s;
-  }
-  .btn-primary{background:var(--primary);color:var(--bg);}
-  [data-theme="dark"] .btn-primary{background:var(--accent);color:var(--primary);}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
-  .btn-ghost{border-color:var(--border);color:var(--text);background:transparent;}
-  .btn-ghost:hover{background:var(--surface-2);}
- 
-  /* BRIDGE SIGNATURE VISUAL */
-  .bridge-visual{margin:60px 0 10px;}
-  .bridge-visual svg{width:100%;height:auto;}
-  .node-label{font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:600;fill:var(--text-muted);}
-  .node-title{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;fill:var(--text);}
- 
-  /* STATS */
-  .stats{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-    background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
-    margin:70px 0;
-  }
-  .stat{background:var(--surface);padding:30px 24px;}
-  .stat-num{font-size:2.1rem;font-weight:700;color:var(--accent);display:block;margin-bottom:4px;}
-  .stat-label{font-size:.85rem;color:var(--text-muted);font-family:'Space Grotesk',sans-serif;}
- 
-  /* SECTION HEADERS */
-  section{padding:70px 0;}
-  .section-head{max-width:600px;margin-bottom:50px;}
-  h2{font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;margin:0 0 16px;letter-spacing:-0.015em;}
-  .section-head p{color:var(--text-muted);font-size:1.08rem;margin:0;}
- 
-  /* HOW IT WORKS - flow steps */
-  .flow{position:relative;}
-  .flow-step{
-    display:grid;grid-template-columns:56px 1fr;gap:24px;
-    padding:28px 0;border-top:1px solid var(--border);
-  }
-  .flow-step:last-child{border-bottom:1px solid var(--border);}
-  .flow-num{
-    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.6rem;color:var(--accent);
-    opacity:.5;
-  }
-  .flow-step h3{font-size:1.25rem;margin:0 0 8px;font-weight:600;}
-  .flow-step p{margin:0;color:var(--text-muted);max-width:560px;}
- 
-  /* FEATURES GRID */
-  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  .feature-card{
-    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-    padding:30px 26px;transition:transform .25s, box-shadow .25s;
-  }
-  .feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-  .feature-icon{
-    width:42px;height:42px;border-radius:12px;background:var(--accent-soft);
-    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
-  }
-  .feature-icon svg{width:22px;height:22px;stroke:var(--accent);}
-  .feature-card h3{font-size:1.08rem;margin:0 0 10px;font-weight:600;}
-  .feature-card p{margin:0;color:var(--text-muted);font-size:.95rem;}
- 
-  /* VALUES / MISSION BAND */
-  .band{
-    background:var(--primary);color:var(--bg);border-radius:24px;
-    padding:60px 50px;margin:70px 0;
-  }
-  [data-theme="dark"] .band{background:var(--surface-2);}
-  .band h2{color:inherit;}
-  .band p{color:color-mix(in srgb, var(--bg) 70%, transparent);font-size:1.1rem;max-width:640px;}
-  [data-theme="dark"] .band p{color:var(--text-muted);}
- 
-  /* FOOTER */
-  footer{border-top:1px solid var(--border);padding:44px 0;margin-top:40px;}
-  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-  .footer-row p{margin:0;color:var(--text-muted);font-size:.9rem;}
- 
-  @media (max-width:860px){
-    .stats{grid-template-columns:repeat(2,1fr);}
-    .features{grid-template-columns:1fr;}
-    .nav-links{display:none;}
-    .band{padding:40px 26px;}
-    .wrap{padding:0 20px;}
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/landing.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
- 
-<header>
-  <nav>
-    <a href="#top" class="brand"><span class="dot"></span>Setu <span style="color:var(--text-muted);font-weight:500;">/ सेतु</span></a>
-    <ul class="nav-links">
-      <li><a class="nav-link" href="#mission">Mission</a></li>
-      <li><a class="nav-link" href="#how">How it works</a></li>
-      <li><a class="nav-link" href="#features">Features</a></li>
-    </ul>
-    <div class="nav-right">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode"></button>
-    </div>
-  </nav>
-</header>
- 
-<main id="top">
-  <section class="hero wrap">
-    <span class="eyebrow">About the platform</span>
-    <h1>The bridge between <em>talent</em> and the <em>right opportunity</em>, built by AI.</h1>
-    <p class="lede">Setu (सेतु, meaning "bridge") is an AI-powered job portal that reads real skill and real intent — not just keywords — to connect candidates and companies who actually belong together.</p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="#how">See how matching works</a>
-      <a class="btn btn-ghost" href="#mission">Our mission</a>
-    </div>
- 
-    <div class="bridge-visual" aria-hidden="true">
-      <svg viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="bridgeLine" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="var(--secondary)"/>
-            <stop offset="100%" stop-color="var(--accent)"/>
-          </linearGradient>
-        </defs>
-        <line x1="110" y1="150" x2="890" y2="150" stroke="var(--border)" stroke-width="2"/>
-        <path d="M110,150 C 300,60 700,60 890,150" fill="none" stroke="url(#bridgeLine)" stroke-width="3" stroke-dasharray="6 8"/>
-        <!-- candidate -->
-        <circle cx="110" cy="150" r="34" fill="var(--surface)" stroke="var(--secondary)" stroke-width="2.5"/>
-        <text x="110" y="156" text-anchor="middle" class="node-title">🧑</text>
-        <text x="110" y="204" text-anchor="middle" class="node-label">CANDIDATE</text>
-        <!-- AI node -->
-        <circle cx="500" cy="70" r="42" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
-        <text x="500" y="66" text-anchor="middle" class="node-title">AI</text>
-        <text x="500" y="82" text-anchor="middle" style="font-size:10px;fill:var(--text-muted);font-family:'Space Grotesk',sans-serif;">MATCH</text>
-        <text x="500" y="130" text-anchor="middle" class="node-label">SETU ENGINE</text>
-        <!-- employer -->
-        <circle cx="890" cy="150" r="34" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>
-        <text x="890" y="156" text-anchor="middle" class="node-title">🏢</text>
-        <text x="890" y="204" text-anchor="middle" class="node-label">EMPLOYER</text>
-      </svg>
-    </div>
-  </section>
- 
-  <div class="wrap">
-    <div class="stats">
-      <div class="stat"><span class="stat-num">92%</span><span class="stat-label">Faster shortlisting vs manual review</span></div>
-      <div class="stat"><span class="stat-num">4.6×</span><span class="stat-label">More relevant matches surfaced</span></div>
-      <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Always-on AI matching engine</span></div>
-      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Bias-audited ranking logic</span></div>
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="brand"><span class="mark">H</span><span>HireNova AI</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#jobs">Open roles</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="login.html" class="btn btn-outline btn-sm">Sign in</a>
+      <a href="register.html" class="btn btn-primary btn-sm">Get started free</a>
+      <button class="hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
     </div>
   </div>
- 
-  <section id="mission" class="wrap">
-    <div class="band">
-      <h2>Job search shouldn't feel like shouting into a form.</h2>
-      <p>Most portals ask people to compress years of skill into keywords and hope the filters are kind. Setu flips that — our AI reads context, growth trajectory, and real project work, then does the matching quietly in the background so both sides show up already aligned.</p>
-    </div>
-  </section>
- 
-  <section id="how" class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Process</span>
-      <h2>How the AI actually matches you</h2>
-      <p>Three passes, each one narrowing toward a genuinely relevant connection — not just a keyword hit.</p>
-    </div>
-    <div class="flow">
-      <div class="flow-step">
-        <span class="flow-num">01</span>
-        <div><h3>Understand</h3><p>Resume, portfolio links, and stated preferences are parsed into a structured skill-and-intent profile — including things candidates rarely think to type, like adjacent skills and career trajectory.</p></div>
-      </div>
-      <div class="flow-step">
-        <span class="flow-num">02</span>
-        <div><h3>Rank</h3><p>Every open role is scored against that profile on fit, growth potential, and culture signals from the employer — not just matching job-title strings.</p></div>
-      </div>
-      <div class="flow-step">
-        <span class="flow-num">03</span>
-        <div><h3>Connect</h3><p>Only matches above a relevance threshold are surfaced to either side, with a plain-language explanation of why the match was made.</p></div>
+  <div class="mobile-menu">
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#jobs">Open roles</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Sign in</a>
+    <a href="register.html">Get started free</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:24px;">
+    <div class="container" style="max-width:780px;">
+      <span class="eyebrow">About the platform</span>
+      <h1>The bridge between <em>talent</em> and the <em>right opportunity</em>, built by AI.</h1>
+      <p class="lead">HireNova AI is an AI-powered job portal that reads real skills and real intent — not just keywords — to connect candidates and companies who actually belong together.</p>
+      <div class="hero-ctas">
+        <a href="index.html#how" class="btn btn-primary">See how matching works</a>
+        <a href="register.html" class="btn btn-outline">Join free</a>
       </div>
     </div>
   </section>
- 
-  <section id="features" class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">What's inside</span>
-      <h2>Built for both sides of the hire</h2>
-      <p>Every feature exists to remove a step someone used to do by hand.</p>
-    </div>
-    <div class="features">
-      <div class="feature-card">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2a5 5 0 100 10 5 5 0 000-10zM4 22a8 8 0 0116 0"/></svg></div>
-        <h3>Smart profile builder</h3>
-        <p>Turns a resume or LinkedIn-style profile into a structured skill graph in seconds, no manual tagging needed.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
-        <h3>Real-time AI matching</h3>
-        <p>New applicants and new roles are re-scored continuously, so relevant matches surface the moment they exist.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
-        <h3>Automated screening</h3>
-        <p>Recruiters get a pre-filtered, explainable shortlist instead of hundreds of unranked applications.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
-        <h3>Assisted interviews</h3>
-        <p>AI-generated, role-specific question sets help interviewers evaluate consistently across candidates.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-        <h3>Application tracking</h3>
-        <p>One dashboard for candidates and employers to see exactly where every application stands, live.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3l1.9 5.9H20l-5 3.6 1.9 5.9L12 15l-4.9 3.4L9 12.5l-5-3.6h6.1z"/></svg></div>
-        <h3>Bias-checked ranking</h3>
-        <p>Every ranking model is regularly audited to keep name, gender, and background out of the score.</p>
+
+  <section class="section" style="padding-top:16px;">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-box"><div class="num">92%</div><div class="lbl">Faster shortlisting vs manual review</div></div>
+        <div class="stat-box"><div class="num">4.6×</div><div class="lbl">More relevant matches surfaced</div></div>
+        <div class="stat-box"><div class="num">24/7</div><div class="lbl">Always-on AI matching engine</div></div>
+        <div class="stat-box"><div class="num">100%</div><div class="lbl">Bias-audited ranking logic</div></div>
       </div>
     </div>
   </section>
- 
-  <footer class="wrap">
-    <div class="footer-row">
-      <a href="#top" class="brand" style="font-size:1rem;"><span class="dot"></span>Setu</a>
-      <p>Built with an AI matching engine, for people who'd rather work than search. © 2026</p>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="cta-band" style="text-align:left;">
+        <h2>Job search shouldn't feel like shouting into a form.</h2>
+        <p>Most portals ask people to compress years of skill into keywords and hope the filters are kind. HireNova AI flips that — our AI reads context, growth trajectory, and real project work, then does the matching quietly in the background so both sides show up already aligned.</p>
+        <a href="register.html" class="btn" style="background:#fff;color:var(--brand-900);">Get started free</a>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Process</span>
+        <h2>How the AI actually matches you</h2>
+        <p>Three passes, each one narrowing toward a genuinely relevant connection — not just a keyword hit.</p>
+      </div>
+      <div class="steps">
+        <div class="step-card"><span class="idx">01</span><h3>Understand</h3><p>Resume, portfolio links, and preferences are parsed into a structured skill-and-intent profile — including adjacent skills and career trajectory.</p></div>
+        <div class="step-card"><span class="idx">02</span><h3>Rank</h3><p>Every open role is scored against that profile on fit, growth potential, and employer culture signals — not just matching job-title strings.</p></div>
+        <div class="step-card"><span class="idx">03</span><h3>Connect</h3><p>Only matches above a relevance threshold are surfaced to either side, with a plain-language explanation of why the match was made.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">What's inside</span>
+        <h2>Built for both sides of the hire</h2>
+        <p>Every feature exists to remove a step someone used to do by hand.</p>
+      </div>
+      <div class="cards-3">
+        <div class="feature-card"><div class="icon"><i class="fa-solid fa-user-graduate"></i></div><h3>Smart profile builder</h3><p>Turns a resume into a structured skill graph in seconds, no manual tagging needed.</p></div>
+        <div class="feature-card"><div class="icon"><i class="fa-solid fa-bolt"></i></div><h3>Real-time AI matching</h3><p>New applicants and new roles are re-scored continuously, so matches surface the moment they exist.</p></div>
+        <div class="feature-card"><div class="icon"><i class="fa-solid fa-filter"></i></div><h3>Automated screening</h3><p>Recruiters get a pre-filtered, explainable shortlist instead of hundreds of unranked applications.</p></div>
+        <div class="feature-card"><div class="icon"><i class="fa-solid fa-comments"></i></div><h3>Assisted interviews</h3><p>AI-generated, role-specific question sets help interviewers evaluate consistently across candidates.</p></div>
+        <div class="feature-card"><div class="icon"><i class="fa-solid fa-clock"></i></div><h3>Application tracking</h3><p>One dashboard for candidates and employers to see exactly where every application stands, live.</p></div>
+        <div class="feature-card"><div class="icon"><i class="fa-solid fa-scale-balanced"></i></div><h3>Bias-checked ranking</h3><p>Every ranking model is regularly audited to keep name, gender, and background out of the score.</p></div>
+      </div>
+    </div>
+  </section>
 </main>
- 
-<script>
-  (function(){
-    const root = document.documentElement;
-    const toggle = document.getElementById('themeToggle');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
- 
-    function applyTheme(theme){
-      root.setAttribute('data-theme', theme);
-    }
- 
-    // Fully automatic: follow system preference on load
-    let manualOverride = false;
-    applyTheme(prefersDark.matches ? 'dark' : 'light');
- 
-    // Keep following the system live, unless the user has manually toggled this session
-    prefersDark.addEventListener('change', (e) => {
-      if(!manualOverride){
-        applyTheme(e.matches ? 'dark' : 'light');
-      }
-    });
- 
-    // Manual toggle overrides auto-detection for the rest of the session
-    toggle.addEventListener('click', () => {
-      manualOverride = true;
-      const current = root.getAttribute('data-theme');
-      applyTheme(current === 'dark' ? 'light' : 'dark');
-    });
-  })();
-</script>
- 
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="brand" style="color:#fff;"><span class="mark">H</span><span>HireNova AI</span></a>
+      <p style="margin-top:14px;">Built with an AI matching engine, for people who'd rather work than search.</p>
+    </div>
+    <div><h4>Candidates</h4><a href="register.html">Create free account</a><a href="job_seeker/jobs.html">Find jobs</a><a href="job_seeker/ai_recommendation.html">AI recommendations</a></div>
+    <div><h4>Employers</h4><a href="register.html">Post a role</a><a href="about.html">How matching works</a><a href="contact.html">Talk to us</a></div>
+    <div><h4>Company</h4><a href="about.html">About</a><a href="contact.html">Contact</a><a href="login.html">Sign in</a></div>
+  </div>
+  <div class="footer-bottom">© 2026 HireNova AI · AI-Matched Hiring</div>
+</footer>
+
+<script src="js/layout.js"></script>
+<script src="js/api.js"></script>
+<script src="js/live.js"></script>
 </body>
 </html>
- 

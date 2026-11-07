@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post a Job | HireNova AI</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/app-overrides.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo"><i class="fa-solid fa-building"></i><h2>HireNova AI</h2></div>
+    <ul>
+      <li><a href="dashboard.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-house"></i><span>Dashboard</span></a></li>
+      <li class="active"><a href="post_job.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-circle-plus"></i><span>Post a Job</span></a></li>
+      <li><a href="manage_jobs.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-briefcase"></i><span>Manage Jobs</span></a></li>
+      <li><a href="applicants.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-users"></i><span>Applicants</span></a></li>
+      <li><a href="settings.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
+    </ul>
+  </aside>
+  <main class="main">
+    <nav class="navbar"><div class="nav-left"><h2>Post a Job</h2><p>Create a new opening — AI will rank applicants by fit</p></div><div class="nav-right"><a href="dashboard.html" class="btn btn-outline btn-sm">Back to Dashboard</a></div></nav>
+    <div class="page">
+      <div class="card" style="max-width:720px;">
+        <form id="postJobForm">
+          <div class="field"><label for="title">Job title</label><input id="title" placeholder="e.g. Frontend Developer" required></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="field"><label for="location">Location</label><input id="location" placeholder="Bengaluru / Remote"></div>
+            <div class="field"><label for="type">Job type</label><select id="type"><option>Full-time</option><option>Part-time</option><option>Contract</option><option>Internship</option></select></div>
+          </div>
+          <div class="field"><label for="skills">Required skills (comma separated)</label><input id="skills" placeholder="React, JavaScript, CSS, Git"></div>
+          <div class="field"><label for="desc">Description</label><textarea id="desc" rows="6" placeholder="Responsibilities, requirements, perks..."></textarea></div>
+          <button type="submit" class="btn btn-primary">Publish Job</button>
+          <span class="badge badge-info" style="margin-left:10px;">AI will auto-rank applicants</span>
+        </form>
+        <div class="banner banner-success" id="successBanner"><i class="fa-solid fa-circle-check"></i><span>Job published! Candidates will now be AI-ranked for this role.</span></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/layout.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('postJobForm');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    document.getElementById('successBanner').classList.add('show');
+    window.toast('Job published successfully!');
+    form.reset();
+  });
+})();
+</script>
+<script src="../js/api.js"></script>
+<script src="../js/live.js"></script>
+</body>
+</html>

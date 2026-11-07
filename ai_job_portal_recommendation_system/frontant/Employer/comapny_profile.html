@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Profile | HireNova AI</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/app-overrides.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo"><i class="fa-solid fa-building"></i><h2>HireNova AI</h2></div>
+    <p style="font-size:11px;color:#94a3b8;padding:0 12px 16px;">Employer Console</p>
+    <ul>
+      <li><a href="dashboard.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-house"></i><span>Dashboard</span></a></li>
+      <li><a href="post_job.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-circle-plus"></i><span>Post a Job</span></a></li>
+      <li><a href="manage_jobs.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-briefcase"></i><span>Manage Jobs</span></a></li>
+      <li><a href="applicants.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-users"></i><span>Applicants</span></a></li>
+      <li><a href="settings.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
+    </ul>
+  </aside>
+  <main class="main">
+    <nav class="navbar"><div class="nav-left"><h2>Company Profile</h2><p>Build a compelling employer brand page</p></div><div class="nav-right"><a href="dashboard.html" class="btn btn-outline btn-sm">Back to Dashboard</a></div></nav>
+    <div class="page">
+      <div class="card" style="max-width:720px;text-align:center;padding:48px 32px;">
+        <div style="width:56px;height:56px;border-radius:14px;background:var(--primary-soft);color:var(--primary);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;"><i class="fa-solid fa-layer-group"></i></div>
+        <h3>Company Profile</h3>
+        <p style="margin-top:8px;font-size:var(--text-sm);max-width:44ch;margin-left:auto;margin-right:auto;">This module is ready for the next step. Connect your API here to load live company profile data.</p>
+        <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;"><a href="dashboard.html" class="btn btn-primary">Go to Dashboard</a><a href="../index.html" class="btn btn-outline">View Public Site</a></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/layout.js"></script>
+<script>window.toast("Company Profile — coming soon with API wiring.");</script>
+<script src="../js/api.js"></script>
+<script src="../js/live.js"></script>
+</body>
+</html>

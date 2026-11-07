@@ -460,7 +460,7 @@ function logout(){
 
 
     window.location.href =
-    "index.html";
+    "../login.html";
 
 
 }

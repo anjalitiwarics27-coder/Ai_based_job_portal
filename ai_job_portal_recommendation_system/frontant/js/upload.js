@@ -839,7 +839,7 @@ function logout() {
 
     setTimeout(() => {
 
-        window.location.href = "index.html";
+        window.location.href = "../login.html";
 
     }, 1200);
 

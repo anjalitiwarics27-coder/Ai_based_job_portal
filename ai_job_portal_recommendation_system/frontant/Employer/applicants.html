@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Applicants | HireNova AI</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/app-overrides.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo"><i class="fa-solid fa-building"></i><h2>HireNova AI</h2></div>
+    <ul>
+      <li><a href="dashboard.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-house"></i><span>Dashboard</span></a></li>
+      <li><a href="post_job.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-circle-plus"></i><span>Post a Job</span></a></li>
+      <li><a href="manage_jobs.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-briefcase"></i><span>Manage Jobs</span></a></li>
+      <li class="active"><a href="applicants.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-users"></i><span>Applicants</span></a></li>
+      <li><a href="settings.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
+    </ul>
+  </aside>
+  <main class="main">
+    <nav class="navbar"><div class="nav-left"><h2>Applicants</h2><p>AI-ranked list with match reasons</p></div><div class="nav-right"><div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search candidates..."></div></div></nav>
+    <div class="page">
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Candidate</th><th>Role</th><th>Skills</th><th>Match</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Anjali Tiwari</strong><br><small style="color:var(--text-500)">AI & Full Stack Developer</small></td><td>Frontend Developer</td><td>React, JS, CSS</td><td><span class="badge badge-success">96%</span></td><td><button class="btn btn-sm btn-primary">Shortlist</button></td></tr>
+            <tr><td><strong>Rahul Sharma</strong><br><small style="color:var(--text-500)">Backend Engineer</small></td><td>Backend Engineer</td><td>Node, SQL, Python</td><td><span class="badge badge-success">91%</span></td><td><button class="btn btn-sm btn-primary">Shortlist</button></td></tr>
+            <tr><td><strong>Priya Nair</strong><br><small style="color:var(--text-500)">Data Analyst</small></td><td>Data Analyst</td><td>Python, SQL, Excel</td><td><span class="badge badge-warning">84%</span></td><td><button class="btn btn-sm btn-outline">Review</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:16px;font-size:var(--text-sm);color:var(--text-500);">Need ranked view? <a href="candidate_ranking.html">Open Candidate Ranking →</a></p>
+    </div>
+  </main>
+</div>
+<script src="../js/layout.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/live.js"></script>
+</body>
+</html>
