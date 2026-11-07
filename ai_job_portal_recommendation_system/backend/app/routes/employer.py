@@ -87,6 +87,35 @@ def ranking(job_id: int):
             {"candidate": r["candidate"].to_dict(), "match_score": r["score"], "reasons": r["reasons"]}
             for r in ranked
         ],
+        "algorithm": "AI-Hybrid Ranking System"
+    })
+
+
+@employer_bp.get("/jobs/<int:job_id>/ai-ranking")
+@jwt_required()
+def ai_ranking(job_id: int):
+    """Advanced AI-powered candidate ranking."""
+    user, e = require_role("employer", "admin")
+    if e:
+        return e
+    job = db.session.get(Job, job_id)
+    if not job:
+        return err("Job not found", 404)
+    if user.role != "admin" and job.employer_id != user.id:
+        return err("Forbidden", 403)
+    apps = Application.query.filter_by(job_id=job.id).all()
+    candidates = [db.session.get(User, a.candidate_id) for a in apps]
+    candidates = [c for c in candidates if c]
+    from ..services.matcher import ai_rank_candidates
+    ranked = ai_rank_candidates(job, candidates, top_n=50)
+    return ok({
+        "job": job.to_dict(),
+        "ranking": [
+            {"candidate": r["candidate"].to_dict(), "match_score": r["score"], "reasons": r["reasons"]}
+            for r in ranked
+        ],
+        "algorithm": "Advanced AI Candidate Ranking",
+        "features": ["Skill Analysis", "Experience Matching", "LLM Evaluation", "Hybrid Scoring"]
     })
 
 

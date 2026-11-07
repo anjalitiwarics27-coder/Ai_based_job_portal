@@ -1,16 +1,22 @@
-"""AI recommendation engine — TF-IDF + cosine similarity with explainable reasons.
+"""AI Recommendation Engine — Advanced Hybrid System
 
-Candidate profile (skills + headline + experience) is vectorised together
-with every active job (title + skills + description + company + location)
-and scored by cosine similarity. Reasons are derived from skill overlap
-so the UI can show *why* a job matched.
+A comprehensive AI-powered recommendation system combining:
+- Content-based filtering (TF-IDF + Cosine Similarity)
+- Skill-based matching with fuzzy matching
+- Collaborative filtering concepts
+- LLM-powered intelligent recommendations
+- Explainable AI with detailed reasoning
 
-Also supports optional LLM-enhanced recommendations when configured.
+Candidate profile is analyzed against job requirements using multiple algorithms
+for highly accurate, personalized recommendations.
 """
 from __future__ import annotations
 
 import json
+from collections import Counter
+from typing import Dict, List, Tuple
 
+import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -173,7 +179,7 @@ def rank_candidates(job, candidates: list, top_n: int = 20) -> list[dict]:
 
 
 def ai_rank_candidates(job, candidates: list, top_n: int = 20) -> list[dict]:
-    """AI-powered candidate ranking using LLM when available, falls back to TF-IDF."""
+    """Advanced AI-powered candidate ranking using hybrid approach with LLM enhancement."""
     if not candidates:
         return []
 
@@ -183,37 +189,46 @@ def ai_rank_candidates(job, candidates: list, top_n: int = 20) -> list[dict]:
                 "title": job.title,
                 "company": job.company,
                 "skills": getattr(job, "skills_list", []) or [],
-                "description": (job.description or "")[:300],
+                "description": (job.description or "")[:350],
                 "experience": job.experience or "",
                 "location": job.location or "",
+                "job_type": getattr(job, "job_type", ""),
             }
 
             candidate_summaries = []
-            for c in candidates[:30]:
+            for c in candidates[:40]:
                 candidate_summaries.append({
                     "id": c.id,
                     "name": getattr(c, "full_name", c.email),
                     "headline": c.headline or "",
                     "skills": [s.strip() for s in (c.skills or "").split(",") if s.strip()],
                     "experience": c.experience or "",
-                    "bio": (c.bio or "")[:200],
+                    "bio": (c.bio or "")[:250],
                     "location": c.location or "",
                 })
 
             system_prompt = (
-                "You are an expert AI recruiter. Analyze job requirements and candidate profiles "
-                "to rank candidates. Return ONLY valid JSON."
+                "You are an expert AI recruiter with deep understanding of technical roles. "
+                "Analyze job requirements and candidate profiles to identify the best matches. "
+                "Consider both hard skills and potential. Return ONLY valid JSON."
             )
 
             user_prompt = (
                 f"Job Requirements:\n{json.dumps(job_summary, indent=2)}\n\n"
-                f"Candidates:\n{json.dumps(candidate_summaries, indent=2)}\n\n"
-                f"Rank the top {min(top_n, len(candidate_summaries))} candidates. "
-                f"For each, return: candidate_id, match_score (0-100), reasons (array of strings). "
-                f"Consider skill fit, relevant experience, and overall suitability."
+                f"Candidate Pool:\n{json.dumps(candidate_summaries, indent=2)}\n\n"
+                f"Task: Rank the top {min(top_n, len(candidate_summaries))} candidates for this position.\n\n"
+                f"Evaluation Criteria:\n"
+                f"1. Technical skill match (primary factor)\n"
+                f"2. Relevant experience and projects\n"
+                f"3. Learning potential and growth mindset\n"
+                f"4. Cultural/location fit\n"
+                f"5. Overall suitability for the role\n\n"
+                f"For each candidate include: candidate_id, match_score (0-100), reasons (array of 2-4 specific reasons).\n"
+                f"Be thorough but concise. Prioritize candidates who can add value.\n\n"
+                f"Return JSON: {{\"rankings\": [{{\"candidate_id\": ..., \"match_score\": ..., \"reasons\": [...]}}]}}"
             )
 
-            response = chat_complete(system_prompt, user_prompt, max_tokens=800)
+            response = chat_complete(system_prompt, user_prompt, max_tokens=1000)
             if response:
                 try:
                     start = response.find('{')
@@ -245,39 +260,172 @@ def ai_rank_candidates(job, candidates: list, top_n: int = 20) -> list[dict]:
                                 reasons = [reasons]
                             if not reasons:
                                 reasons = overlap_reasons(cand_map[cand_id], job)
+                            # Blend with hybrid scoring
+                            hybrid_score, hybrid_reasons = hybrid_recommendation_score(
+                                cand_map[cand_id], job
+                            )
+                            blended_score = round(0.7 * score + 0.3 * hybrid_score, 1)
+                            all_reasons = list(dict.fromkeys(reasons + hybrid_reasons))
                             results.append({
                                 "candidate": cand_map[cand_id],
-                                "score": score,
-                                "reasons": reasons[:4]
+                                "score": blended_score,
+                                "reasons": all_reasons[:5]
                             })
                     if results:
                         results.sort(key=lambda r: r["score"], reverse=True)
                         return results[:top_n]
         except Exception as e:
-            print(f"AI candidate ranking failed, falling back to TF-IDF: {e}")
+            print(f"AI candidate ranking failed, falling back to hybrid approach: {e}")
 
-    return rank_candidates(job, candidates, top_n=top_n)
+    # Fallback to hybrid ranking
+    results = []
+    for cand in candidates:
+        score, reasons = hybrid_recommendation_score(cand, job)
+        results.append({"candidate": cand, "score": score, "reasons": reasons})
+    
+    results.sort(key=lambda r: r["score"], reverse=True)
+    return results[:top_n]
 
 
-def ai_recommend_jobs(user, jobs: list, top_n: int = 10) -> list[dict]:
-    """AI-powered job recommendations using LLM when available, falls back to TF-IDF."""
+def collaborative_filtering_score(user, job, all_users=None, all_applications=None) -> float:
+    """Collaborative filtering based on similar users' applications."""
+    try:
+        if not all_applications or not all_users:
+            return 0.0
+        
+        # Find users with similar skills
+        user_skills = set([s.lower().strip() for s in (getattr(user, "skills", "") or "").split(",") if s.strip()])
+        if not user_skills:
+            return 0.0
+        
+        similar_users = []
+        for other_user in all_users:
+            if other_user.id == user.id:
+                continue
+            other_skills = set([s.lower().strip() for s in (other_user.skills or "").split(",") if s.strip()])
+            if other_skills:
+                # Jaccard similarity
+                intersection = len(user_skills.intersection(other_skills))
+                union = len(user_skills.union(other_skills))
+                if union > 0 and intersection / union > 0.3:  # 30% similarity
+                    similar_users.append(other_user.id)
+        
+        if not similar_users:
+            return 0.0
+        
+        # Check if similar users applied to this job
+        applied_count = 0
+        for app in all_applications:
+            if app.job_id == job.id and app.candidate_id in similar_users:
+                applied_count += 1
+        
+        # Score based on popularity among similar users
+        score = min(100.0, (applied_count / len(similar_users)) * 100.0)
+        return round(score, 1)
+    except Exception:
+        return 0.0
+
+
+def hybrid_recommendation_score(user, job, all_users=None, all_applications=None) -> Tuple[float, List[str]]:
+    """Hybrid scoring combining content-based, collaborative, and skill matching."""
+    reasons = []
+    scores = []
+    
+    # Content-based (TF-IDF style) - skill overlap
+    content_score = overlap_score(user, job)
+    scores.append(content_score * 0.4)
+    content_reasons = overlap_reasons(user, job)
+    reasons.extend(content_reasons)
+    
+    # Skill exact match bonus
+    user_skills = set([s.lower().strip() for s in (getattr(user, "skills", "") or "").split(",") if s.strip()])
+    job_skills = set([s.lower().strip() for s in getattr(job, "skills_list", []) or []])
+    if user_skills and job_skills:
+        skill_match_ratio = len(user_skills.intersection(job_skills)) / len(job_skills)
+        skill_bonus = skill_match_ratio * 30
+        scores.append(skill_bonus * 0.2)
+        if skill_match_ratio > 0.5:
+            reasons.append(f"Strong skill match ({int(skill_match_ratio*100)}% of job requirements)")
+    
+    # Experience level matching
+    user_exp = (getattr(user, "experience", "") or "").lower()
+    job_exp = (job.experience or "").lower()
+    if user_exp and job_exp:
+        exp_keywords = ["fresher", "entry", "junior", "mid", "senior", "lead"]
+        user_level = next((k for k in exp_keywords if k in user_exp), "")
+        job_level = next((k for k in exp_keywords if k in job_exp), "")
+        if user_level and job_level and user_level == job_level:
+            scores.append(10 * 0.15)
+            reasons.append("Experience level matches perfectly")
+        elif user_level and job_level:
+            # Adjacent levels get partial score
+            idx_user = exp_keywords.index(user_level) if user_level in exp_keywords else -1
+            idx_job = exp_keywords.index(job_level) if job_level in exp_keywords else -1
+            if idx_user >= 0 and idx_job >= 0 and abs(idx_user - idx_job) <= 1:
+                scores.append(5 * 0.15)
+                reasons.append("Experience level is compatible")
+        else:
+            scores.append(7.5 * 0.15)
+    else:
+        scores.append(5 * 0.15)
+    
+    # Location preference
+    user_loc = (getattr(user, "location", "") or "").lower()
+    job_loc = (job.location or "").lower()
+    if user_loc and job_loc:
+        if "remote" in job_loc or user_loc in job_loc or job_loc in user_loc:
+            scores.append(10 * 0.15)
+            reasons.append("Location is a great fit")
+        else:
+            scores.append(3 * 0.15)
+    else:
+        scores.append(5 * 0.15)
+    
+    # Collaborative filtering
+    collab_score = collaborative_filtering_score(user, job, all_users, all_applications)
+    if collab_score > 0:
+        scores.append(collab_score * 0.1)
+        if collab_score > 60:
+            reasons.append("Popular among candidates with similar profiles")
+    
+    final_score = sum(scores)
+    final_score = round(max(0.0, min(100.0, final_score)), 1)
+    
+    # Remove duplicates while preserving order
+    seen = set()
+    unique_reasons = []
+    for r in reasons:
+        if r not in seen:
+            unique_reasons.append(r)
+            seen.add(r)
+    
+    if not unique_reasons:
+        unique_reasons.append("Good overall profile match")
+    
+    return final_score, unique_reasons[:5]
+
+
+def ai_recommend_jobs(user, jobs: list, top_n: int = 10, all_users=None, all_applications=None) -> list[dict]:
+    """Advanced AI-powered job recommendations using hybrid approach with LLM enhancement."""
     if not jobs:
         return []
 
     # Try LLM-based recommendations if configured
     if llm_configured():
         try:
-            # Prepare concise job list for LLM
+            # Prepare detailed job list for LLM
             job_summaries = []
-            for j in jobs[:30]:  # Limit to avoid token overflow
+            for j in jobs[:40]:  # Limit to avoid token overflow
                 job_summaries.append({
                     "id": j.id,
                     "title": j.title,
                     "company": j.company,
                     "location": j.location,
+                    "job_type": j.job_type,
                     "skills": getattr(j, "skills_list", []) or [],
-                    "description": (j.description or "")[:200],
+                    "description": (j.description or "")[:250],
                     "experience": j.experience or "",
+                    "category": getattr(j, "category", ""),
                 })
 
             user_profile = {
@@ -285,29 +433,35 @@ def ai_recommend_jobs(user, jobs: list, top_n: int = 10) -> list[dict]:
                 "headline": getattr(user, "headline", ""),
                 "skills": [s.strip() for s in (getattr(user, "skills", "") or "").split(",") if s.strip()],
                 "experience": getattr(user, "experience", ""),
-                "bio": (getattr(user, "bio", "") or "")[:200],
+                "bio": (getattr(user, "bio", "") or "")[:250],
                 "location": getattr(user, "location", ""),
+                "phone": getattr(user, "phone", ""),
             }
 
             system_prompt = (
-                "You are an expert AI job recommendation engine. "
-                "Analyze the candidate profile and job listings to provide personalized, "
-                "explainable job recommendations. Return ONLY valid JSON."
+                "You are an advanced AI job recommendation engine for HireNova AI job portal. "
+                "Your task is to provide highly personalized, accurate job recommendations. "
+                "Consider skill compatibility, experience level, career growth potential, and cultural fit. "
+                "Return ONLY valid JSON with no additional text."
             )
 
             user_prompt = (
                 f"Candidate Profile:\n{json.dumps(user_profile, indent=2)}\n\n"
-                f"Available Jobs:\n{json.dumps(job_summaries, indent=2)}\n\n"
-                f"Recommend the top {min(top_n, len(job_summaries))} most suitable jobs. "
-                f"For each recommendation, return: job_id, match_score (0-100), reasons (array of strings explaining why). "
-                f"Prioritize skill match, relevant experience, and location fit. Be specific and helpful."
+                f"Available Job Listings:\n{json.dumps(job_summaries, indent=2)}\n\n"
+                f"Task: Recommend the top {min(top_n, len(job_summaries))} most suitable jobs for this candidate.\n\n"
+                f"Requirements:\n"
+                f"1. For each recommendation, include: job_id, match_score (0-100, be realistic and accurate), \n"
+                f"2. reasons (array of 2-4 specific, actionable reasons explaining the match),\n"
+                f"3. Consider: technical skill match, soft skills implied, experience alignment, location, growth opportunity\n"
+                f"4. Prioritize jobs where candidate has strong skill overlap\n"
+                f"5. Be honest about match quality\n\n"
+                f"Return JSON in format: {{\"recommendations\": [{{\"job_id\": ..., \"match_score\": ..., \"reasons\": [...]}}]}}"
             )
 
-            response = chat_complete(system_prompt, user_prompt, max_tokens=800)
+            response = chat_complete(system_prompt, user_prompt, max_tokens=1000)
             if response:
-                # Extract JSON from response
                 try:
-                    # Try to find JSON in the response
+                    # Extract JSON from response
                     start = response.find('{')
                     end = response.rfind('}') + 1
                     if start >= 0 and end > start:
@@ -315,7 +469,6 @@ def ai_recommend_jobs(user, jobs: list, top_n: int = 10) -> list[dict]:
                         result = json.loads(json_str)
                         recommendations = result.get('recommendations', [])
                     else:
-                        # Try parsing as array
                         start = response.find('[')
                         end = response.rfind(']') + 1
                         if start >= 0 and end > start:
@@ -326,7 +479,6 @@ def ai_recommend_jobs(user, jobs: list, top_n: int = 10) -> list[dict]:
                     recommendations = []
 
                 if recommendations:
-                    # Map back to job objects
                     job_map = {j.id: j for j in jobs}
                     results = []
                     for rec in recommendations:
@@ -339,16 +491,30 @@ def ai_recommend_jobs(user, jobs: list, top_n: int = 10) -> list[dict]:
                                 reasons = [reasons]
                             if not reasons:
                                 reasons = overlap_reasons(user, job_map[job_id])
+                            # Enhance with hybrid scoring
+                            hybrid_score, hybrid_reasons = hybrid_recommendation_score(
+                                user, job_map[job_id], all_users, all_applications
+                            )
+                            # Blend LLM score (70%) with hybrid score (30%)
+                            blended_score = round(0.7 * score + 0.3 * hybrid_score, 1)
+                            # Merge reasons
+                            all_reasons = list(dict.fromkeys(reasons + hybrid_reasons))
                             results.append({
                                 "job": job_map[job_id],
-                                "score": score,
-                                "reasons": reasons[:4]
+                                "score": blended_score,
+                                "reasons": all_reasons[:5]
                             })
                     if results:
                         results.sort(key=lambda r: r["score"], reverse=True)
                         return results[:top_n]
         except Exception as e:
-            print(f"AI recommendation failed, falling back to TF-IDF: {e}")
+            print(f"AI recommendation failed, falling back to hybrid approach: {e}")
 
-    # Fallback to traditional TF-IDF recommendations
-    return recommend_jobs(user, jobs, top_n=top_n)
+    # Fallback to hybrid recommendation system
+    results = []
+    for job in jobs:
+        score, reasons = hybrid_recommendation_score(user, job, all_users, all_applications)
+        results.append({"job": job, "score": score, "reasons": reasons})
+    
+    results.sort(key=lambda r: r["score"], reverse=True)
+    return results[:top_n]

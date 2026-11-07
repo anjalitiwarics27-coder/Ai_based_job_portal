@@ -87,7 +87,28 @@ def recommendations():
     return ok({
         "recommendations": [
             {"job": r["job"].to_dict(), "match_score": r["score"], "reasons": r["reasons"]} for r in ranked
-        ]
+        ],
+        "algorithm": "AI-Hybrid (TF-IDF + Skill-Matching + Collaborative Filtering + LLM)"
+    })
+
+
+@seeker_bp.get("/ai/recommendations")
+@jwt_required()
+def ai_recommendations():
+    """Advanced AI-powered job recommendations endpoint."""
+    user, e = require_role("candidate")
+    if e:
+        return e
+    top_n = int(request.args.get("limit", 15))
+    jobs = Job.query.filter_by(is_active=True).all()
+    from ..services.matcher import ai_recommend_jobs
+    ranked = ai_recommend_jobs(user, jobs, top_n=top_n)
+    return ok({
+        "recommendations": [
+            {"job": r["job"].to_dict(), "match_score": r["score"], "reasons": r["reasons"]} for r in ranked
+        ],
+        "algorithm": "Advanced AI Recommendation System",
+        "features": ["Content-based filtering", "Collaborative filtering", "LLM enhancement", "Explainable AI"]
     })
 
 

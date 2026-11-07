@@ -13,6 +13,10 @@ from .matcher import (
     rank_candidates,
     ai_rank_candidates,
     match_score_for,
+    hybrid_recommendation_score,
+    collaborative_filtering_score,
+    overlap_score,
+    overlap_reasons,
 )
 from .llm import llm_configured, llm_chat_reply, llm_cover_letter, llm_interview_questions
 from .resume_parser import analyze_resume_text, extract_text
@@ -30,6 +34,10 @@ __all__ = [
     "rank_candidates",
     "ai_rank_candidates",
     "match_score_for",
+    "hybrid_recommendation_score",
+    "collaborative_filtering_score",
+    "overlap_score",
+    "overlap_reasons",
     "llm_configured",
     "llm_chat_reply",
     "llm_cover_letter",

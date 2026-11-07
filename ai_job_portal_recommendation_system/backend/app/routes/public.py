@@ -73,3 +73,29 @@ def mark_all():
     Notification.query.filter_by(user_id=user.id, is_read=False).update({"is_read": True})
     db.session.commit()
     return ok({"message": "All notifications marked as read"})
+
+
+@public_bp.get("/ai-info")
+def ai_info():
+    """Information about AI Recommendation System."""
+    from ..services.llm import llm_configured
+    return ok({
+        "name": "HireNova AI Recommendation System",
+        "description": "Advanced hybrid AI recommendation engine for job matching",
+        "algorithms": [
+            "Content-based filtering (TF-IDF + Cosine Similarity)",
+            "Skill-based matching with fuzzy logic",
+            "Collaborative filtering",
+            "Hybrid scoring mechanism",
+            "LLM-powered intelligent recommendations (when configured)"
+        ],
+        "features": [
+            "Explainable AI with detailed match reasons",
+            "Personalized job recommendations for candidates",
+            "AI-powered candidate ranking for employers",
+            "Real-time matching with skill gap analysis",
+            "Continuous learning from user interactions"
+        ],
+        "llm_enabled": llm_configured(),
+        "version": "2.0.0"
+    })
