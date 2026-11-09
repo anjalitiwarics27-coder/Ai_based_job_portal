@@ -9,6 +9,29 @@ from .helpers import err, ok, paginate, require_role, validate_pagination
 employer_bp = Blueprint("employer", __name__, url_prefix="/api/employer")
 
 
+@employer_bp.get("/profile")
+@jwt_required()
+def get_profile():
+    user, e = require_role("employer", "admin")
+    if e:
+        return e
+    return ok({"profile": user.to_dict()})
+
+
+@employer_bp.put("/profile")
+@jwt_required()
+def update_profile():
+    user, e = require_role("employer", "admin")
+    if e:
+        return e
+    data = request.get_json(silent=True) or {}
+    for field in ("first_name", "last_name", "headline", "location", "phone", "bio", "company_name"):
+        if field in data:
+            setattr(user, field, (data[field] or "").strip())
+    db.session.commit()
+    return ok({"profile": user.to_dict()})
+
+
 @employer_bp.get("/dashboard")
 @jwt_required()
 def dashboard():

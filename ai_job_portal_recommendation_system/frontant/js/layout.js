@@ -45,14 +45,29 @@
     timer = setTimeout(function () { toastEl.classList.remove('show'); }, 3200);
   };
 
-  // Global fallback logout (page scripts override with their own when loaded)
-  if (typeof window.logout !== 'function') {
-    window.logout = function () {
-      try {
-        localStorage.removeItem('hirenova_token');
-        sessionStorage.removeItem('hirenova_token');
-      } catch (e) { }
-      window.location.href = '../login.html';
-    };
+  // Global logout (clears JWT + legacy keys). Page scripts may override, but should call hirenovaApi.logout() when available.
+  function clearAuthAndRedirect() {
+    try {
+      ['hirenova_access_token', 'hirenova_refresh_token', 'hirenova_token', 'user'].forEach(function (k) {
+        localStorage.removeItem(k);
+        sessionStorage.removeItem(k);
+      });
+    } catch (e) { }
+    var p = window.location.pathname || '';
+    window.location.href = (p.indexOf('/job_seeker/') !== -1 || p.indexOf('/Employer/') !== -1 || p.indexOf('/admin/') !== -1) ? '../login.html' : 'login.html';
   }
+  window.hirenovaLogout = function (e) { if (e && e.preventDefault) e.preventDefault(); if (window.hirenovaApi && window.hirenovaApi.logout) return window.hirenovaApi.logout(); clearAuthAndRedirect(); };
+  if (typeof window.logout !== 'function') {
+    window.logout = function () { window.hirenovaLogout(); };
+  }
+
+  // Lightweight auth guard for protected consoles (progressive; API 401 handling also applies)
+  try {
+    var p = window.location.pathname || '';
+    var protected = p.indexOf('/job_seeker/') !== -1 || p.indexOf('/Employer/') !== -1 || p.indexOf('/admin/') !== -1;
+    if (protected) {
+      var has = !!(localStorage.getItem('hirenova_access_token') || (window.hirenovaApi && window.hirenovaApi.hasToken && window.hirenovaApi.hasToken()));
+      if (!has) window.location.href = '../login.html';
+    }
+  } catch (e) { }
 })();

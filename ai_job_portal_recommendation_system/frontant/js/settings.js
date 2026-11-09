@@ -381,27 +381,7 @@ function deleteAccount() {
 // LOGOUT
 // ==========================================
 
-function logout() {
-
-    const confirmLogout = confirm(
-
-        "Do you want to logout?"
-
-    );
-
-    if (!confirmLogout) return;
-
-    localStorage.removeItem("user");
-
-    showToast("👋 Logged out successfully.");
-
-    setTimeout(() => {
-
-        window.location.href = "../login.html";
-
-    }, 1200);
-
-}
+function logout(){ if(window.hirenovaLogout) return window.hirenovaLogout(); if(window.hirenovaApi&&window.hirenovaApi.logout) return window.hirenovaApi.logout(); try{["hirenova_access_token","hirenova_refresh_token","hirenova_token","user"].forEach(function(k){localStorage.removeItem(k);sessionStorage.removeItem(k);});}catch(e){} window.location.href="../login.html"; }
 
 
 

@@ -159,18 +159,7 @@ document.querySelectorAll('.faq-item').forEach(function (item) {
     if (!wasOpen) { item.classList.add('open'); item.querySelector('.plus').textContent = '−'; }
   });
 });
-var form = document.getElementById('contactForm');
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  if (!form.checkValidity()) { form.reportValidity(); return; }
-  var btn = document.getElementById('submitBtn');
-  btn.disabled = true; btn.textContent = 'Sending…';
-  setTimeout(function () {
-    document.getElementById('formFields').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-    window.toast('Message sent!');
-  }, 700);
-});
+/* Contact submission is handled by js/live.js (backend API) with graceful error handling. */
 </script>
 <style>@media (max-width: 640px) { .form-row { grid-template-columns: 1fr !important; } }</style>
 <script src="js/api.js"></script>

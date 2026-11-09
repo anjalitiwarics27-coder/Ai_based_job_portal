@@ -19,3 +19,5 @@ class Config:
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16 MB upload limit
     UPLOAD_DIR = BASE_DIR / "uploads"
     CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*").split(",")
+    DEBUG = os.getenv("DEBUG", "false").lower() in ("1", "true", "yes")
+    AUTO_INIT_DB = os.getenv("AUTO_INIT_DB", "true").lower() in ("1", "true", "yes")

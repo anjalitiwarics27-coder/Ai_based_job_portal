@@ -1,7 +1,7 @@
 # HireNova AI — Backend
 
 Flask + SQLAlchemy (SQLite) + JWT backend for the HireNova AI Job Portal
-Recommendation System. Serves REST APIs and the static frontend in `../frontant/`.
+Recommendation System. Serves REST APIs and the static frontend (from `../frontend/` or `../frontant/`) on the same origin.
 
 ## Quick start
 
@@ -9,10 +9,12 @@ Recommendation System. Serves REST APIs and the static frontend in `../frontant/
 # from this folder (backend/)
 python -m pip install -r requirements.txt
 
-# run (creates data/app.db + demo users + 12 jobs automatically)
+# run (auto-creates data/app.db and seeds demo users/jobs on startup)
 python app.py
-# open http://127.0.0.1:5000  (frontend)  •  http://127.0.0.1:5000/api/docs
+# open http://127.0.0.1:5000  (frontend + API)  •  http://127.0.0.1:5000/api/docs
 ```
+
+Environment variables (`HOST`, `PORT`, `DEBUG`, `AUTO_INIT_DB`) are supported; see `.env.example`. For production use `gunicorn app:app`.
 
 Demo logins (password `password123` for all):
 
@@ -72,11 +74,14 @@ Public (`/api/public`): `GET /health` • `GET /stats` • `POST /contact` • `
 
 ## AI matching
 
-`services/matcher.py` vectorises candidate (skills+headline+experience+bio) and job
-(title+skills+description+company+location) with TF-IDF and cosine similarity,
-blended 75/25 with pure skill-overlap so scores stay explainable. Every
-recommendation returns `reasons[]` (skill overlaps, location/experience hits)
-which the frontend renders directly.
+`services/matcher.py` implements a hybrid recommendation engine:
+- TF-IDF + cosine similarity over candidate and job profiles
+- Skill-overlap and fuzzy matching with explainable reasons
+- Experience/location compatibility signals
+- Optional collaborative signals from application patterns
+- Optional LLM reranking/blending when `OPENAI_API_KEY` is configured (falls back gracefully)
+
+Endpoints include `/api/jobs/recommended`, `/api/seeker/recommendations`, `/api/seeker/ai/recommendations`, `/api/employer/jobs/<id>/ranking`, and `/api/employer/jobs/<id>/ai-ranking`. Every recommendation returns `match_score` and `reasons[]`.
 
 ## Resume ATS scoring
 

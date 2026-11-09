@@ -112,6 +112,7 @@ class Job(db.Model):
 
 class Application(db.Model):
     __tablename__ = "applications"
+    __table_args__ = (db.UniqueConstraint("candidate_id", "job_id", name="uq_app_candidate_job"),)
 
     id = db.Column(db.Integer, primary_key=True)
     candidate_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)

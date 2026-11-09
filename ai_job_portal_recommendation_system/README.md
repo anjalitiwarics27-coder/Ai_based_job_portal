@@ -164,14 +164,16 @@ RAZORPAY_KEY_SECRET=your_key_secret
 | `POST /api/auth/register` | User registration |
 | `POST /api/auth/login` | User login |
 | `GET /api/jobs` | Browse jobs with filters |
-| `GET /api/jobs/recommended` | AI-powered job recommendations |
+| `GET /api/jobs/recommended` | AI-powered job recommendations (hybrid scoring) |
+| `GET /api/seeker/ai/recommendations` | Advanced AI recommendations for candidates |
 | `POST /api/seeker/resume/analyze` | Resume analysis & ATS scoring |
 | `POST /api/seeker/cover-letter` | AI cover letter generation |
 | `POST /api/seeker/chatbot` | AI career assistant |
-| `GET /api/employer/jobs/<id>/ranking` | AI candidate ranking |
+| `GET /api/employer/jobs/<id>/ranking` | Candidate ranking for a job |
+| `GET /api/employer/jobs/<id>/ai-ranking` | Advanced AI candidate ranking |
 | `GET /api/admin/analytics` | Platform analytics |
 
-Full API documentation available at `/api/docs` when running.
+Full API documentation available at `/api/docs` when running. The backend serves the frontend and API from the same origin, so you can use the full product at `http://127.0.0.1:5000`.
 
 ## 🧪 Testing
 

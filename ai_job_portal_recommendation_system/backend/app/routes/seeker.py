@@ -6,13 +6,12 @@ from flask import Blueprint, current_app, request
 from flask_jwt_extended import jwt_required
 from werkzeug.utils import secure_filename
 
-from ..models import Application, db, Notification, ResumeAnalysis, SavedJob
+from ..models import Application, db, Job, Notification, ResumeAnalysis, SavedJob, User
 from ..services.ai_helpers import generate_cover_letter, chatbot_reply, interview_questions
 from ..services.llm import llm_chat_reply, llm_cover_letter, llm_interview_questions
 from ..services.matcher import ai_recommend_jobs as recommend_jobs
 from ..services.resume_parser import analyze_resume_text, extract_text
-from .helpers import err, ok, paginate, require_role, require_user, validate_pagination
-from ..models import Job
+from .helpers import err, ok, paginate, parse_int, require_role, require_user, validate_pagination
 
 seeker_bp = Blueprint("seeker", __name__, url_prefix="/api/seeker")
 
@@ -39,6 +38,8 @@ def update_profile():
     if "skills" in data:
         s = data["skills"]
         user.skills = ", ".join([str(x).strip() for x in s if str(x).strip()]) if isinstance(s, list) else str(s)
+    if user.role in ("employer", "admin") and "company_name" in data:
+        user.company_name = (data.get("company_name") or "").strip()
     db.session.commit()
     return ok({"profile": user.to_dict()})
 
@@ -50,7 +51,9 @@ def dashboard():
     if e:
         return e
     jobs = Job.query.filter_by(is_active=True).all()
-    ranked = recommend_jobs(user, jobs, top_n=4)
+    all_users = User.query.filter_by(role="candidate").all()
+    all_apps = Application.query.all()
+    ranked = recommend_jobs(user, jobs, top_n=4, all_users=all_users, all_applications=all_apps)
     apps = Application.query.filter_by(candidate_id=user.id).order_by(Application.created_at.desc()).limit(5).all()
     saved = SavedJob.query.filter_by(user_id=user.id).order_by(SavedJob.created_at.desc()).limit(5).all()
     notifs = Notification.query.filter_by(user_id=user.id, is_read=False).count()
@@ -81,9 +84,13 @@ def recommendations():
     user, e = require_role("candidate")
     if e:
         return e
-    top_n = int(request.args.get("limit", 10))
+    top_n = parse_int(request.args.get("limit"), default=10, min_v=1, max_v=50)
+    if top_n is None:
+        return err("limit must be an integer", 422)
     jobs = Job.query.filter_by(is_active=True).all()
-    ranked = recommend_jobs(user, jobs, top_n=top_n)
+    all_users = User.query.filter_by(role="candidate").all()
+    all_apps = Application.query.all()
+    ranked = recommend_jobs(user, jobs, top_n=top_n, all_users=all_users, all_applications=all_apps)
     return ok({
         "recommendations": [
             {"job": r["job"].to_dict(), "match_score": r["score"], "reasons": r["reasons"]} for r in ranked
@@ -99,10 +106,14 @@ def ai_recommendations():
     user, e = require_role("candidate")
     if e:
         return e
-    top_n = int(request.args.get("limit", 15))
+    top_n = parse_int(request.args.get("limit"), default=15, min_v=1, max_v=50)
+    if top_n is None:
+        return err("limit must be an integer", 422)
     jobs = Job.query.filter_by(is_active=True).all()
+    all_users = User.query.filter_by(role="candidate").all()
+    all_apps = Application.query.all()
     from ..services.matcher import ai_recommend_jobs
-    ranked = ai_recommend_jobs(user, jobs, top_n=top_n)
+    ranked = ai_recommend_jobs(user, jobs, top_n=top_n, all_users=all_users, all_applications=all_apps)
     return ok({
         "recommendations": [
             {"job": r["job"].to_dict(), "match_score": r["score"], "reasons": r["reasons"]} for r in ranked
@@ -220,14 +231,18 @@ def cover_letter():
     if e:
         return e
     data = request.get_json(silent=True) or {}
-    job_id = data.get("job_id")
+    job_id = parse_int(data.get("job_id"))
     if not job_id:
-        return err("job_id is required", 422)
-    job = db.session.get(Job, int(job_id))
+        return err("job_id is required and must be an integer", 422)
+    job = db.session.get(Job, job_id)
     if not job:
         return err("Job not found", 404)
-    letter = llm_cover_letter(user, job) or generate_cover_letter(user, job)
-    return ok({"job": job.to_dict(), "cover_letter": letter, "via": "llm" if llm_cover_letter else "template"})
+    letter = llm_cover_letter(user, job)
+    via = "llm"
+    if not letter:
+        letter = generate_cover_letter(user, job)
+        via = "template"
+    return ok({"job": job.to_dict(), "cover_letter": letter, "via": via})
 
 
 @seeker_bp.post("/chatbot")
@@ -253,6 +268,8 @@ def interview_generate():
         return e
     data = request.get_json(silent=True) or {}
     topic = (data.get("topic") or "default").strip()
-    count = min(10, max(1, int(data.get("count", 5))))
+    count = parse_int(data.get("count", 5), default=5, min_v=1, max_v=10)
+    if count is None:
+        return err("count must be an integer", 422)
     qs = llm_interview_questions(topic, count) or interview_questions(topic, count)
     return ok({"topic": topic, "questions": qs})

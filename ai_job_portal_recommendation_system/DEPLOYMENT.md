@@ -25,7 +25,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Access at: http://localhost:5000
+Access at: http://localhost:5000 — the Flask backend serves the frontend (static pages + `/api/*`) from the same origin, so navigation and API calls work out of the box. Demo data is auto-initialized on first run.
 
 ## Option 2: Docker Deployment (Recommended)
 

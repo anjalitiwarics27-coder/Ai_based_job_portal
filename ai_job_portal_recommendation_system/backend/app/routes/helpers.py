@@ -20,7 +20,10 @@ def current_user() -> User | None:
     uid = get_jwt_identity()
     if uid is None:
         return None
-    return db.session.get(User, int(uid))
+    try:
+        return db.session.get(User, int(uid))
+    except (TypeError, ValueError):
+        return None
 
 
 def require_user():
@@ -51,6 +54,20 @@ def validate_pagination(args):
     try:
         page = max(1, int(args.get("page", 1)))
         per_page = min(100, max(1, int(args.get("per_page", 20))))
-    except ValueError:
+    except (TypeError, ValueError):
         page, per_page = 1, 20
     return page, per_page
+
+
+def parse_int(value, default=None, min_v=None, max_v=None):
+    if value is None or value == "":
+        return default
+    try:
+        n = int(value)
+    except (TypeError, ValueError):
+        return None
+    if min_v is not None and n < min_v:
+        n = min_v
+    if max_v is not None and n > max_v:
+        n = max_v
+    return n

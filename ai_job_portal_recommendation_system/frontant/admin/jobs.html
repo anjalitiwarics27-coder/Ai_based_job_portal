@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jobs Moderation | HireNova AI</title>
-<link rel="stylesheet" href="../css/tokens.css">
-<link rel="stylesheet" href="../css/base.css">
-<link rel="stylesheet" href="../css/components.css">
-<link rel="stylesheet" href="../css/layout.css">
-<link rel="stylesheet" href="../css/dashboard.css">
-<link rel="stylesheet" href="../css/app-overrides.css">
+<link rel="stylesheet" href="../css/tokens.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/components.css"><link rel="stylesheet" href="../css/layout.css"><link rel="stylesheet" href="../css/dashboard.css"><link rel="stylesheet" href="../css/app-overrides.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
@@ -20,25 +14,32 @@
     <ul>
       <li><a href="dashboard.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-house"></i><span>Dashboard</span></a></li>
       <li><a href="users.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-users"></i><span>Users</span></a></li>
-      <li><a href="jobs.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-briefcase"></i><span>Jobs</span></a></li>
+      <li class="active"><a href="jobs.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-briefcase"></i><span>Jobs</span></a></li>
+      <li><a href="analytics.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-chart-line"></i><span>Analytics</span></a></li>
+      <li><a href="ai_settings.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-robot"></i><span>AI Settings</span></a></li>
+      <li><a href="audit_logs.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-clipboard-list"></i><span>Audit Logs</span></a></li>
       <li><a href="settings.html" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-gear"></i><span>Settings</span></a></li>
+      <li><a href="../login.html" onclick="return window.hirenovaLogout ? (window.hirenovaLogout(event), false) : true" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:15px;width:100%;"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a></li>
     </ul>
   </aside>
   <main class="main">
-    <nav class="navbar"><div class="nav-left"><h2>Jobs Moderation</h2><p>Approve, edit or remove job listings</p></div><div class="nav-right"><a href="dashboard.html" class="btn btn-outline btn-sm">Back to Dashboard</a></div></nav>
-    <div class="page">
-      <div class="card" style="max-width:720px;text-align:center;padding:48px 32px;">
-        <div style="width:56px;height:56px;border-radius:14px;background:var(--primary-soft);color:var(--primary);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;"><i class="fa-solid fa-layer-group"></i></div>
-        <h3>Jobs Moderation</h3>
-        <p style="margin-top:8px;font-size:var(--text-sm);max-width:44ch;margin-left:auto;margin-right:auto;">This admin module is ready for API wiring. Connect your backend endpoint to load live jobs data.</p>
-        <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;"><a href="dashboard.html" class="btn btn-primary">Go to Dashboard</a><a href="../index.html" class="btn btn-outline">View Public Site</a></div>
-      </div>
-    </div>
+    <nav class="navbar"><div class="nav-left"><h2>Jobs Moderation</h2><p>Review active and archived job listings</p></div><div class="nav-right"><a href="dashboard.html" class="btn btn-outline btn-sm">Back to Dashboard</a></div></nav>
+    <div class="page"><div class="card"><div id="jobsWrap">Loading jobs…</div></div></div>
   </main>
 </div>
-<script src="../js/layout.js"></script>
-<script>window.toast("Jobs Moderation — coming soon with API wiring.");</script>
-<script src="../js/api.js"></script>
-<script src="../js/live.js"></script>
-</body>
-</html>
+<script src="../js/layout.js"></script><script src="../js/api.js"></script>
+<script>
+(function(){
+  var wrap=document.getElementById('jobsWrap');
+  function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML;}
+  if(!window.hirenovaApi||!window.hirenovaApi.hasToken()){wrap.innerHTML='<p>Please sign in as admin.</p>';return;}
+  window.hirenovaApi.adminJobs('?per_page=50').then(function(d){
+    var jobs=(d&&d.jobs)||[];
+    if(!jobs.length){wrap.innerHTML='<p style="color:var(--text-500)">No jobs found.</p>';return;}
+    wrap.innerHTML='<div class="table-wrap"><table class="data"><thead><tr><th>Title</th><th>Company</th><th>Location</th><th>Status</th></tr></thead><tbody>'+
+      jobs.map(function(j){return '<tr><td><strong>'+esc(j.title)+'</strong></td><td>'+esc(j.company)+'</td><td>'+esc(j.location||'')+'</td><td>'+(j.is_active?'<span class="badge badge-success">Active</span>':'<span class="badge badge-warning">Archived</span>')+'</td></tr>';}).join('')+
+      '</tbody></table></div>';
+  }).catch(function(e){wrap.innerHTML='<p>'+(e.message||'Failed to load jobs')+'</p>';});
+})();
+</script>
+</body></html>

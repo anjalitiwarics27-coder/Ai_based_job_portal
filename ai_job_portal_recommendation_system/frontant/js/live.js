@@ -89,8 +89,8 @@
     }
   }
 
-  /* ---------- dashboard.html : live stats ---------- */
-  if (path.indexOf('job_seeker/dashboard.html') !== -1 || path.indexOf('dashboard.html') !== -1) {
+  /* ---------- job seeker dashboard : live stats ---------- */
+  if (path.indexOf('/job_seeker/dashboard.html') !== -1 || /[\\\/]job_seeker[\\\/]dashboard\.html$/i.test(path)) {
     api.seekerDashboard().then(function (data) {
       if (!data || !data.stats) return;
       var cards = document.querySelectorAll('.stat-card h2');
@@ -154,14 +154,23 @@
       cForm.addEventListener('submit', function (e) {
         e.preventDefault();
         if (!cForm.checkValidity()) { cForm.reportValidity(); return; }
+        var btn = document.getElementById('submitBtn');
         var roleEl = cForm.querySelector('input[name="role"]:checked');
+        if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
         api.contact({
           name: (document.getElementById('name') || {}).value || '',
           email: (document.getElementById('email') || {}).value || '',
           subject: (document.getElementById('subject') || {}).value || '',
           message: (document.getElementById('message') || {}).value || '',
           role: roleEl ? roleEl.value : 'candidate'
-        }).then(function () { /* success view handled by page */ }).catch(function () { });
+        }).then(function () {
+          var ff = document.getElementById('formFields'); var sm = document.getElementById('successMsg');
+          if (ff) ff.style.display = 'none'; if (sm) sm.style.display = 'block';
+          toast('Message sent!');
+        }).catch(function (err) {
+          if (btn) { btn.disabled = false; btn.textContent = 'Send message'; }
+          toast((err && err.message) || 'Could not send message. Please try again.');
+        });
       }, true);
     }
   }

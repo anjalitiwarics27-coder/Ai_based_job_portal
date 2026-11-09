@@ -33,9 +33,9 @@ def verify_payment(payload: dict) -> bool:
     if razorpay_configured():
         try:
             body = f"{payload.get('razorpay_order_id','')}|{payload.get('razorpay_payment_id','')}"
-            signed = hmac.new(os.getenv("RAZORPAY_KEY_SECRET").encode(), body.encode(), hashlib.sha256).hexdigest()
+            signed = hmac.new(os.getenv("RAZORPAY_KEY_SECRET", "").encode(), body.encode(), hashlib.sha256).hexdigest()
             return hmac.compare_digest(signed, payload.get("razorpay_signature", ""))
         except Exception:
             return False
-    # Mock: accept anything with order id
-    return bool(payload.get("razorpay_order_id")) or True
+    # Mock mode (dev): accept when an order reference is present.
+    return bool(payload.get("razorpay_order_id") or payload.get("order_id"))

@@ -1,9 +1,12 @@
 """HireNova AI backend — entrypoint.
 
 Run:
-    python app.py            # dev server on http://127.0.0.1:5000
+    python app.py            # dev server (reads HOST/PORT/DEBUG env vars)
     flask --app app run      # same, via Flask CLI
+    gunicorn app:app         # production WSGI
 """
+import os
+
 from app import create_app
 from app.models import db
 
@@ -30,9 +33,7 @@ def initdb_cmd():
 
 
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
-        from app.seed import seed
-
-        seed()
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    host = os.getenv("HOST", "127.0.0.1")
+    port = int(os.getenv("PORT", "5000"))
+    debug = os.getenv("DEBUG", "true").lower() in ("1", "true", "yes")
+    app.run(host=host, port=port, debug=debug)

@@ -1,10 +1,11 @@
 """Jobs: public search/browse + apply + save (candidate) + CRUD (employer/admin)."""
 from flask import Blueprint, request
 from flask_jwt_extended import jwt_required
+from sqlalchemy.exc import IntegrityError
 
-from ..models import Application, SavedJob, db, Job
+from ..models import Application, Job, SavedJob, User, db
 from ..services.matcher import ai_recommend_jobs as recommend_jobs
-from .helpers import err, ok, paginate, require_role, require_user, validate_pagination
+from .helpers import err, ok, paginate, parse_int, require_role, require_user, validate_pagination
 
 jobs_bp = Blueprint("jobs", __name__, url_prefix="/api/jobs")
 
@@ -159,7 +160,11 @@ def apply_job(job_id: int):
     app = Application(candidate_id=user.id, job_id=job.id,
                       cover_letter=(data.get("cover_letter") or "").strip())
     db.session.add(app)
-    db.session.commit()
+    try:
+        db.session.commit()
+    except IntegrityError:
+        db.session.rollback()
+        return err("You have already applied to this job", 409)
     return ok({"application": app.to_dict()}, 201)
 
 
@@ -202,12 +207,15 @@ def recommended():
     user = None
     uid = get_jwt_identity()
     if uid:
-        from ..models import User
         user = db.session.get(User, int(uid))
     jobs = Job.query.filter_by(is_active=True).all()
-    top_n = int(request.args.get("limit", 10))
+    top_n = parse_int(request.args.get("limit"), default=10, min_v=1, max_v=50)
+    if top_n is None:
+        return err("limit must be an integer", 422)
     if user:
-        ranked = recommend_jobs(user, jobs, top_n=top_n)
+        all_users = User.query.filter_by(role="candidate").all()
+        all_apps = Application.query.all()
+        ranked = recommend_jobs(user, jobs, top_n=top_n, all_users=all_users, all_applications=all_apps)
         return ok({
             "recommendations": [
                 {"job": r["job"].to_dict(), "match_score": r["score"], "reasons": r["reasons"]}

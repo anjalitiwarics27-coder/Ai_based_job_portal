@@ -99,11 +99,14 @@ def verify():
     if e:
         return e
     data = request.get_json(silent=True) or {}
-    ok_flag = verify_payment(data)
-    row = Payment.query.filter_by(user_id=user.id, order_id=data.get("razorpay_order_id") or data.get("order_id") or "").first()
+    order_id = (data.get("razorpay_order_id") or data.get("order_id") or "").strip()
+    if not order_id:
+        return err("order_id is required", 422)
+    row = Payment.query.filter_by(user_id=user.id, order_id=order_id).first()
     if not row:
         return err("Payment record not found", 404)
-    row.payment_id = data.get("razorpay_payment_id") or data.get("payment_id") or ""
+    ok_flag = verify_payment({**data, "order_id": order_id, "razorpay_order_id": data.get("razorpay_order_id") or order_id})
+    row.payment_id = (data.get("razorpay_payment_id") or data.get("payment_id") or "").strip()
     row.status = "paid" if ok_flag else "failed"
     if ok_flag and user.role == "employer":
         user.company_name = user.company_name or user.full_name
